@@ -98,10 +98,10 @@ imagery_blacklist:
   # Blacklist here
   - ".*\\.here\\.com[/:].*"
 # URL of Overpass instance to use for feature queries
-overpass_url: "https://overpass-api.de/api/interpreter"
+overpass_url: ""
 # Routing endpoints
-graphhopper_url: "https://graphhopper.com/api/1/route"
-fossgis_osrm_url: "https://routing.openstreetmap.de/"
+graphhopper_url: ""
+fossgis_osrm_url: ""
 # External authentication credentials
 #google_auth_id: ""
 #google_auth_secret: ""

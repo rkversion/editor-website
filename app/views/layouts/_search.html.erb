@@ -1,13 +1,13 @@
 <div class="search_forms">
   <form method="GET" action="<%= search_path %>" class="search_form">
-    <%= link_to image_tag("directions.png", :class => "button"), directions_path, :class => "button switch_link", :title => t("site.search.get_directions_title") %>
+    <%# link_to image_tag("directions.png", :class => "button"), directions_path, :class => "button switch_link", :title => t("site.search.get_directions_title") %>
     <%= submit_tag t("site.search.submit_text"), :class => "float", :data => { :disable_with => false } %>
     <div class='query_wrapper'>
       <%= text_field_tag "query", params[:query], :placeholder => t("site.search.search"), :autofocus => autofocus, :class => "overflow" %>
       <%= link_to t("site.search.where_am_i"), "#", :class => "describe_location", :title => t("site.search.where_am_i_title") %>
     </div>
   </form>
-
+  <% if false %>
   <form method="GET" action="<%= directions_path %>" class="directions_form">
     <div class="header"><span class="icon close"></span></div>
 
@@ -29,4 +29,5 @@
 
     <div class="loader_copy"><div class="loader"><%= image_tag "searching.gif" %></div></div>
   </form>
+  <% end %>
 </div>
