@@ -6,7 +6,6 @@ require "capybara/poltergeist"
 # https://github.com/ariya/phantomjs/issues/14376
 ENV["QT_QPA_PLATFORM"] = "offscreen" if IO.popen(["phantomjs", "--version"], :err => :close).read.empty?
 
-
 ActiveSupport.on_load(:action_dispatch_system_test_case) do
   ActionDispatch::SystemTesting::Server.silence_puma = true
 end
