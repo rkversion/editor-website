@@ -36,10 +36,7 @@ You can run the existing test suite with:
 bundle exec rake test
 ```
 
-You can view test coverage statistics by browsing the `coverage` directory.
 
-The tests are automatically run on Pull Requests and other commits with the
-results shown on [Travis CI](https://travis-ci.org/openstreetmap/openstreetmap-website).
 
 ## Comments
 
@@ -55,20 +52,6 @@ might be difficult to understand what the code does, why it does it
 and why it should be the way it is.
 * Check existing comments to ensure that they are not misleading.
 
-## i18n
-
-If you make a change that involve the locale files (in `config/locales`) then please
-only submit changes to the `en.yml` file. The other files are updated via
-[Translatewiki](https://translatewiki.net/wiki/Translating:OpenStreetMap) and should
-not be included in your pull request.
-
-## Code Documentation
-
-To generate the HTML documentation of the API/rails code, run the command
-
-```
-rake doc:app
-```
 
 ## Committing
 
@@ -96,7 +79,3 @@ of the commit message can be left out.
 If you have forked on GitHub then the best way to submit your patches is to
 push your changes back to GitHub and then send a "pull request" on GitHub.
 
-Otherwise you should either push your changes to a publicly visible git repository
-and send the details to the [rails-dev](https://lists.openstreetmap.org/listinfo/rails-dev)
-list or generate patches with `git format-patch` and send them to the
-[rails-dev](https://lists.openstreetmap.org/listinfo/rails-dev) list.

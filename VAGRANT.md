@@ -1,3 +1,9 @@
+# Note for historic-map-stack
+
+This is a customised version of the openstreetmap-website for historic map editing, you'd need to change the instructions to fit with this repository
+
+e.g. https://github.com/historic-map-stack/editor-website
+
 # Installing Vagrant
 
 On Ubuntu, it should be as simple as:
