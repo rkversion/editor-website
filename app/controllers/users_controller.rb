@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def terms
     @legale = params[:legale] || OSM.ip_to_country(request.remote_ip) || Settings.default_legale
+    @legale = Settings.default_legale
     @text = OSM.legal_text_for_country(@legale)
 
     if request.xhr?

@@ -4,8 +4,8 @@
 
 <% content_for :heading do %>
   <h1><%= t ".title" %></h1>
-  <div class='header-illustration new-user-main'></div>
-  <div class='header-illustration new-user-arm'></div>
+  <%# <div class='header-illustration new-user-main'></div>
+  <div class='header-illustration new-user-arm'></div> %>
 <% end %>
 
 <%= form_for current_user, :url => { :action => "create" }, :html => { :class => "standard-form fillL col6 inner22" } do |f| %>

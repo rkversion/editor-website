@@ -1119,11 +1119,11 @@ en:
   layouts:
     project_name:
       # in <title>
-      title: OpenStreetMap
+      title: Reis-Labs Editor
       # in <h1>
-      h1: OpenStreetMap
+      h1: Reis-Labs Editor
     logo:
-      alt_text: OpenStreetMap logo
+      alt_text: Reis-Labs Editor logo
     home: Go to Home Location
     logout: Log Out
     log_in: Log In
@@ -1143,16 +1143,16 @@ en:
     user_diaries_tooltip: View user diaries
     edit_with: Edit with %{editor}
     tag_line: The Free Wiki World Map
-    intro_header: Welcome to OpenStreetMap!
-    intro_text: OpenStreetMap is a map of the world, created by people like you and free to use under an open license.
+    intro_header: Welcome to the Reis-Labs Editor!
+    intro_text:  The Reis-Labs Editor is a historical map of the world. 
     intro_2_create_account: "Create a user account"
     hosting_partners_html: "Hosting is supported by %{ucl}, %{bytemark}, and other %{partners}."
     partners_ucl: "UCL"
     partners_bytemark: "Bytemark Hosting"
     partners_partners: "partners"
     tou: "Terms of Use"
-    osm_offline: "The OpenStreetMap database is currently offline while essential database maintenance work is carried out."
-    osm_read_only: "The OpenStreetMap database is currently in read-only mode while essential database maintenance work is carried out."
+    osm_offline: "The Reis-Labs Editor database is currently offline while essential database maintenance work is carried out."
+    osm_read_only: "The Reis-Labs Editor database is currently in read-only mode while essential database maintenance work is carried out."
     donate: "Support OpenStreetMap by %{link} to the Hardware Upgrade Fund."
     help: Help
     about: About
@@ -1169,19 +1169,19 @@ en:
     more: More
   notifier:
     diary_comment_notification:
-      subject: "[OpenStreetMap] %{user} commented on a diary entry"
+      subject: "[Reis-Labs Editor] %{user} commented on a diary entry"
       hi: "Hi %{to_user},"
-      header: "%{from_user} has commented on the OpenStreetMap diary entry with the subject %{subject}:"
+      header: "%{from_user} has commented on the Reis-Labs Editor  diary entry with the subject %{subject}:"
       footer: "You can also read the comment at %{readurl} and you can comment at %{commenturl} or reply at %{replyurl}"
     message_notification:
-      subject_header: "[OpenStreetMap] %{subject}"
+      subject_header: "[Reis-Labs Editor] %{subject}"
       hi: "Hi %{to_user},"
-      header: "%{from_user} has sent you a message through OpenStreetMap with the subject %{subject}:"
+      header: "%{from_user} has sent you a message through The Reis-Labs Editor with the subject %{subject}:"
       footer_html: "You can also read the message at %{readurl} and you can reply at %{replyurl}"
     friend_notification:
       hi: "Hi %{to_user},"
-      subject: "[OpenStreetMap] %{user} added you as a friend"
-      had_added_you: "%{user} has added you as a friend on OpenStreetMap."
+      subject: "[Reis-Labs Editor] %{user} added you as a friend"
+      had_added_you: "%{user} has added you as a friend on The Reis-Labs Editor."
       see_their_profile: "You can see their profile at %{userurl}."
       befriend_them: "You can also add them as a friend at %{befriendurl}."
     gpx_notification:
@@ -1191,22 +1191,22 @@ en:
       and_the_tags: "and the following tags:"
       and_no_tags: "and no tags."
       failure:
-        subject: "[OpenStreetMap] GPX Import failure"
+        subject: "[Reis-Labs Editor] GPX Import failure"
         failed_to_import: "failed to import. Here is the error:"
         more_info_1: "More information about GPX import failures and how to avoid"
         more_info_2: "them can be found at:"
         import_failures_url: "https://wiki.openstreetmap.org/wiki/GPX_Import_Failures"
       success:
-        subject: "[OpenStreetMap] GPX Import success"
+        subject: "[Reis-Labs Editor] GPX Import success"
         loaded_successfully: loaded successfully with %{trace_points} out of a possible %{possible_points} points.
     signup_confirm:
-      subject: "[OpenStreetMap] Welcome to OpenStreetMap"
+      subject: "[Reis-Labs Editor] Welcome to The Reis-Labs Editor"
       greeting: "Hi there!"
       created: "Someone (hopefully you) just created an account at %{site_url}."
       confirm: "Before we do anything else, we need to confirm that this request came from you, so if it did then please click the link below to confirm your account:"
       welcome: "After you confirm your account, we'll provide you with some additional information to get you started."
     email_confirm:
-      subject: "[OpenStreetMap] Confirm your email address"
+      subject: "[Reis-Labs Editor] Confirm your email address"
     email_confirm_plain:
       greeting: "Hi,"
       hopefully_you: "Someone (hopefully you) would like to change their email address over at %{server_url} to %{new_address}."
@@ -1216,31 +1216,31 @@ en:
       hopefully_you: "Someone (hopefully you) would like to change their email address over at %{server_url} to %{new_address}."
       click_the_link: "If this is you, please click the link below to confirm the change."
     lost_password:
-      subject: "[OpenStreetMap] Password reset request"
+      subject: "[Reis-Labs Editor] Password reset request"
     lost_password_plain:
       greeting: "Hi,"
-      hopefully_you: "Someone (possibly you) has asked for the password to be reset on this email address's openstreetmap.org account."
+      hopefully_you: "Someone (possibly you) has asked for the password to be reset on this email address's Reis-Labs Editor account."
       click_the_link: "If this is you, please click the link below to reset your password."
     lost_password_html:
       greeting: "Hi,"
-      hopefully_you: "Someone (possibly you) has asked for the password to be reset on this email address's openstreetmap.org account."
+      hopefully_you: "Someone (possibly you) has asked for the password to be reset on this email address's  Reis-Labs Editor account."
       click_the_link: "If this is you, please click the link below to reset your password."
     note_comment_notification:
       anonymous: An anonymous user
       greeting: "Hi,"
       commented:
-        subject_own: "[OpenStreetMap] %{commenter} has commented on one of your notes"
-        subject_other: "[OpenStreetMap] %{commenter} has commented on a note you are interested in"
+        subject_own: "[Reis-Labs Editor] %{commenter} has commented on one of your notes"
+        subject_other: "[Reis-Labs Editor] %{commenter} has commented on a note you are interested in"
         your_note: "%{commenter} has left a comment on one of your map notes near %{place}."
         commented_note: "%{commenter} has left a comment on a map note you have commented on. The note is near %{place}."
       closed:
-        subject_own: "[OpenStreetMap] %{commenter} has resolved one of your notes"
-        subject_other: "[OpenStreetMap] %{commenter} has resolved a note you are interested in"
+        subject_own: "[Reis-Labs Editor] %{commenter} has resolved one of your notes"
+        subject_other: "[Reis-Labs Editor] %{commenter} has resolved a note you are interested in"
         your_note: "%{commenter} has resolved one of your map notes near %{place}."
         commented_note: "%{commenter} has resolved a map note you have commented on. The note is near %{place}."
       reopened:
-        subject_own: "[OpenStreetMap] %{commenter} has reactivated one of your notes"
-        subject_other: "[OpenStreetMap] %{commenter} has reactivated a note you are interested in"
+        subject_own: "[Reis-Labs Editor] %{commenter} has reactivated one of your notes"
+        subject_other: "[Reis-Labs Editor] %{commenter} has reactivated a note you are interested in"
         your_note: "%{commenter} has reactivated one of your map notes near %{place}."
         commented_note: "%{commenter} has reactivated a map note you have commented on. The note is near %{place}."
       details: "More details about the note can be found at %{url}."
@@ -1248,8 +1248,8 @@ en:
       hi: "Hi %{to_user},"
       greeting: "Hi,"
       commented:
-        subject_own: "[OpenStreetMap] %{commenter} has commented on one of your changesets"
-        subject_other: "[OpenStreetMap] %{commenter} has commented on a changeset you are interested in"
+        subject_own: "[Reis-Labs Editor] %{commenter} has commented on one of your changesets"
+        subject_other: "[Reis-Labs Editor] %{commenter} has commented on a changeset you are interested in"
         your_changeset: "%{commenter} has left a comment on one of your changesets created at %{time}"
         commented_changeset: "%{commenter} has left a comment on a map changeset you are watching created by %{changeset_author} at %{time}"
         partial_changeset_with_comment: "with comment '%{changeset_comment}'"
@@ -1327,46 +1327,22 @@ en:
   site:
     about:
       next: Next
-      copyright_html: <span>&copy;</span>OpenStreetMap<br>contributors
-      used_by: "%{name} powers map data on thousands of web sites, mobile apps, and hardware devices"
+      copyright_html: 
+      used_by: "Reis-Labs Editor"
       lede_text: |
-        OpenStreetMap is built by a community of mappers that contribute and maintain data
-        about roads, trails, cafés, railway stations, and much more, all over the world.
+        lede_text
       local_knowledge_title: Local Knowledge
       local_knowledge_html: |
-        OpenStreetMap emphasizes local knowledge. Contributors use
-        aerial imagery, GPS devices, and low-tech field maps to verify that OSM
-        is accurate and up to date.
+        local_knowledge_html
       community_driven_title: Community Driven
       community_driven_html: |
-        OpenStreetMap's community is diverse, passionate, and growing every day.
-        Our contributors include enthusiast mappers, GIS professionals, engineers
-        running the OSM servers, humanitarians mapping disaster-affected areas,
-        and many more.
-        To learn more about the community, see the
-        <a href='https://blog.openstreetmap.org'>OpenStreetMap Blog</a>,
-        <a href='%{diary_path}'>user diaries</a>,
-        <a href='https://blogs.openstreetmap.org/'>community blogs</a>, and
-        the <a href='https://www.osmfoundation.org/'>OSM Foundation</a> website.
+        community_driven_html.
       open_data_title: Open Data
       open_data_html: |
-        OpenStreetMap is <i>open data</i>: you are free to use it for any purpose
-        as long as you credit OpenStreetMap and its contributors. If you alter or
-        build upon the data in certain ways, you may distribute the result only
-        under the same licence. See the <a href='%{copyright_path}'>Copyright and
-        License page</a> for details.
+        open_data_html
       legal_title: Legal
       legal_html: |
-        This site and many other related services are formally operated by the
-        <a href='https://osmfoundation.org/'>OpenStreetMap Foundation</a> (OSMF)
-        on behalf of the community. Use of all OSMF operated services is subject
-        to our <a href="https://wiki.osmfoundation.org/wiki/Terms_of_Use">Terms of Use</a>, <a href="https://wiki.openstreetmap.org/wiki/Acceptable_Use_Policy">
-        Acceptable Use Policies</a> and our <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy">Privacy Policy</a>
-        <br>
-        Please <a href='https://osmfoundation.org/Contact'>contact the OSMF</a>
-        if you have licensing, copyright or other legal questions.
-        <br>
-        OpenStreetMap, the magnifying glass logo and State of the Map are <a href="https://wiki.osmfoundation.org/wiki/Trademark_Policy">registered trademarks of the OSMF</a>.
+        legal_html
       partners_title: Partners
     copyright:
       foreign:
@@ -1508,7 +1484,7 @@ en:
           OpenStreetMap, the magnifying glass logo and State of the Map are registered trademarks of the OpenStreetMap Foundation. If you have questions about your use of the marks, please see our <a href="https://wiki.osmfoundation.org/wiki/Trademark_Policy">Trademark Policy</a>.
     index:
       js_1: "You are either using a browser that does not support JavaScript, or you have disabled JavaScript."
-      js_2: "OpenStreetMap uses JavaScript for its slippy map."
+      js_2: "The Reis-Labs Editor uses JavaScript for its slippy map."
       permalink: Permalink
       shortlink: Shortlink
       createnote: Add a note
@@ -1535,17 +1511,17 @@ en:
       area_to_export: "Area to Export"
       manually_select: "Manually select a different area"
       format_to_export: "Format to Export"
-      osm_xml_data: "OpenStreetMap XML Data"
+      osm_xml_data: ".osm XML Data"
       map_image: "Map Image (shows standard layer)"
       embeddable_html: "Embeddable HTML"
       licence: "Licence"
       export_details: 'OpenStreetMap data is licensed under the <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Data Commons Open Database License</a> (ODbL).'
       too_large:
         advice: "If the above export fails, please consider using one of the sources listed below:"
-        body: "This area is too large to be exported as OpenStreetMap XML Data. Please zoom in or select a smaller area, or use one of the sources listed below for bulk data downloads."
+        body: "This area is too large to be exported as .osm XML Data. Please zoom in or select a smaller area, or use one of the sources listed below for bulk data downloads."
         planet:
           title: "Planet OSM"
-          description: "Regularly-updated copies of the complete OpenStreetMap database"
+          description: "Regularly-updated copies of the complete Reis-Labs Editor database"
         overpass:
           title: "Overpass API"
           description: "Download this bounding box from a mirror of the OpenStreetMap database"
@@ -1557,7 +1533,7 @@ en:
           description: "Extracts for major world cities and their surrounding areas"
         other:
           title: "Other Sources"
-          description: "Additional sources listed on the OpenStreetMap wiki"
+          description: "Additional sources listed on the Reis-Labs Editor wiki"
       options: "Options"
       format: "Format"
       scale: "Scale"
@@ -1593,12 +1569,11 @@ en:
     help:
       title: Getting Help
       introduction: |
-        OpenStreetMap has several resources for learning about the project, asking and answering questions,
-        and collaboratively discussing and documenting mapping topics.
+        introduction paragraph
       welcome:
         url: /welcome
-        title: Welcome to OpenStreetMap
-        description: Start with this quick guide covering the OpenStreetMap basics.
+        title: Welcome to The Reis-Labs Editor
+        description: Start with this quick guide covering the basics.
       beginners_guide:
         url: https://wiki.openstreetmap.org/wiki/Beginners%27_guide
         title: Beginners' Guide
@@ -1628,9 +1603,9 @@ en:
         title: For Organizations
         description: With an organization making plans for OpenStreetMap? Find what you need to know in the Welcome Mat.
       wiki:
-        url: https://wiki.openstreetmap.org/
-        title: OpenStreetMap Wiki
-        description: Browse the wiki for in-depth OpenStreetMap documentation.
+        url: https://example.com/wiki
+        title: Project Wiki
+        description: Browse the wiki for in-depth documentation.
     sidebar:
       search_results: Search Results
       close: Close
@@ -1734,23 +1709,22 @@ en:
     welcome:
       title: Welcome!
       introduction_html: |
-        Welcome to OpenStreetMap, the free and editable map of the world. Now that you're signed
+        Welcome to the Reis-Labs Editor! Now that you're signed
         up, you're all set to get started mapping. Here's a quick guide with the most important
         things you need to know.
       whats_on_the_map:
         title: What's on the Map
         on_html: |
-          OpenStreetMap is a place for mapping things that are both <em>real and current</em> -
-          it includes millions of buildings, roads, and other details about places. You can map
-          whatever real-world features are interesting to you.
+          The Reis-Labs Editor is a place for mapping things from the past it includes millions of buildings, roads, and other details about places. 
+          You can map whatever real-world features are interesting to you.
         off_html: |
-          What it <em>doesn't</em> include is opinionated data like ratings, historical or
+          What it <em>doesn't</em> include is opinionated data like ratings or
           hypothetical features, and data from copyrighted sources. Unless you have special
           permission, don't copy from online or paper maps.
       basic_terms:
         title: Basic Terms For Mapping
         paragraph_1_html: |
-          OpenStreetMap has some of its own lingo. Here are a few key words that'll come in handy.
+          The project has some of its own lingo. Here are a few key words that'll come in handy.
         editor_html: |
           An <strong>editor</strong> is a program or website you can use to edit the map.
         node_html: |
@@ -2060,15 +2034,12 @@ en:
       no_auto_account_create: "Unfortunately we are not currently able to create an account for you automatically."
       contact_webmaster: 'Please contact the <a href="%{webmaster}">webmaster</a> to arrange for an account to be created - we will try and deal with the request as quickly as possible.'
       about:
-        header: Free and editable
-        html: |
-          <p>Unlike other maps, OpenStreetMap is completely created by people like you,
-          and it's free for anyone to fix, update, download and use.</p>
-          <p>Sign up to get started contributing. We'll send an email to confirm your account.</p>
-      license_agreement: 'When you confirm your account you will need to agree to the <a href="https://www.osmfoundation.org/wiki/License/Contributor_Terms">contributor terms</a>.'
+        header: Welcome!
+        html: <p>Sign up to get started contributing. We'll send an email to confirm your account.</p>
+      license_agreement: 'When you confirm your account you will need to agree to the contributor terms.'
       email address: "Email Address:"
       confirm email address: "Confirm Email Address:"
-      not displayed publicly: 'Your address is not displayed publicly, see our <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" title="OSMF privacy policy including section on email addresses">privacy policy</a> for more information'
+      not displayed publicly: 'Your address is not displayed publicly, see our <a href="/tou#privacy" title="privacy policy including section on email addresses">privacy policy</a> for more information'
       display name: "Display Name:"
       display name description: "Your publicly displayed username. You can change this later in the preferences."
       external auth: "Third Party Authentication:"
@@ -2078,7 +2049,7 @@ en:
       auth no password: "With third party authentication a password is not required, but some extra tools or server may still need one."
       continue: Sign Up
       terms accepted: "Thanks for accepting the new contributor terms!"
-      terms declined: "We are sorry that you have decided to not accept the new Contributor Terms. For more information, please see <a href=\"%{url}\">this wiki page</a>."
+      terms declined: "We are sorry that you have decided to not accept the Contributor Terms."
       terms declined url: https://wiki.openstreetmap.org/wiki/Contributor_Terms_Declined
     terms:
       title: "Terms"
@@ -2087,7 +2058,7 @@ en:
       read and accept with tou: "Please read the contributor agreement and the terms of use, check both checkboxes when done and then press the continue button."
       contributor_terms_explain: "This agreement governs the terms for your existing and future contributions."
       read_ct: "I have read and agree to the above contributor terms"
-      tou_explain_html: "These %{tou_link} govern the use of the website and other infrastructure provided by the OSMF. Please click on the link, read and agree to the text."
+      tou_explain_html: "These %{tou_link} govern the use of the website and other infrastructure provided by the operators. Please click on the link, read and agree to the text."
       read_tou: "I have read and agree to the Terms of Use"
       consider_pd: "In addition to the above, I consider my contributions to be in the Public Domain"
       consider_pd_why: "what's this?"
@@ -2481,7 +2452,7 @@ en:
         gps: Public GPS Traces
         overlays: Enable overlays for troubleshooting the map
         title: "Layers"
-      copyright: "© <a href='%{copyright_url}'>OpenStreetMap contributors</a>"
+      copyright: "© <a href='%{copyright_url}'>OpenStreetMap contributors</a> (FIXME)"
       donate_link_text: "<a class='donate-attr' href='%{donate_url}'>Make a Donation</a>"
       terms: "<a href='%{terms_url}' target='_blank'>Website and API terms</a>"
     site:

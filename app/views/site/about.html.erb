@@ -1,9 +1,6 @@
 <div class='attr'>
-  <div class='byosm'>
-    <%= t ".copyright_html" %>
-  </div>
 
-  <div class='user-image'></div>
+  <%# <div class='user-image'></div> %>
 
   <h1><%= raw t ".used_by", :name => "<span class='user-name'>OpenStreetMap</span>" %></h1>
 </div>
@@ -30,12 +27,5 @@
     <p><%= t ".legal_html" %></p>
   </div>
 
-  <div class='section' id='partners'>
-    <h2><div class='icon partners'></div><%= t ".partners_title" %></h2>
-    <p><%= t "layouts.hosting_partners_html",
-             :ucl => link_to(t("layouts.partners_ucl"), "https://www.ucl.ac.uk"),
-             :bytemark => link_to(t("layouts.partners_bytemark"), "https://www.bytemark.co.uk"),
-             :partners => link_to(t("layouts.partners_partners"), "https://hardware.openstreetmap.org/thanks/") %>
-    </p>
-  </div>
+ 
 </div>

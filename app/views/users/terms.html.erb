@@ -4,7 +4,7 @@
 
 <% content_for :heading do %>
   <h1><%= t ".heading" %></h1>
-  <div class='header-illustration new-user-terms'></div>
+  <%# <div class='header-illustration new-user-terms'></div> %>
 <% end %>
 
 <%= form_tag({ :action => "save" }, { :class => " inner22 standard-form fillL" }) do %>
@@ -15,6 +15,7 @@
   </label>
   <div class='form-row horizontal-list'>
     <p class="deemphasize"><%= t ".contributor_terms_explain" %></p>
+    <% if false #legale %>
     <label class="standard-label">
       <%= t ".legale_select" %>
     </label>
@@ -26,6 +27,7 @@
           <%= t(".legale_names." + name) %>
         </label>
       </div>
+      <% end %>
     <% end %>
   </div>
 
@@ -35,7 +37,7 @@
 
   <div>
     <p id="contributorGuidance" class="deemphasize">
-      <%= raw t ".guidance",
+      <%# raw t ".guidance",
                 :summary => "https://www.osmfoundation.org/wiki/License/Contributor_Terms_Summary",
                 :translations => "https://www.osmfoundation.org/wiki/License/Contributor_Terms/Informal_Translations" %>
     </p>
@@ -50,7 +52,7 @@
   <label class="standard-label">
     <%= t "layouts.tou" %>
   </label>
-  <p class="deemphasize"><%= t ".tou_explain_html", :tou_link => link_to(t("layouts.tou"), "https://wiki.osmfoundation.org/wiki/Terms_of_Use", :target => :new) %></p>
+  <p class="deemphasize"><%= t ".tou_explain_html", :tou_link => link_to(t("layouts.tou"), "/tou", :target => :new) %></p>
   <div class="form-row">
     <label for="read_tou">
       <%= check_box_tag "read_tou" %>
@@ -63,12 +65,13 @@
       <%= submit_tag("Continue", :name => "continue", :id => "continue", :disabled => true) %>
       <%= submit_tag("Cancel", :name => "decline", :id => "decline") %>
     </div>
-
+    <% if false #public domain %>
     <label for="user_consider_pd">
       <%= check_box("user", "consider_pd") %>
       <%= t ".consider_pd" %>
     </label>
+ 
     <span class="minorNote">(<%= link_to(t(".consider_pd_why"), t(".consider_pd_why_url"), :target => :new) %>)</span>
-
+       <% end %>
   </div>
 <% end %>
