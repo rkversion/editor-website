@@ -46,9 +46,9 @@ module Api
       assert_select "changesets", :count => 1 do
         assert_select "[count='0']"
       end
-      assert_select "traces", :count => 1 do
-        assert_select "[count='0']"
-      end
+      # assert_select "traces", :count => 1 do
+      #   assert_select "[count='0']"
+      # end
       assert_select "blocks", :count => 1 do
         assert_select "received", :count => 1 do
           assert_select "[count='0'][active='0']"
@@ -102,9 +102,9 @@ module Api
       assert_select "changesets", :count => 1 do
         assert_select "[count='0']", :count => 1
       end
-      assert_select "traces", :count => 1 do
-        assert_select "[count='0']", :count => 1
-      end
+      # assert_select "traces", :count => 1 do
+      #   assert_select "[count='0']", :count => 1
+      # end
       assert_select "blocks", :count => 1 do
         assert_select "received", :count => 1 do
           assert_select "[count='0'][active='0']"

@@ -995,7 +995,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert_select "div#userinformation" do
       assert_select "a[href^='/user/#{ERB::Util.u(user.display_name)}/history']", 1
-      assert_select "a[href='/user/#{ERB::Util.u(user.display_name)}/traces']", 1
+      # assert_select "a[href='/user/#{ERB::Util.u(user.display_name)}/traces']", 1
       assert_select "a[href='/user/#{ERB::Util.u(user.display_name)}/diary']", 1
       assert_select "a[href='/user/#{ERB::Util.u(user.display_name)}/diary/comments']", 1
       assert_select "a[href='/user/#{ERB::Util.u(user.display_name)}/account']", 0
@@ -1014,7 +1014,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert_select "div#userinformation" do
       assert_select "a[href^='/user/#{ERB::Util.u(blocked_user.display_name)}/history']", 1
-      assert_select "a[href='/user/#{ERB::Util.u(blocked_user.display_name)}/traces']", 1
+      # assert_select "a[href='/user/#{ERB::Util.u(blocked_user.display_name)}/traces']", 1
       assert_select "a[href='/user/#{ERB::Util.u(blocked_user.display_name)}/diary']", 1
       assert_select "a[href='/user/#{ERB::Util.u(blocked_user.display_name)}/diary/comments']", 1
       assert_select "a[href='/user/#{ERB::Util.u(blocked_user.display_name)}/account']", 0
@@ -1030,7 +1030,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert_select "div#userinformation" do
       assert_select "a[href^='/user/#{ERB::Util.u(moderator_user.display_name)}/history']", 1
-      assert_select "a[href='/user/#{ERB::Util.u(moderator_user.display_name)}/traces']", 1
+      # assert_select "a[href='/user/#{ERB::Util.u(moderator_user.display_name)}/traces']", 1
       assert_select "a[href='/user/#{ERB::Util.u(moderator_user.display_name)}/diary']", 1
       assert_select "a[href='/user/#{ERB::Util.u(moderator_user.display_name)}/diary/comments']", 1
       assert_select "a[href='/user/#{ERB::Util.u(moderator_user.display_name)}/account']", 0
@@ -1047,7 +1047,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert_select "div#userinformation" do
       assert_select "a[href^='/user/#{ERB::Util.u(user.display_name)}/history']", 1
-      assert_select "a[href='/traces/mine']", 1
+      # assert_select "a[href='/traces/mine']", 1
       assert_select "a[href='/user/#{ERB::Util.u(user.display_name)}/diary']", 1
       assert_select "a[href='/user/#{ERB::Util.u(user.display_name)}/diary/comments']", 1
       assert_select "a[href='/user/#{ERB::Util.u(user.display_name)}/account']", 1
@@ -1069,7 +1069,7 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
     assert_select "div#userinformation" do
       assert_select "a[href^='/user/#{ERB::Util.u(user.display_name)}/history']", 1
-      assert_select "a[href='/user/#{ERB::Util.u(user.display_name)}/traces']", 1
+      # assert_select "a[href='/user/#{ERB::Util.u(user.display_name)}/traces']", 1
       assert_select "a[href='/user/#{ERB::Util.u(user.display_name)}/diary']", 1
       assert_select "a[href='/user/#{ERB::Util.u(user.display_name)}/diary/comments']", 1
       assert_select "a[href='/user/#{ERB::Util.u(user.display_name)}/account']", 0
