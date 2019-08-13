@@ -190,6 +190,8 @@ OpenStreetMap::Application.routes.draw do
   # rich text preview
   post "/preview/:type" => "site#preview", :as => :preview
 
+  get "/tou" => "site#tou"
+
   # traces
   resources :traces, :except => [:show]
   get "/user/:display_name/traces/tag/:tag/page/:page" => "traces#index", :page => /[1-9][0-9]*/

@@ -129,6 +129,8 @@ class SiteController < ApplicationController
     render :layout => false
   end
 
+  def tou; end
+
   private
 
   def redirect_browse_params
