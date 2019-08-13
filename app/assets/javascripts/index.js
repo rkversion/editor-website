@@ -133,10 +133,10 @@ $(document).ready(function () {
     sidebar: sidebar
   }).addTo(map);
 
-  L.OSM.key({
-    position: position,
-    sidebar: sidebar
-  }).addTo(map);
+  // L.OSM.key({
+  //   position: position,
+  //   sidebar: sidebar
+  // }).addTo(map);
 
   L.OSM.share({
     "position": position,
@@ -170,9 +170,9 @@ $(document).ready(function () {
       map.addLayer(map.dataLayer);
     }
 
-    if (params.layers.indexOf(map.gpsLayer.options.code) >= 0) {
-      map.addLayer(map.gpsLayer);
-    }
+    // if (params.layers.indexOf(map.gpsLayer.options.code) >= 0) {
+    //   map.addLayer(map.gpsLayer);
+    // }
   }
 
   var placement = $("html").attr("dir") === "rtl" ? "right" : "left";

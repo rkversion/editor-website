@@ -22,7 +22,7 @@ L.OSM.Map = L.Map.extend({
     this.baseLayers = [];
 
     this.baseLayers.push(new L.OSM.Mapnik({
-      attribution: copyright + " &hearts; " + donate + ". " + terms,
+      attribution: copyright + ". " ,
       code: "M",
       keyid: "mapnik",
       name: I18n.t("javascripts.map.base.standard")
@@ -46,12 +46,12 @@ L.OSM.Map = L.Map.extend({
       }));
     }
 
-    this.baseLayers.push(new L.OSM.HOT({
-      attribution: copyright + ". Tiles style by <a href='https://www.hotosm.org/' target='_blank'>Humanitarian OpenStreetMap Team</a> hosted by <a href='https://openstreetmap.fr/' target='_blank'>OpenStreetMap France</a>. " + terms,
-      code: "H",
-      keyid: "hot",
-      name: I18n.t("javascripts.map.base.hot")
-    }));
+    // this.baseLayers.push(new L.OSM.HOT({
+    //   attribution: copyright + ". Tiles style by <a href='https://www.hotosm.org/' target='_blank'>Humanitarian OpenStreetMap Team</a> hosted by <a href='https://openstreetmap.fr/' target='_blank'>OpenStreetMap France</a>. " + terms,
+    //   code: "H",
+    //   keyid: "hot",
+    //   name: I18n.t("javascripts.map.base.hot")
+    // }));
 
     this.noteLayer = new L.FeatureGroup();
     this.noteLayer.options = { code: "N" };
@@ -59,11 +59,11 @@ L.OSM.Map = L.Map.extend({
     this.dataLayer = new L.OSM.DataLayer(null);
     this.dataLayer.options.code = "D";
 
-    this.gpsLayer = new L.OSM.GPS({
-      pane: "overlayPane",
-      code: "G",
-      name: I18n.t("javascripts.map.base.gps")
-    });
+    // this.gpsLayer = new L.OSM.GPS({
+    //   pane: "overlayPane",
+    //   code: "G",
+    //   name: I18n.t("javascripts.map.base.gps")
+    // });
 
     this.on("layeradd", function (event) {
       if (this.baseLayers.indexOf(event.layer) >= 0) {
