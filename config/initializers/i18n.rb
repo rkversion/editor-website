@@ -42,6 +42,7 @@ I18n.fallbacks.map("no" => "nb")
 
 I18n.enforce_available_locales = false
 
+
 Rails.configuration.after_initialize do
-  I18n.available_locales
+  I18n.available_locales = ["en"]
 end

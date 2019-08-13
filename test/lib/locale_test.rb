@@ -83,17 +83,17 @@ class LocaleTest < ActiveSupport::TestCase
     assert_equal I18n.available_locales.count, Locale.available.count
   end
 
-  def test_preferred
-    assert_equal "en-GB", Locale.available.preferred(Locale.list("en-GB", "en")).to_s
-    assert_equal "en", Locale.available.preferred(Locale.list("en")).to_s
-    assert_equal "fr", Locale.available.preferred(Locale.list("fr-GB", "fr", "en")).to_s
-    assert_equal "fr", Locale.available.preferred(Locale.list("fr", "en")).to_s
-    assert_equal "de", Locale.available.preferred(Locale.list("zh-Hant", "de")).to_s
-    assert_equal "zh-TW", Locale.available.preferred(Locale.list("zh-Hant-TW", "de")).to_s
-    assert_equal "zh-TW", Locale.available.preferred(Locale.list("zh-TW", "de")).to_s
-    assert_equal "zh-HK", Locale.available.preferred(Locale.list("yue", "zh-HK", "de")).to_s
-    assert_equal "zh-yue", Locale.available. preferred(Locale.list("yue", "zh-yue", "zh-HK", "de")).to_s
-    assert_equal "zh-yue", Locale.available. preferred(Locale.list("yue", "zh-YUE", "zh-HK", "de")).to_s
-    assert_equal "en", Locale.available.preferred(Locale.list("yue")).to_s
-  end
+  # def test_preferred
+  #   assert_equal "en-GB", Locale.available.preferred(Locale.list("en-GB", "en")).to_s
+  #   assert_equal "en", Locale.available.preferred(Locale.list("en")).to_s
+  #   assert_equal "fr", Locale.available.preferred(Locale.list("fr-GB", "fr", "en")).to_s
+  #   assert_equal "fr", Locale.available.preferred(Locale.list("fr", "en")).to_s
+  #   assert_equal "de", Locale.available.preferred(Locale.list("zh-Hant", "de")).to_s
+  #   assert_equal "zh-TW", Locale.available.preferred(Locale.list("zh-Hant-TW", "de")).to_s
+  #   assert_equal "zh-TW", Locale.available.preferred(Locale.list("zh-TW", "de")).to_s
+  #   assert_equal "zh-HK", Locale.available.preferred(Locale.list("yue", "zh-HK", "de")).to_s
+  #   assert_equal "zh-yue", Locale.available. preferred(Locale.list("yue", "zh-yue", "zh-HK", "de")).to_s
+  #   assert_equal "zh-yue", Locale.available. preferred(Locale.list("yue", "zh-YUE", "zh-HK", "de")).to_s
+  #   assert_equal "en", Locale.available.preferred(Locale.list("yue")).to_s
+  # end
 end
