@@ -1119,11 +1119,11 @@ en:
   layouts:
     project_name:
       # in <title>
-      title: Reis-Labs Editor
+      title: Kartta-Labs Editor
       # in <h1>
-      h1: Reis-Labs Editor
+      h1: Kartta-Labs Editor
     logo:
-      alt_text: Reis-Labs Editor logo
+      alt_text: Kartta-Labs Editor logo
     home: Go to Home Location
     logout: Log Out
     log_in: Log In
@@ -1143,16 +1143,16 @@ en:
     user_diaries_tooltip: View user diaries
     edit_with: Edit with %{editor}
     tag_line: The Free Wiki World Map
-    intro_header: Welcome to the Reis-Labs Editor!
-    intro_text:  The Reis-Labs Editor is a historical map of the world. 
+    intro_header: Welcome to the Kartta-Labs Editor!
+    intro_text:  The Kartta-Labs Editor is a historical map of the world. 
     intro_2_create_account: "Create a user account"
     hosting_partners_html: "Hosting is supported by %{ucl}, %{bytemark}, and other %{partners}."
     partners_ucl: "UCL"
     partners_bytemark: "Bytemark Hosting"
     partners_partners: "partners"
     tou: "Terms of Use"
-    osm_offline: "The Reis-Labs Editor database is currently offline while essential database maintenance work is carried out."
-    osm_read_only: "The Reis-Labs Editor database is currently in read-only mode while essential database maintenance work is carried out."
+    osm_offline: "The Kartta-Labs Editor database is currently offline while essential database maintenance work is carried out."
+    osm_read_only: "The Kartta-Labs Editor database is currently in read-only mode while essential database maintenance work is carried out."
     donate: "Support OpenStreetMap by %{link} to the Hardware Upgrade Fund."
     help: Help
     about: About
@@ -1169,19 +1169,19 @@ en:
     more: More
   notifier:
     diary_comment_notification:
-      subject: "[Reis-Labs Editor] %{user} commented on a diary entry"
+      subject: "[Kartta-Labs Editor] %{user} commented on a diary entry"
       hi: "Hi %{to_user},"
-      header: "%{from_user} has commented on the Reis-Labs Editor  diary entry with the subject %{subject}:"
+      header: "%{from_user} has commented on the Kartta-Labs Editor  diary entry with the subject %{subject}:"
       footer: "You can also read the comment at %{readurl} and you can comment at %{commenturl} or reply at %{replyurl}"
     message_notification:
-      subject_header: "[Reis-Labs Editor] %{subject}"
+      subject_header: "[Kartta-Labs Editor] %{subject}"
       hi: "Hi %{to_user},"
-      header: "%{from_user} has sent you a message through The Reis-Labs Editor with the subject %{subject}:"
+      header: "%{from_user} has sent you a message through The Kartta-Labs Editor with the subject %{subject}:"
       footer_html: "You can also read the message at %{readurl} and you can reply at %{replyurl}"
     friend_notification:
       hi: "Hi %{to_user},"
-      subject: "[Reis-Labs Editor] %{user} added you as a friend"
-      had_added_you: "%{user} has added you as a friend on The Reis-Labs Editor."
+      subject: "[Kartta-Labs Editor] %{user} added you as a friend"
+      had_added_you: "%{user} has added you as a friend on The Kartta-Labs Editor."
       see_their_profile: "You can see their profile at %{userurl}."
       befriend_them: "You can also add them as a friend at %{befriendurl}."
     gpx_notification:
@@ -1191,22 +1191,22 @@ en:
       and_the_tags: "and the following tags:"
       and_no_tags: "and no tags."
       failure:
-        subject: "[Reis-Labs Editor] GPX Import failure"
+        subject: "[Kartta-Labs Editor] GPX Import failure"
         failed_to_import: "failed to import. Here is the error:"
         more_info_1: "More information about GPX import failures and how to avoid"
         more_info_2: "them can be found at:"
         import_failures_url: "https://wiki.openstreetmap.org/wiki/GPX_Import_Failures"
       success:
-        subject: "[Reis-Labs Editor] GPX Import success"
+        subject: "[Kartta-Labs Editor] GPX Import success"
         loaded_successfully: loaded successfully with %{trace_points} out of a possible %{possible_points} points.
     signup_confirm:
-      subject: "[Reis-Labs Editor] Welcome to The Reis-Labs Editor"
+      subject: "[Kartta-Labs Editor] Welcome to The Kartta-Labs Editor"
       greeting: "Hi there!"
       created: "Someone (hopefully you) just created an account at %{site_url}."
       confirm: "Before we do anything else, we need to confirm that this request came from you, so if it did then please click the link below to confirm your account:"
       welcome: "After you confirm your account, we'll provide you with some additional information to get you started."
     email_confirm:
-      subject: "[Reis-Labs Editor] Confirm your email address"
+      subject: "[Kartta-Labs Editor] Confirm your email address"
     email_confirm_plain:
       greeting: "Hi,"
       hopefully_you: "Someone (hopefully you) would like to change their email address over at %{server_url} to %{new_address}."
@@ -1216,31 +1216,31 @@ en:
       hopefully_you: "Someone (hopefully you) would like to change their email address over at %{server_url} to %{new_address}."
       click_the_link: "If this is you, please click the link below to confirm the change."
     lost_password:
-      subject: "[Reis-Labs Editor] Password reset request"
+      subject: "[Kartta-Labs Editor] Password reset request"
     lost_password_plain:
       greeting: "Hi,"
-      hopefully_you: "Someone (possibly you) has asked for the password to be reset on this email address's Reis-Labs Editor account."
+      hopefully_you: "Someone (possibly you) has asked for the password to be reset on this email address's Kartta-Labs Editor account."
       click_the_link: "If this is you, please click the link below to reset your password."
     lost_password_html:
       greeting: "Hi,"
-      hopefully_you: "Someone (possibly you) has asked for the password to be reset on this email address's  Reis-Labs Editor account."
+      hopefully_you: "Someone (possibly you) has asked for the password to be reset on this email address's  Kartta-Labs Editor account."
       click_the_link: "If this is you, please click the link below to reset your password."
     note_comment_notification:
       anonymous: An anonymous user
       greeting: "Hi,"
       commented:
-        subject_own: "[Reis-Labs Editor] %{commenter} has commented on one of your notes"
-        subject_other: "[Reis-Labs Editor] %{commenter} has commented on a note you are interested in"
+        subject_own: "[Kartta-Labs Editor] %{commenter} has commented on one of your notes"
+        subject_other: "[Kartta-Labs Editor] %{commenter} has commented on a note you are interested in"
         your_note: "%{commenter} has left a comment on one of your map notes near %{place}."
         commented_note: "%{commenter} has left a comment on a map note you have commented on. The note is near %{place}."
       closed:
-        subject_own: "[Reis-Labs Editor] %{commenter} has resolved one of your notes"
-        subject_other: "[Reis-Labs Editor] %{commenter} has resolved a note you are interested in"
+        subject_own: "[Kartta-Labs Editor] %{commenter} has resolved one of your notes"
+        subject_other: "[Kartta-Labs Editor] %{commenter} has resolved a note you are interested in"
         your_note: "%{commenter} has resolved one of your map notes near %{place}."
         commented_note: "%{commenter} has resolved a map note you have commented on. The note is near %{place}."
       reopened:
-        subject_own: "[Reis-Labs Editor] %{commenter} has reactivated one of your notes"
-        subject_other: "[Reis-Labs Editor] %{commenter} has reactivated a note you are interested in"
+        subject_own: "[Kartta-Labs Editor] %{commenter} has reactivated one of your notes"
+        subject_other: "[Kartta-Labs Editor] %{commenter} has reactivated a note you are interested in"
         your_note: "%{commenter} has reactivated one of your map notes near %{place}."
         commented_note: "%{commenter} has reactivated a map note you have commented on. The note is near %{place}."
       details: "More details about the note can be found at %{url}."
@@ -1248,8 +1248,8 @@ en:
       hi: "Hi %{to_user},"
       greeting: "Hi,"
       commented:
-        subject_own: "[Reis-Labs Editor] %{commenter} has commented on one of your changesets"
-        subject_other: "[Reis-Labs Editor] %{commenter} has commented on a changeset you are interested in"
+        subject_own: "[Kartta-Labs Editor] %{commenter} has commented on one of your changesets"
+        subject_other: "[Kartta-Labs Editor] %{commenter} has commented on a changeset you are interested in"
         your_changeset: "%{commenter} has left a comment on one of your changesets created at %{time}"
         commented_changeset: "%{commenter} has left a comment on a map changeset you are watching created by %{changeset_author} at %{time}"
         partial_changeset_with_comment: "with comment '%{changeset_comment}'"
@@ -1328,7 +1328,7 @@ en:
     about:
       next: Next
       copyright_html: 
-      used_by: "Reis-Labs Editor"
+      used_by: "Kartta-Labs Editor"
       lede_text: |
         lede_text
       local_knowledge_title: Local Knowledge
@@ -1484,14 +1484,14 @@ en:
           OpenStreetMap, the magnifying glass logo and State of the Map are registered trademarks of the OpenStreetMap Foundation. If you have questions about your use of the marks, please see our <a href="https://wiki.osmfoundation.org/wiki/Trademark_Policy">Trademark Policy</a>.
     index:
       js_1: "You are either using a browser that does not support JavaScript, or you have disabled JavaScript."
-      js_2: "The Reis-Labs Editor uses JavaScript for its slippy map."
+      js_2: "The Kartta-Labs Editor uses JavaScript for its slippy map."
       permalink: Permalink
       shortlink: Shortlink
       createnote: Add a note
       license:
-        copyright: "Copyright OpenStreetMap and contributors, under an open license"
-        license_url: "https://openstreetmap.org/copyright"
-        project_url: "https://openstreetmap.org"
+        copyright: "Copyright Notice"
+        license_url: "https://example.com/copyright"
+        project_url: "https://example.com"
       remote_failed: "Editing failed - make sure JOSM or Merkaartor is loaded and the remote control option is enabled"
     edit:
       not_public: "You have not set your edits to be public."
@@ -1521,7 +1521,7 @@ en:
         body: "This area is too large to be exported as .osm XML Data. Please zoom in or select a smaller area, or use one of the sources listed below for bulk data downloads."
         planet:
           title: "Planet OSM"
-          description: "Regularly-updated copies of the complete Reis-Labs Editor database"
+          description: "Regularly-updated copies of the complete Kartta-Labs Editor database"
         overpass:
           title: "Overpass API"
           description: "Download this bounding box from a mirror of the OpenStreetMap database"
@@ -1533,7 +1533,7 @@ en:
           description: "Extracts for major world cities and their surrounding areas"
         other:
           title: "Other Sources"
-          description: "Additional sources listed on the Reis-Labs Editor wiki"
+          description: "Additional sources listed on the Kartta-Labs Editor wiki"
       options: "Options"
       format: "Format"
       scale: "Scale"
@@ -1572,7 +1572,7 @@ en:
         introduction paragraph
       welcome:
         url: /welcome
-        title: Welcome to The Reis-Labs Editor
+        title: Welcome to The Kartta-Labs Editor
         description: Start with this quick guide covering the basics.
       beginners_guide:
         url: https://wiki.openstreetmap.org/wiki/Beginners%27_guide
@@ -1709,13 +1709,13 @@ en:
     welcome:
       title: Welcome!
       introduction_html: |
-        Welcome to the Reis-Labs Editor! Now that you're signed
+        Welcome to the Kartta-Labs Editor! Now that you're signed
         up, you're all set to get started mapping. Here's a quick guide with the most important
         things you need to know.
       whats_on_the_map:
         title: What's on the Map
         on_html: |
-          The Reis-Labs Editor is a place for mapping things from the past it includes millions of buildings, roads, and other details about places. 
+          The Kartta-Labs Editor is a place for mapping things from the past it includes millions of buildings, roads, and other details about places. 
           You can map whatever real-world features are interesting to you.
         off_html: |
           What it <em>doesn't</em> include is opinionated data like ratings or

@@ -4,8 +4,8 @@ module OpenGraphHelper
       "og:site_name" => t("layouts.project_name.title"),
       "og:title" => [title, t("layouts.project_name.title")].compact.join(" | "),
       "og:type" => "website",
-      "og:image" => image_url("reis-logo.png", :protocol => "http"),
-      "og:image:secure_url" => image_url("reis-logo.png", :protocol => "https"),
+      "og:image" => image_url("kartta-labs-logo.png", :protocol => "http"),
+      "og:image:secure_url" => image_url("kartta-labs-logo.png", :protocol => "https"),
       "og:url" => url_for(:only_path => false),
       "og:description" => t("layouts.intro_text")
     }
