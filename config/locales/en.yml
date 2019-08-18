@@ -172,7 +172,7 @@ en:
         reopened_at_html: "Reactivated %{when}"
         reopened_at_by_html: "Reactivated %{when} by %{user}"
       rss:
-        title: "OpenStreetMap Notes"
+        title: "Notes"
         description_area: "A list of notes, reported, commented on or closed in your area [(%{min_lat}|%{min_lon}) -- (%{max_lat}|%{max_lon})]"
         description_item: "An rss feed for note %{id}"
         opened: "new note (near %{place})"
@@ -337,8 +337,8 @@ en:
     comments:
       comment: "New comment on changeset #%{changeset_id} by %{author}"
     index:
-      title_all: OpenStreetMap changeset discussion
-      title_particular: "OpenStreetMap changeset #%{changeset_id} discussion"
+      title_all: Changeset discussion
+      title_particular: "Changeset #%{changeset_id} discussion"
     timeout:
       sorry: "Sorry, the list of changeset comments you requested took too long to retrieve."
   diary_entries:
@@ -402,14 +402,14 @@ en:
       edit: "Edit"
     feed:
       user:
-        title: "OpenStreetMap diary entries for %{user}"
-        description: "Recent OpenStreetMap diary entries from %{user}"
+        title: "Diary entries for %{user}"
+        description: "Recent diary entries from %{user}"
       language:
-        title: "OpenStreetMap diary entries in %{language_name}"
-        description: "Recent diary entries from users of OpenStreetMap in %{language_name}"
+        title: "Diary entries in %{language_name}"
+        description: "Recent diary entries from users in %{language_name}"
       all:
-        title: "OpenStreetMap diary entries"
-        description: "Recent diary entries from users of OpenStreetMap"
+        title: "Diary entries"
+        description: "Recent diary entries from users"
     comments:
       has_commented_on: "%{display_name} has commented on the following diary entries"
       post: Post
@@ -1520,7 +1520,7 @@ en:
         advice: "If the above export fails, please consider using one of the sources listed below:"
         body: "This area is too large to be exported as .osm XML Data. Please zoom in or select a smaller area, or use one of the sources listed below for bulk data downloads."
         planet:
-          title: "Planet OSM"
+          title: "Planet"
           description: "Regularly-updated copies of the complete Kartta-Labs Editor database"
         overpass:
           title: "Overpass API"
@@ -1971,10 +1971,10 @@ en:
       lost password link: "Lost your password?"
       login_button: "Login"
       register now: Register now
-      with username: "Already have an OpenStreetMap account? Please login with your username and password:"
+      with username: "Already have an account? Please login with your username and password:"
       with external: "Alternatively, use a third party to login:"
-      new to osm: New to OpenStreetMap?
-      to make changes: To make changes to the OpenStreetMap data, you must have an account.
+      new to osm: New?
+      to make changes: To make changes to the data, you must have an account.
       create account minute: Create an account. It only takes a minute.
       no account: Don't have an account?
       account not active: "Sorry, your account is not active yet.<br />Please use the link in the account confirmation email to activate your account, or <a href=\"%{reconfirm}\">request a new confirmation email</a>."
@@ -2011,7 +2011,7 @@ en:
           alt: Login with an AOL OpenID
     logout:
       title: "Logout"
-      heading: "Logout from OpenStreetMap"
+      heading: "Logout"
       logout_button: "Logout"
     lost_password:
       title: "Lost password"
@@ -2154,25 +2154,24 @@ en:
       email never displayed publicly: "(never displayed publicly)"
       external auth: "External Authentication:"
       openid:
-        link: "https://wiki.openstreetmap.org/wiki/OpenID"
+        link: "https://example.com/OpenID"
         link text: "what is this?"
       public editing:
         heading: "Public editing:"
         enabled: "Enabled. Not anonymous and can edit data."
-        enabled link: "https://wiki.openstreetmap.org/wiki/Anonymous_edits"
         enabled link text: "what is this?"
         disabled: "Disabled and cannot edit data, all previous edits are anonymous."
         disabled link text: "why can't I edit?"
       public editing note:
         heading: "Public editing"
-        text: "Currently your edits are anonymous and people cannot send you messages or see your location. To show what you edited and allow people to contact you through the website, click the button below. <b>Since the 0.6 API changeover, only public users can edit map data</b>. (<a href=\"https://wiki.openstreetmap.org/wiki/Anonymous_edits\">find out why</a>).<ul><li>Your email address will not be revealed by becoming public.</li><li>This action cannot be reversed and all new users are now public by default.</li></ul>"
+        text: "Currently your edits are anonymous and people cannot send you messages or see your location. To show what you edited and allow people to contact you through the website, click the button below."
       contributor terms:
         heading: "Contributor Terms:"
         agreed: "You have agreed to the new Contributor Terms."
         not yet agreed: "You have not yet agreed to the new Contributor Terms."
         review link text: "Please follow this link at your convenience to review and accept the new Contributor Terms."
         agreed_with_pd: "You have also declared that you consider your edits to be in the Public Domain."
-        link: "https://www.osmfoundation.org/wiki/License/Contributor_Terms"
+        link: "htts://example.com/Contributor_Terms"
         link text: "what is this?"
       profile description: "Profile Description:"
       preferred languages: "Preferred Languages:"
@@ -2267,9 +2266,9 @@ en:
       unknown_signature_algorithm: Unknown signature algorithm
       invalid_scope: Invalid scope
     auth_association:
-      heading: Your ID is not associated with a OpenStreetMap account yet.
+      heading: Your ID is not associated with an account yet.
       option_1: |
-        If you are new to OpenStreetMap, please create a new account
+        If you are new, please create a new account
         using the form below.
       option_2: |
         If you already have an account, you can login to your account
