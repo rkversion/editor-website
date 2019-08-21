@@ -28,8 +28,8 @@
   <% if Settings.key?(:publisher_url) -%>
   <%= tag("link", :rel => "publisher", :href => Settings.publisher_url) %>
   <% end -%>
-  <%= tag("link", :rel => "search", :type => "application/opensearchdescription+xml", :title => " Kartta-Labs Editor  Search", :href => asset_path("osm.xml")) %>
-  <%= tag("meta", :name => "description", :content => " Kartta-Labs Editor.") %>
+  <%= tag("link", :rel => "search", :type => "application/opensearchdescription+xml", :title => " Kartta Labs Editor  Search", :href => asset_path("osm.xml")) %>
+  <%= tag("meta", :name => "description", :content => t("layouts.project_name.title") ) %>
   <%= opengraph_tags(@title) %>
   <% if flash[:piwik_goal] -%>
   <%= tag("meta", :name => "piwik-goal", :content => flash[:piwik_goal]) %>
