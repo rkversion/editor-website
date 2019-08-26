@@ -48,7 +48,7 @@ Config.setup do |config|
 
   # Define ENV variable prefix deciding which variables to load into config.
   #
-  config.env_prefix = "OPENSTREETMAP"
+  config.env_prefix = "HMSEDITOR"
 
   # What string to use as level separator for settings loaded from ENV variables. Default value of '.' works well
   # with Heroku, but you might want to change it for example for '__' to easy override settings from command line, where
