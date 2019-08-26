@@ -131,6 +131,9 @@ gem "aws-sdk-s3"
 # Used to resize user images
 gem "mini_magick"
 
+# optional for email sending
+gem 'sendgrid-actionmailer', '~> 2'
+
 # Gems useful for development
 group :development do
   gem "annotate"

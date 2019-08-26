@@ -126,3 +126,10 @@ csp_enforce: false
 storage_service: "local"
 # Root URL for storage service
 # storage_url:
+# SMTP credentials
+#smtp_address: ""
+#smtp_port: 
+#smtp_username:""
+#smtp_password:""
+# SendGrid Credentials
+#sendgrid_api_key:""
