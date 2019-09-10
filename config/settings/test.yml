@@ -19,3 +19,4 @@ wikipedia_auth_id: "dummy"
 wikipedia_auth_secret: "dummy"
 # Server URL for testing
 server_url: "test.host"
+sendgrid_api_key: ""
