@@ -25,7 +25,7 @@ facebook_options = { :name => "facebook", :scope => "email" }
 windowslive_options = { :name => "windowslive", :scope => "wl.signin,wl.emails" }
 github_options = { :name => "github", :scope => "user:email" }
 wikipedia_options = { :name => "wikipedia", :client_options => { :site => "https://meta.wikimedia.org" } }
-
+google_options[:skip_jwt] = true if Rails.env != "production"
 google_options[:openid_realm] = Settings.google_openid_realm if Settings.key?(:google_openid_realm)
 
 Rails.application.config.middleware.use OmniAuth::Builder do
