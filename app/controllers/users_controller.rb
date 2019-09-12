@@ -514,9 +514,11 @@ class UsersController < ApplicationController
       user = User.find_by(:auth_provider => provider, :auth_uid => uid)
 
       if user.nil? && provider == "google"
-        openid_url = auth_info[:extra][:id_info]["openid_id"]
-        user = User.find_by(:auth_provider => "openid", :auth_uid => openid_url) if openid_url
-        user&.update(:auth_provider => provider, :auth_uid => uid)
+	      if auth_info[:extra][:id_info]
+          openid_url = auth_info[:extra][:id_info]["openid_id"]
+          user = User.find_by(:auth_provider => "openid", :auth_uid => openid_url) if openid_url
+          user&.update(:auth_provider => provider, :auth_uid => uid)
+        end
       end
 
       if user
