@@ -5,3 +5,11 @@ test:
 local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
+
+# For credentials, when running on a Compute VM, the credentials will be discovered automatically.
+# Otherwise, put in the service account json key file path 
+# local:
+#   service: GCS
+#   credentials: '/secrets/key-file.json'
+#   project: ""
+#   bucket: ""

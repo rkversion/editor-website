@@ -128,6 +128,9 @@ gem "browser"
 # Used for S3 object storage
 gem "aws-sdk-s3"
 
+# For GCS
+gem "google-cloud-storage" 
+
 # Used to resize user images
 gem "mini_magick"
 
