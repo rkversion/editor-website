@@ -123,9 +123,9 @@ OSM = {
         [OSM.location.maxlat,
          OSM.location.maxlon]);
     } else {
-      mapParams.lon = -0.1;
-      mapParams.lat = 51.5;
-      mapParams.zoom = parseInt(params.zoom || 5);
+      mapParams.lon = -73.99;
+      mapParams.lat = 40.75;
+      mapParams.zoom = parseInt(params.zoom || 13);
     }
 
     mapParams.layers = hash.layers || (loc && loc[3]) || '';
