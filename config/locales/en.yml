@@ -2440,10 +2440,12 @@ en:
         title: Show My Location
         popup: You are within {distance} {unit} of this point
       base:
-        standard: Standard
+        standard: OpenStreetMap
         cycle_map: Cycle Map
         transport_map: Transport Map
         hot: Humanitarian
+        antique: Kartta Labs Antique
+        xray: Kartta Labs X-Ray
       layers:
         header: Map Layers
         notes: Map Notes

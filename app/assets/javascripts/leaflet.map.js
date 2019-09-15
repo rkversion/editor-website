@@ -21,6 +21,17 @@ L.OSM.Map = L.Map.extend({
 
     this.baseLayers = [];
 
+    this.baseLayers.push(new L.OSM.Antique({
+      attribution: 'Coastlines © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors', 
+      code: "A",
+      name: I18n.t("javascripts.map.base.antique")
+    }));
+
+    this.baseLayers.push(new L.OSM.Xray({
+      attribution: 'Coastlines © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors', 
+      name: I18n.t("javascripts.map.base.xray")
+    }));
+
     this.baseLayers.push(new L.OSM.Mapnik({
       attribution: copyright + ". " ,
       code: "M",
@@ -73,7 +84,7 @@ L.OSM.Map = L.Map.extend({
   },
 
   updateLayers: function (layerParam) {
-    var layers = layerParam || "M",
+    var layers = layerParam || "A",
         layersAdded = "";
 
     for (var i = this.baseLayers.length - 1; i >= 0; i--) {
