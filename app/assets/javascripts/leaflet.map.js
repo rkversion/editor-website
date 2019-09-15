@@ -24,12 +24,15 @@ L.OSM.Map = L.Map.extend({
     this.baseLayers.push(new L.OSM.Antique({
       attribution: 'Coastlines © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors', 
       code: "A",
-      name: I18n.t("javascripts.map.base.antique")
+      name: I18n.t("javascripts.map.base.antique"),
+      keyid: "antique"
     }));
 
     this.baseLayers.push(new L.OSM.Xray({
       attribution: 'Coastlines © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors', 
-      name: I18n.t("javascripts.map.base.xray")
+      name: I18n.t("javascripts.map.base.xray"),
+      code: "X",
+      keyid: "xray"
     }));
 
     this.baseLayers.push(new L.OSM.Mapnik({
