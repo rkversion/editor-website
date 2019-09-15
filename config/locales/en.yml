@@ -422,9 +422,9 @@ en:
       title:
         latlon: 'Results from <a href="https://openstreetmap.org/">Internal</a>'
         ca_postcode: 'Results from <a href="https://geocoder.ca/">Geocoder.CA</a>'
-        osm_nominatim: 'Results from <a href="https://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>'
+        osm_nominatim: 'Results from Kartta Labs Nominatim'
         geonames: 'Results from <a href="http://www.geonames.org/">GeoNames</a>'
-        osm_nominatim_reverse: 'Results from <a href="https://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>'
+        osm_nominatim_reverse: 'Results from Kartta Labs Nominatim'
         geonames_reverse: 'Results from <a href="http://www.geonames.org/">GeoNames</a>'
     search_osm_nominatim:
       prefix_format: "%{name}"
@@ -1003,7 +1003,7 @@ en:
         level10: "Suburb Boundary"
     description:
       title:
-        osm_nominatim: 'Location from <a href="https://nominatim.openstreetmap.org/">OpenStreetMap Nominatim</a>'
+        osm_nominatim: 'Location from Kartta Labs Nominatim'
         geonames: 'Location from <a href="http://www.geonames.org/">GeoNames</a>'
       types:
         cities: Cities
