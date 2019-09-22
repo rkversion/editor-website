@@ -35,6 +35,15 @@ This will take a few minutes to download required software from the internet and
 vagrant ssh
 ```
 
+Initial set up of secrets. 
+If you have been given one, copy the master.key to config/ directory. If you don't have one, just delete the config/credentials.yml.enc file and run 
+
+```
+EDITOR="vim" bundle exec rails credentials:edit
+```
+
+to edit the `secret_key_base` value. You can keep the credentials.yml.enc file in version control but don't keep the master.key there!
+
 Within this login shell, you can do development, run the server or the tests. For example, to run the tests:
 
 ```
