@@ -40,7 +40,7 @@ describe("OSM", function () {
       document.cookie = "_osm_location=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
 
       // Test with another cookie set.
-      document.cookie = "_osm_session=deadbeef";
+      document.cookie = "_kl_session=deadbeef";
     });
 
     it("parses marker params", function () {
