@@ -392,7 +392,7 @@ class UsersControllerTest < ActionController::TestCase
     user = create(:user, :pending)
     confirm_string = user.tokens.create.token
 
-    @request.cookies["_kl_session"] = user.display_name
+    @request.cookies["_osm_session"] = user.display_name
     get :confirm, :params => { :display_name => user.display_name, :confirm_string => confirm_string }
     assert_response :success
     assert_template :confirm
@@ -402,7 +402,7 @@ class UsersControllerTest < ActionController::TestCase
     user = create(:user)
     confirm_string = user.tokens.create.token
 
-    @request.cookies["_kl_session"] = user.display_name
+    @request.cookies["_osm_session"] = user.display_name
     get :confirm, :params => { :display_name => user.display_name, :confirm_string => confirm_string }
     assert_response :redirect
     assert_redirected_to root_path
@@ -413,7 +413,7 @@ class UsersControllerTest < ActionController::TestCase
     stub_gravatar_request(user.email)
     confirm_string = user.tokens.create.token
 
-    @request.cookies["_kl_session"] = user.display_name
+    @request.cookies["_osm_session"] = user.display_name
     post :confirm, :params => { :display_name => user.display_name, :confirm_string => confirm_string }
     assert_redirected_to login_path
     assert_match(/Confirmed your account/, flash[:notice])
@@ -425,7 +425,7 @@ class UsersControllerTest < ActionController::TestCase
     confirm_string = user.tokens.create.token
     token = user.tokens.create.token
 
-    @request.cookies["_kl_session"] = user.display_name
+    @request.cookies["_osm_session"] = user.display_name
     post :confirm, :params => { :display_name => user.display_name, :confirm_string => confirm_string }, :session => { :token => token }
     assert_redirected_to welcome_path
   end
@@ -436,7 +436,7 @@ class UsersControllerTest < ActionController::TestCase
     confirm_string = user.tokens.create.token
     token = create(:user).tokens.create.token
 
-    @request.cookies["_kl_session"] = user.display_name
+    @request.cookies["_osm_session"] = user.display_name
     post :confirm, :params => { :display_name => user.display_name, :confirm_string => confirm_string }, :session => { :token => token }
     assert_redirected_to login_path
     assert_match(/Confirmed your account/, flash[:notice])
@@ -447,7 +447,7 @@ class UsersControllerTest < ActionController::TestCase
     stub_gravatar_request(user.email)
     confirm_string = user.tokens.create(:referer => new_diary_entry_path).token
 
-    @request.cookies["_kl_session"] = user.display_name
+    @request.cookies["_osm_session"] = user.display_name
     post :confirm, :params => { :display_name => user.display_name, :confirm_string => confirm_string }
     assert_redirected_to login_path(:referer => new_diary_entry_path)
     assert_match(/Confirmed your account/, flash[:notice])
@@ -459,7 +459,7 @@ class UsersControllerTest < ActionController::TestCase
     confirm_string = user.tokens.create(:referer => new_diary_entry_path).token
     token = user.tokens.create.token
 
-    @request.cookies["_kl_session"] = user.display_name
+    @request.cookies["_osm_session"] = user.display_name
     post :confirm, :params => { :display_name => user.display_name, :confirm_string => confirm_string }, :session => { :token => token }
     assert_redirected_to new_diary_entry_path
   end
@@ -470,7 +470,7 @@ class UsersControllerTest < ActionController::TestCase
     confirm_string = user.tokens.create(:referer => new_diary_entry_path).token
     token = create(:user).tokens.create.token
 
-    @request.cookies["_kl_session"] = user.display_name
+    @request.cookies["_osm_session"] = user.display_name
     post :confirm, :params => { :display_name => user.display_name, :confirm_string => confirm_string }, :session => { :token => token }
     assert_redirected_to login_path(:referer => new_diary_entry_path)
     assert_match(/Confirmed your account/, flash[:notice])
@@ -480,7 +480,7 @@ class UsersControllerTest < ActionController::TestCase
     user = create(:user, :pending)
     confirm_string = user.tokens.create(:expiry => 1.day.ago).token
 
-    @request.cookies["_kl_session"] = user.display_name
+    @request.cookies["_osm_session"] = user.display_name
     post :confirm, :params => { :display_name => user.display_name, :confirm_string => confirm_string }
     assert_redirected_to :action => "confirm"
     assert_match(/confirmation code has expired/, flash[:error])
@@ -490,7 +490,7 @@ class UsersControllerTest < ActionController::TestCase
     user = create(:user)
     confirm_string = user.tokens.create(:referer => new_diary_entry_path).token
 
-    @request.cookies["_kl_session"] = user.display_name
+    @request.cookies["_osm_session"] = user.display_name
     post :confirm, :params => { :display_name => user.display_name, :confirm_string => confirm_string }
     assert_redirected_to :action => "login"
     assert_match(/already been confirmed/, flash[:error])

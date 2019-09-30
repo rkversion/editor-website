@@ -60,7 +60,7 @@ class ApplicationController < ActionController::Base
   ##
   # require the user to have cookies enabled in their browser
   def require_cookies
-    if request.cookies["_kl_session"].to_s == ""
+    if request.cookies["_osm_session"].to_s == ""
       if params[:cookie_test].nil?
         session[:cookie_test] = true
         redirect_to params.to_unsafe_h.merge(:cookie_test => "true")
