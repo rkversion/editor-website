@@ -1,10 +1,11 @@
 module BrowseTagsHelper
   def format_key(key)
-    if url = wiki_link("key", key)
-      link_to h(key), url, :title => t("browse.tag_details.wiki_link.key", :key => key)
-    else
-      h(key)
-    end
+    h(key)
+    # if url = wiki_link("key", key)
+    #   link_to h(key), url, :title => t("browse.tag_details.wiki_link.key", :key => key)
+    # else
+    #   h(key)
+    # end
   end
 
   def format_value(key, value)
