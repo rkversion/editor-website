@@ -16,7 +16,9 @@
 <% data[:consumer_key] = token.client_application.key -%>
 <% data[:consumer_secret] = token.client_application.secret -%>
 <% end %>
-<% data[:locale] = ID::LOCALES.preferred(preferred_languages).to_s -%>
+<%# data[:locale] = ID::LOCALES.preferred(preferred_languages).to_s -%>
+<% data[:locale] = "en" -%>
+<% data[:nominatim] = Settings.nominatim_url  %>
 <% data[:locale_path] = asset_path("iD/locales/#{data[:locale]}.json") -%>
 <% data[:asset_map] = assets("iD").to_json -%>
 <%= content_tag :div, "", :id => "id-container", :data => data %>

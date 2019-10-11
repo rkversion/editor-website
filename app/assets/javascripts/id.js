@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var id = iD.Context()
       .embed(true)
       .assetPath("iD/")
+      .nominatim(container.dataset.nominatim)
       .assetMap(JSON.parse(container.dataset.assetMap))
       .locale(container.dataset.locale, container.dataset.localePath)
       .preauth({
