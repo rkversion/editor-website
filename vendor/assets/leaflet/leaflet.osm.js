@@ -14,7 +14,7 @@ L.OSM.TileLayer = L.TileLayer.extend({
 
 L.OSM.Antique = L.OSM.TileLayer.extend({
   options: {
-    url: "http://35.245.160.123/antique/{z}/{x}/{y}.png",
+    url: "https://tiles.historicmapstack.org/antique/{z}/{x}/{y}.png",
     attribution: 'Coastlines © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors',
     maxZoom: 20
   }
@@ -23,7 +23,7 @@ L.OSM.Antique = L.OSM.TileLayer.extend({
 
 L.OSM.Xray = L.OSM.TileLayer.extend({
   options: {
-    url: "http://35.245.160.123/xray/{z}/{x}/{y}.png",
+    url: "https://tiles.historicmapstack.org/xray/{z}/{x}/{y}.png",
     attribution: 'Coastlines © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors',
     maxZoom: 20
   }
