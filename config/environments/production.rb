@@ -101,5 +101,9 @@ Rails.application.configure do
   config.enable_dependency_loading = true
 
   # Use delayed job to queue jobs in production.
-  config.active_job.queue_adapter = :delayed_job
+  # config.active_job.queue_adapter = :delayed_job
+  
+  # Switch to use Async as email sign ups are to be disabled but we send emails for other things
+  config.active_job.queue_adapter = :async
+
 end
