@@ -14,7 +14,8 @@ class BrowseTagsHelperTest < ActionView::TestCase
 
   def test_format_key
     html = format_key("highway")
-    assert_dom_equal "<a href=\"https://wiki.openstreetmap.org/wiki/Key:highway?uselang=en\" title=\"The wiki description page for the highway tag\">highway</a>", html
+    #assert_dom_equal "<a href=\"https://wiki.openstreetmap.org/wiki/Key:highway?uselang=en\" title=\"The wiki description page for the highway tag\">highway</a>", html
+    assert_dom_equal "highway", html
 
     html = format_key("unknown")
     assert_dom_equal "unknown", html

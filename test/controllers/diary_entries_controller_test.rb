@@ -425,7 +425,7 @@ class DiaryEntriesControllerTest < ActionController::TestCase
     assert_redirected_to :action => :show, :display_name => entry.user.display_name, :id => entry.id
     email = ActionMailer::Base.deliveries.first
     assert_equal [user.email], email.to
-    assert_equal "[OpenStreetMap] #{other_user.display_name} commented on a diary entry", email.subject
+    assert_equal "[Kartta Labs Editor] #{other_user.display_name} commented on a diary entry", email.subject
     assert_match(/New comment/, email.text_part.decoded)
     assert_match(/New comment/, email.html_part.decoded)
     ActionMailer::Base.deliveries.clear
@@ -473,7 +473,7 @@ class DiaryEntriesControllerTest < ActionController::TestCase
     assert_redirected_to :action => :show, :display_name => entry.user.display_name, :id => entry.id
     email = ActionMailer::Base.deliveries.first
     assert_equal [user.email], email.to
-    assert_equal "[OpenStreetMap] #{other_user.display_name} commented on a diary entry", email.subject
+    assert_equal "[Kartta Labs Editor] #{other_user.display_name} commented on a diary entry", email.subject
     assert_match %r{http://example.com/spam}, email.text_part.decoded
     assert_match %r{http://example.com/spam}, email.html_part.decoded
     ActionMailer::Base.deliveries.clear

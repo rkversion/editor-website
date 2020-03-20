@@ -187,23 +187,23 @@ class SiteControllerTest < ActionController::TestCase
     assert_template "edit"
     assert_template :partial => "_id", :count => 1
 
-    user = create(:user)
-    user.preferred_editor = "potlatch2"
-    user.save!
+    # user = create(:user)
+    # user.preferred_editor = "potlatch2"
+    # user.save!
 
-    get :edit, :session => { :user => user }
-    assert_response :success
-    assert_template "edit"
-    assert_template :partial => "_potlatch2", :count => 1
+    # get :edit, :session => { :user => user }
+    # assert_response :success
+    # assert_template "edit"
+    # assert_template :partial => "_potlatch2", :count => 1
 
-    user = create(:user)
-    user.preferred_editor = "potlatch"
-    user.save!
+    # user = create(:user)
+    # user.preferred_editor = "potlatch"
+    # user.save!
 
-    get :edit, :session => { :user => user }
-    assert_response :success
-    assert_template "edit"
-    assert_template :partial => "_potlatch", :count => 1
+    # get :edit, :session => { :user => user }
+    # assert_response :success
+    # assert_template "edit"
+    # assert_template :partial => "_potlatch", :count => 1
 
     user = create(:user)
     user.preferred_editor = "remote"

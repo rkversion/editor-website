@@ -49,7 +49,7 @@ class Message < ActiveRecord::Base
       :sender => from,
       :recipient => to,
       :sent_on => mail.date.new_offset(0),
-      :title => mail.subject.sub(/\[OpenStreetMap\] */, ""),
+      :title => mail.subject.sub(/\[Kartta Labs Editor\] */, ""),
       :body => body,
       :body_format => "text"
     )

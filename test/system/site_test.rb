@@ -4,6 +4,6 @@ class SiteTest < ApplicationSystemTestCase
   test "visiting the index" do
     visit "/"
 
-    assert_selector "h1", :text => "OpenStreetMap"
+    assert_selector "h1", :text => "Kartta Labs Editor"
   end
 end

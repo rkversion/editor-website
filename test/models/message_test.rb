@@ -161,7 +161,7 @@ class MessageTest < ActiveSupport::TestCase
     mail = Mail.new do
       from "from@example.com"
       to "to@example.com"
-      subject "[OpenStreetMap] Test message"
+      subject "[Kartta Labs Editor] Test message"
       date Time.now
       content_type "text/plain; charset=utf-8"
       body "This is a test & a message"

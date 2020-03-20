@@ -282,12 +282,12 @@ module Api
       email = ActionMailer::Base.deliveries.find { |e| e.to.first == first_user.email }
       assert_not_nil email
       assert_equal 1, email.to.length
-      assert_equal "[OpenStreetMap] An anonymous user has commented on one of your notes", email.subject
+      assert_equal "[Kartta Labs Editor] An anonymous user has commented on one of your notes", email.subject
 
       email = ActionMailer::Base.deliveries.find { |e| e.to.first == second_user.email }
       assert_not_nil email
       assert_equal 1, email.to.length
-      assert_equal "[OpenStreetMap] An anonymous user has commented on a note you are interested in", email.subject
+      assert_equal "[Kartta Labs Editor] An anonymous user has commented on a note you are interested in", email.subject
 
       get :show, :params => { :id => note_with_comments_by_users.id, :format => "json" }
       assert_response :success
@@ -326,13 +326,13 @@ module Api
       email = ActionMailer::Base.deliveries.find { |e| e.to.first == first_user.email }
       assert_not_nil email
       assert_equal 1, email.to.length
-      assert_equal "[OpenStreetMap] #{third_user.display_name} has commented on one of your notes", email.subject
+      assert_equal "[Kartta Labs Editor] #{third_user.display_name} has commented on one of your notes", email.subject
       assert_equal first_user.email, email.to.first
 
       email = ActionMailer::Base.deliveries.find { |e| e.to.first == second_user.email }
       assert_not_nil email
       assert_equal 1, email.to.length
-      assert_equal "[OpenStreetMap] #{third_user.display_name} has commented on a note you are interested in", email.subject
+      assert_equal "[Kartta Labs Editor] #{third_user.display_name} has commented on a note you are interested in", email.subject
 
       get :show, :params => { :id => note_with_comments_by_users.id, :format => "json" }
       assert_response :success
