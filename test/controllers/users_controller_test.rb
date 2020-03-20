@@ -856,14 +856,13 @@ class UsersControllerTest < ActionController::TestCase
     assert_select "div#errorExplanation"
     assert_select "form#accountForm > fieldset > div.form-row > select#user_preferred_editor > option[selected]", false
 
-    # Changing to a valid editor should work
+    # Changing to a disabled editor should not work
     user.preferred_editor = "potlatch2"
     post :account, :params => { :display_name => user.display_name, :user => user.attributes }, :session => { :user => user }
     assert_response :success
     assert_template :account
-    assert_select "div#errorExplanation", false
-    assert_select ".notice", /^User information updated successfully/
-    assert_select "form#accountForm > fieldset > div.form-row > select#user_preferred_editor > option[selected][value=?]", "potlatch2"
+    assert_select "div#errorExplanation"
+    assert_select "form#accountForm > fieldset > div.form-row > select#user_preferred_editor > option[selected]", false
 
     # Changing to the default editor should work
     user.preferred_editor = "default"
@@ -883,13 +882,14 @@ class UsersControllerTest < ActionController::TestCase
     assert_select ".notice", /^User information updated successfully/
     assert_select "form#accountForm > fieldset > div.form-row.accountImage input[name=avatar_action][checked][value=?]", "keep"
 
-    # Changing to a gravatar image should work
+    # Changing to a gravatar image should work but gravatar not shown
     post :account, :params => { :display_name => user.display_name, :avatar_action => "gravatar", :user => user.attributes }, :session => { :user => user }
     assert_response :success
     assert_template :account
     assert_select "div#errorExplanation", false
     assert_select ".notice", /^User information updated successfully/
-    assert_select "form#accountForm > fieldset > div.form-row.accountImage input[name=avatar_action][checked][value=?]", "gravatar"
+    #but not shown
+    assert_select "form#accountForm > fieldset > div.form-row.accountImage input[name=avatar_action][checked]", false
 
     # Removing the image should work
     post :account, :params => { :display_name => user.display_name, :avatar_action => "delete", :user => user.attributes }, :session => { :user => user }
