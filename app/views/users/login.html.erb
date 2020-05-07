@@ -12,74 +12,23 @@
 
     <p class='deemphasize'><%= t ".no account" %> <%= link_to t(".register now"), :action => :new, :referer => params[:referer] %></p>
 
-    <div id="loginForm" class="standard-form">
-
-      <fieldset>
-        <div class="form-row">
-          <label for="username" class="standard-label">
-            <%= t ".email or username" %>
-          </label>
-          <%= text_field_tag "username", params[:username], :tabindex => 1 %>
-        </div>
-        <div class="form-row">
-          <label for="password" class="standard-label">
-            <%= t ".password" %>
-          </label>
-          <%= password_field_tag "password", "", :tabindex => 2 %>
-        </div>
-        <span class="form-help deemphasize">
-          <%= link_to t(".lost password link"), :controller => "users", :action => "lost_password" %>
-        </span>
-      </fieldset>
-
-      <fieldset>
-        <%= check_box_tag "remember_me", "yes", params[:remember_me] == "yes", :tabindex => 3 %>
-        <label for="remember_me" class="standard-label">
-          <%= t ".remember" %>
-        </label>
-        <%= submit_tag t(".login_button"), :tabindex => 4 %>
-      </fieldset>
-
-    </div>
-
   <% end %>
+  </div>
 
   <%= form_tag(auth_path(:provider => "openid"), :id => "openid_login_form") do %>
     <div id="loginForm" class="standard-form">
 
       <fieldset class='form-divider'>
 
-        <p class='standard-label'><%= t ".with external" %></p>
-
         <ul class='clearfix' id="login_auth_buttons">
-          <li><%# link_to image_tag("openid.png", :alt => t(".auth_providers.openid.title")), "#", :id => "openid_open_url", :title => t(".auth_providers.openid.title") %></li>
-          <% if Settings.key?(:google_auth_id) -%>
-          <li><%= auth_button "google", "google" %></li>
+         <% if Settings.key?(:google_auth_id) -%>
+            <%= link_to auth_path(:provider => "google"),{:class => "auth_button", :title => t("users.login.auth_providers.google.title")} do  %> 
+              <%= t('.login_with_google') %>                
+              <%= image_tag("google.png", :alt => t("users.login.auth_providers.google.alt")) %> 
+            <%   end %>  
           <% end -%>
-          <% if Settings.key?(:facebook_auth_id) -%>
-          <li><%= auth_button "facebook", "facebook" %></li>
-          <% end -%>
-          <% if Settings.key?(:windowslive_auth_id) -%>
-          <li><%= auth_button "windowslive", "windowslive" %></li>
-          <% end -%>
-          <% if Settings.key?(:github_auth_id) -%>
-          <li><%= auth_button "github", "github" %></li>
-          <% end -%>
-          <% if Settings.key?(:wikipedia_auth_id) -%>
-          <li><%= auth_button "wikipedia", "wikipedia" %></li>
-          <% end -%>
-          <li><%# auth_button "yahoo", "openid", :openid_url => "yahoo.com" %></li>
-          <li><%# auth_button "wordpress", "openid", :openid_url => "wordpress.com" %></li>
-          <li><%# auth_button "aol", "openid", :openid_url => "aol.com" %></li>
+
         </ul>
-
-        <div id='login_openid_url' class='form-row'>
-          <label for='openid_url' class="standard-label"><%= raw t ".openid", :logo => openid_logo %></label>
-          <%= hidden_field_tag("openid_referer", params[:referer]) if params[:referer] %>
-          <%= text_field_tag("openid_url", "", :tabindex => 3, :class => "openid_url") %>
-        </div>
-
-        <%= submit_tag t(".login_button"), :tabindex => 6, :id => "login_openid_submit" %>
 
       </fieldset>
 

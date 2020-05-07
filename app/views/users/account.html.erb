@@ -18,7 +18,7 @@
       <%= f.text_field :display_name %>
     </div>
   </fieldset>
-
+  <% if false %>
   <fieldset>
     <div class="form-row">
       <label class="standard-label"><%= t ".current email address" %></label>
@@ -43,6 +43,7 @@
       <label class="standard-label"><%= t "users.new.confirm password" %></label>
       <%= f.password_field :pass_crypt_confirmation, :value => "", :autocomplete => :off %>
     </div>
+    <span class="form-help deemphasize"><%= t "users.new.auth no password" %></span>
   </fieldset>
 
   <fieldset>
@@ -52,7 +53,7 @@
       <%= f.text_field :auth_uid %>
     </div>
   </fieldset>
-
+ <% end %>
   <fieldset class="form-divider">
     <div class="form-row">
       <label class="standard-label"><%= t ".public editing.heading" %></label>

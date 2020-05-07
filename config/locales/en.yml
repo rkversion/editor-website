@@ -1970,6 +1970,7 @@ en:
       remember: "Remember me"
       lost password link: "Lost your password?"
       login_button: "Login"
+      login_with_google: Sign In With Google
       register now: Register now
       with username: "Already have an account? Please login with your username and password:"
       with external: "Alternatively, use a third party to login:"
@@ -1986,8 +1987,8 @@ en:
           title: Login with OpenID
           alt: Login with an OpenID URL
         google:
-          title: Login with Google
-          alt: Login with a Google OpenID
+          title: Sign in with Google 
+          alt:  Sign in with a Google Oauth
         facebook:
           title: Login with Facebook
           alt: Login with a Facebook Account
@@ -2035,7 +2036,7 @@ en:
       contact_webmaster: 'Please contact the <a href="%{webmaster}">webmaster</a> to arrange for an account to be created - we will try and deal with the request as quickly as possible.'
       about:
         header: Welcome!
-        html: <p>Sign up to get started contributing. We'll send an email to confirm your account.</p>
+        html: <p>Sign up using your Google Account to get started contributing.</p>
       license_agreement: 'When you confirm your account you will need to agree to the contributor terms.'
       email address: "Email Address:"
       confirm email address: "Confirm Email Address:"
@@ -2047,7 +2048,7 @@ en:
       confirm password: "Confirm Password:"
       use external auth: "Alternatively, use a third party to login"
       auth no password: "With third party authentication a password is not required, but some extra tools or server may still need one."
-      continue: Sign Up
+      continue: Sign Up With Your Google Account
       terms accepted: "Thanks for accepting the new contributor terms!"
       terms declined: "We are sorry that you have decided to not accept the Contributor Terms."
       terms declined url: https://wiki.openstreetmap.org/wiki/Contributor_Terms_Declined
@@ -2266,7 +2267,7 @@ en:
       unknown_signature_algorithm: Unknown signature algorithm
       invalid_scope: Invalid scope
     auth_association:
-      heading: Your ID is not associated with an account yet.
+      heading: Your login ID is not associated with an account yet.
       option_1: |
         If you are new, please create a new account
         using the form below.

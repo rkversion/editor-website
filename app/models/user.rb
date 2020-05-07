@@ -91,7 +91,7 @@ class User < ActiveRecord::Base
   validates :display_name, :if => proc { |u| u.display_name_changed? },
                            :characters => { :url_safe => true },
                            :whitespace => { :leading => false, :trailing => false }
-  validates :email, :presence => true, :confirmation => true, :characters => true
+  validates :email, :presence => true, :confirmation => true, :characters => true, :unless => proc { |u| !u.auth_provider.nil? && u.auth_provider == "google" && u.new_record?  }
   validates :email, :if => proc { |u| u.email_changed? },
                     :uniqueness => { :case_sensitive => false }
   validates :email, :if => proc { |u| u.email_changed? },

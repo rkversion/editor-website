@@ -166,18 +166,18 @@ OpenStreetMap::Application.routes.draw do
   post "/user/new" => "users#create"
   get "/user/terms" => "users#terms"
   post "/user/save" => "users#save"
-  get "/user/:display_name/confirm/resend" => "users#confirm_resend"
-  match "/user/:display_name/confirm" => "users#confirm", :via => [:get, :post]
-  match "/user/confirm" => "users#confirm", :via => [:get, :post]
-  match "/user/confirm-email" => "users#confirm_email", :via => [:get, :post]
+  # get "/user/:display_name/confirm/resend" => "users#confirm_resend"
+  # match "/user/:display_name/confirm" => "users#confirm", :via => [:get, :post]
+  # match "/user/confirm" => "users#confirm", :via => [:get, :post]
+  # match "/user/confirm-email" => "users#confirm_email", :via => [:get, :post]
   post "/user/go_public" => "users#go_public"
-  match "/user/reset-password" => "users#reset_password", :via => [:get, :post]
-  match "/user/forgot-password" => "users#lost_password", :via => [:get, :post]
+  # match "/user/reset-password" => "users#reset_password", :via => [:get, :post]
+  # match "/user/forgot-password" => "users#lost_password", :via => [:get, :post]
   get "/user/suspended" => "users#suspended"
 
   get "/index.html", :to => redirect(:path => "/")
   get "/create-account.html", :to => redirect(:path => "/user/new")
-  get "/forgot-password.html", :to => redirect(:path => "/user/forgot-password")
+  # get "/forgot-password.html", :to => redirect(:path => "/user/forgot-password")
 
   # omniauth
   get "/auth/failure" => "users#auth_failure"

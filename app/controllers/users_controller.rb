@@ -106,9 +106,9 @@ class UsersController < ApplicationController
             session[:referer] = referer
             successful_login(current_user)
           else
-            session[:token] = current_user.tokens.create.token
-            Notifier.signup_confirm(current_user, current_user.tokens.create(:referer => referer)).deliver_later
-            redirect_to :action => "confirm", :display_name => current_user.display_name
+           # session[:token] = current_user.tokens.create.token
+           # Notifier.signup_confirm(current_user, current_user.tokens.create(:referer => referer)).deliver_later
+         #   redirect_to :action => "confirm", :display_name => current_user.display_name
           end
         else
           render :action => "new", :referer => params[:referer]
@@ -126,8 +126,8 @@ class UsersController < ApplicationController
           params[:user][:auth_uid] == current_user.auth_uid)
         update_user(current_user, params)
       else
-        session[:new_user_settings] = params
-        redirect_to auth_url(params[:user][:auth_provider], params[:user][:auth_uid])
+      #  session[:new_user_settings] = params
+       # redirect_to auth_url(params[:user][:auth_provider], params[:user][:auth_uid])
       end
     elsif errors = session.delete(:user_errors)
       errors.each do |attribute, error|
@@ -236,7 +236,7 @@ class UsersController < ApplicationController
 
       current_user.status = "pending"
 
-      if current_user.auth_provider.present? && current_user.pass_crypt.empty?
+      if current_user.auth_provider.present? #&& current_user.pass_crypt.empty?
         # We are creating an account with external authentication and
         # no password was specified so create a random one
         current_user.pass_crypt = SecureRandom.base64(16)
@@ -506,7 +506,9 @@ class UsersController < ApplicationController
     elsif session[:new_user]
       session[:new_user].auth_provider = provider
       session[:new_user].auth_uid = uid
-
+     
+      session[:new_user].email = email if email && email_verified
+            
       session[:new_user].status = "active" if email_verified && email == session[:new_user].email
 
       redirect_to :action => "terms"
@@ -649,12 +651,12 @@ class UsersController < ApplicationController
   # update a user's details
   def update_user(user, params)
     user.display_name = params[:user][:display_name]
-    user.new_email = params[:user][:new_email]
+    #user.new_email = params[:user][:new_email]
 
-    unless params[:user][:pass_crypt].empty? && params[:user][:pass_crypt_confirmation].empty?
-      user.pass_crypt = params[:user][:pass_crypt]
-      user.pass_crypt_confirmation = params[:user][:pass_crypt_confirmation]
-    end
+    # unless params[:user][:pass_crypt].empty? && params[:user][:pass_crypt_confirmation].empty?
+    #   user.pass_crypt = params[:user][:pass_crypt]
+    #   user.pass_crypt_confirmation = params[:user][:pass_crypt_confirmation]
+    # end
 
     if params[:user][:description] != user.description
       user.description = params[:user][:description]
@@ -684,10 +686,10 @@ class UsersController < ApplicationController
                               params[:user][:preferred_editor]
                             end
 
-    if params[:user][:auth_provider].nil? || params[:user][:auth_provider].blank?
-      user.auth_provider = nil
-      user.auth_uid = nil
-    end
+    # if params[:user][:auth_provider].nil? || params[:user][:auth_provider].blank?
+    #   user.auth_provider = nil
+    #   user.auth_uid = nil
+    # end
 
     if user.save
       set_locale(true)
@@ -741,9 +743,11 @@ class UsersController < ApplicationController
   ##
   # return permitted user parameters
   def user_params
-    params.require(:user).permit(:email, :email_confirmation, :display_name,
-                                 :auth_provider, :auth_uid,
-                                 :pass_crypt, :pass_crypt_confirmation)
+    params.require(:user).permit( :display_name,
+                                  :auth_provider, :auth_uid)
+   # params.require(:user).permit(:email, :email_confirmation, :display_name,
+   #                              :auth_provider, :auth_uid,
+   #                              :pass_crypt, :pass_crypt_confirmation)
   end
 
   ##
@@ -783,7 +787,8 @@ class UsersController < ApplicationController
   def gravatar_enable(user)
     # code from example https://en.gravatar.com/site/implement/images/ruby/
     return false if user.avatar.attached?
-
+    return false
+    
     hash = Digest::MD5.hexdigest(user.email.downcase)
     url = "https://www.gravatar.com/avatar/#{hash}?d=404" # without d=404 we will always get an image back
     response = OSM.http_client.get(URI.parse(url))

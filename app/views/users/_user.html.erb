@@ -16,6 +16,7 @@
                   :name => link_to(h(user.display_name), user_path(user)),
                   :date => l(user.creation_time, :format => :friendly) %>
       <% end %>
+       <%= "| Provider: #{user.auth_provider}" if user.auth_provider %> | <%= user.email %> 
     </p>
     <div class="richtext"><%= user.description.to_html %></div>
   </td>

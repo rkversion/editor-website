@@ -10,9 +10,9 @@ class RedirectTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     assert_redirected_to "/user/new"
 
-    get "/forgot-password.html"
-    assert_response :redirect
-    assert_redirected_to "/user/forgot-password"
+    # get "/forgot-password.html"
+    # assert_response :redirect
+    # assert_redirected_to "/user/forgot-password"
   end
 
   def test_search_redirects

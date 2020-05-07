@@ -10,7 +10,7 @@
 
 <%= form_for current_user, :url => { :action => "create" }, :html => { :class => "standard-form fillL col6 inner22" } do |f| %>
   <%= hidden_field_tag("referer", h(@referer)) unless @referer.nil? %>
-
+  <% if false #comment out signing up with email %>
   <fieldset>
     <div class="form-row">
       <label for="email" class="standard-label">
@@ -28,7 +28,7 @@
     </div>
     <span class="form-help deemphasize"><%= raw(t(".not displayed publicly")) %></span>
   </fieldset>
-
+  <% end %>
   <fieldset>
     <div class="form-row">
       <label for="display_name" class="standard-label">
@@ -39,7 +39,7 @@
     </div>
     <span class="form-help deemphasize"><%= t ".display name description" %></span>
   </fieldset>
-
+<% if false %>
   <fieldset class="form-divider" id="auth_field">
     <div class="form-row">
       <label for="openid_url" class="standard-label">
@@ -72,6 +72,11 @@
   <div id="auth_prompt" class="form-row">
     <%= link_to raw(t(".use external auth")), "#", :id => "auth_enable" %>
   </div>
+<% end %>
+
+  <%= f.hidden_field(:auth_provider, value: "google")%>
+  <%= f.hidden_field(:auth_uid)%>
+   <%= image_tag("google.png", :alt => t(".continue"), :class => "auth_button", :title => t(".continue"))  %>
 
   <%= submit_tag t(".continue"), :tabindex => 8 %>
 <% end %>
