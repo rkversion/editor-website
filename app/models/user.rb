@@ -112,6 +112,8 @@ class User < ActiveRecord::Base
   before_save :update_tile
   after_save :spam_check
   after_save :reset_preferred_languages
+  after_commit :update_others, :unless => proc { |u| u.display_name_changed? && u.status != "deleted" }
+
 
   def to_param
     display_name
@@ -122,7 +124,8 @@ class User < ActiveRecord::Base
       user = find_by("email = ? OR display_name = ?", options[:username].strip, options[:username])
 
       if user.nil?
-        users = where("LOWER(email) = LOWER(?) OR LOWER(display_name) = LOWER(?)", options[:username].strip, options[:username])
+        users = where("LOWER(email) = LOWER(?) OR LOWER(display_name) = LOWER(?)", 
+		      options[:username].strip, options[:username])
 
         user = users.first if users.count == 1
       end
@@ -263,7 +266,9 @@ class User < ActiveRecord::Base
   def delete
     avatar.purge_later
 
+    email = self.email
     self.display_name = "user_#{id}"
+    self.email = "former-#{id}-#{self.email}"   # clean up later
     self.description = ""
     self.home_lat = nil
     self.home_lon = nil
@@ -272,8 +277,12 @@ class User < ActiveRecord::Base
     self.auth_provider = nil
     self.auth_uid = nil
     self.status = "deleted"
+    self.email = "example#{id}@example.com"
 
+    @deletion = true
     save
+    @deletion = false
+    delete_others(email)
   end
 
   ##
@@ -304,6 +313,45 @@ class User < ActiveRecord::Base
   # return an oauth access token for a specified application
   def access_token(application_key)
     ClientApplication.find_by(:key => application_key).access_token_for_user(self)
+  end
+
+  protected
+
+  @deletion = false
+
+  def update_others
+    if @deletion
+      return
+    end
+    if Settings.other_user_db_update_url.blank?
+      return
+    end
+#    uri = URI('http://localhost:3000/w/admin/api/v1/users/update.json')
+    uri = URI(Settings.other_user_db_update_url)
+    req = Net::HTTP::Post.new(uri, 'Content-Type' => 'application/json')
+    req.body = {user: {email: self.email, id: self.id, nik: self.display_name}}.to_json
+    res = Net::HTTP.start(uri.hostname, uri.port) do |http|
+      http.request(req)
+    end
+    if res.code != 200
+      logger.error("Failed user update @ #{uri.to_s} : #{res.body}")
+    end
+  end
+
+  def delete_others(email)
+   if Settings.other_user_db_delete_url.blank?
+      return
+    end
+#    uri = URI('http://localhost:3000/w/admin/api/v1/users/delete.json')
+    uri = URI(Settings.other_user_db_delete_url)
+    req = Net::HTTP::Post.new(uri, 'Content-Type' => 'application/json')
+    req.body = {user: {email: email}}.to_json
+    res = Net::HTTP.start(uri.hostname, uri.port) do |http|
+      http.request(req)
+    end
+    if res.code != 200
+      logger.error("Failed user delete @ #{uri.to_s} : #{res.body}")
+    end
   end
 
   private

@@ -137,6 +137,8 @@ gem "mini_magick"
 # optional for email sending
 gem 'sendgrid-actionmailer', '~> 2'
 
+gem 'tzinfo-data'
+
 # Gems useful for development
 group :development do
   gem "annotate"

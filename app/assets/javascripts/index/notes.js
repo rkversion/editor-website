@@ -1,4 +1,7 @@
 OSM.initializeNotes = function (map) {
+
+  var sitePrefix = document.querySelector('meta[name="site-prefix"]').content;
+
   var noteLayer = map.noteLayer,
       notes = {};
 
@@ -67,7 +70,7 @@ OSM.initializeNotes = function (map) {
     var size = bounds.getSize();
 
     if (size <= OSM.MAX_NOTE_REQUEST_AREA) {
-      var url = "/api/" + OSM.API_VERSION + "/notes.json?bbox=" + bounds.toBBoxString();
+      var url = sitePrefix + "/api/" + OSM.API_VERSION + "/notes.json?bbox=" + bounds.toBBoxString();
 
       if (noteLoader) noteLoader.abort();
 

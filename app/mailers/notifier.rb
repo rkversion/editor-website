@@ -175,7 +175,7 @@ class Notifier < ActionMailer::Base
   end
 
   def attach_project_logo
-    attachments.inline["logo.png"] = File.read(Rails.root.join("app", "assets", "images", "kartta-labs-logo.png"))
+    attachments.inline["logo.png"] = File.read(Rails.root.join("app", "assets", "images", "site-logo.png"))
   end
 
   def attach_user_avatar(user)

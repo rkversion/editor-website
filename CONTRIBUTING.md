@@ -1,7 +1,40 @@
+# How to Contribute
+
+We'd love to accept your patches and contributions to this project. There are
+just some guidelines you need to follow.
+
+## Contributor License Agreement
+
+Contributions to this project must be accompanied by a Contributor License
+Agreement. You (or your employer) retain the copyright to your contribution;
+this simply gives us permission to use and redistribute your contributions as
+part of the project. Head over to <https://cla.developers.google.com/> to see
+your current agreements on file or to sign a new one.
+
+You generally only need to submit a CLA once, so if you've already submitted one
+(even if it was for a different project), you probably don't need to do it
+again.
+
+## Code Reviews
+
+All submissions, including submissions by project members, require review. We
+use GitHub pull requests for this purpose. Consult
+[GitHub Help](https://help.github.com/articles/about-pull-requests/) for more
+information on using pull requests.
+
+## Community Guidelines
+
+This project follows [Google's Open Source Community
+Guidelines](https://opensource.google/conduct/).
+
+We also follow the guidelines of the original project for consistency.
+
+## Useful Links
+
 * https://www.ruby-lang.org/ - The homepage of Ruby which has more links and some great tutorials.
 * http://rubyonrails.org/ - The homepage of Rails, also has links and tutorials
 
-## Coding style
+## Coding Style
 
 We use [Rubocop](https://github.com/rubocop-hq/rubocop) (for ruby files)
 and [ERB Lint](https://github.com/Shopify/erb-lint) (for erb templates)
@@ -35,8 +68,6 @@ You can run the existing test suite with:
 ```
 bundle exec rake test
 ```
-
-
 
 ## Comments
 
@@ -74,7 +105,7 @@ other commits, namely:
 For simple commits the one line summary is often enough and the body
 of the commit message can be left out.
 
-## Sending the patches
+## Sending the Patches
 
 If you have forked on GitHub then the best way to submit your patches is to
 push your changes back to GitHub and then send a "pull request" on GitHub.

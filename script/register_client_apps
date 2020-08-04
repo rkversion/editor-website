@@ -1,0 +1,51 @@
+#!/usr/bin/env ruby
+
+# usage:
+#   register_client_apps SERVER_NAME WEBMASTER_EMAIL WEBMASTER_NAME
+#
+# Important note: to run this on the production database, prefix with env var setting:
+#
+#  RAILS_ENV=production register_client_apps SERVER_NAME WEBMASTER_EMAIL WEBMASTER_NAME
+#
+# Creates a "webmaster" user and registers the following 3 client applications
+# with that user, with full permissions:
+#
+#   iD
+#   Web Site
+#
+# It prints a YML snippet to stdout containing the keys for these applications, which
+# can then be added to config/settings.local.yml (this script does not modify
+# config/settings.local.yml).
+#
+# It is safe to run this script multiple times --- it checks for the existence
+# of the webmaster user and registered client applications before creating them.
+
+require File.dirname(__FILE__) + "/../config/environment"
+
+if ARGV.length() != 3
+  abort("usage: register_client_apps SERVER_NAME WEBMASTER_EMAIL WEBMASTER_NAME")
+end
+server_name = ARGV[0]
+webmaster_email = ARGV[1]
+webmaster_name = ARGV[2]
+
+unless webmaster = User.find_by_email(webmaster_email)
+  webmaster = User.new
+  webmaster.display_name = webmaster_name
+  webmaster.email = webmaster_email
+  webmaster.pass_crypt = SecureRandom.hex
+  webmaster.status = "active"
+  webmaster.save!
+end
+
+unless id = webmaster.client_applications.find_by_name("iD")
+  id = webmaster.client_applications.new
+  id.name = "iD"
+  id.url = "https://%s/" % server_name
+  ClientApplication.all_permissions.each { |p| id[p] = true }
+  id.save!
+end
+
+puts('id_key: "%s"' % id.key)
+puts('oauth_key: "%s"' % id.key)
+

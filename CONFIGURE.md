@@ -8,7 +8,7 @@ Many settings are available in `config/settings.yml`. You can customize your ins
 
 ## Populating the database
 
-Your installation comes with no geographic data loaded. You can either create new data using one of the editors (Potlatch 2, iD, JOSM etc) or by loading an extract.
+Your installation comes with no geographic data loaded. You can either create new data using one of the editors (iD, etc) or by loading an extract.
 
 
 ## Managing Users
@@ -42,42 +42,6 @@ $ bundle exec rails console
 => true
 >> quit
 ```
-
-## OAuth Consumer Keys
-
-Three of the built-in applications communicate via the API, and therefore need OAuth consumer keys configured. These are:
-
-* Potlatch 2
-* iD
-* The website itself (for the Notes functionality)
-
-For example, to use the Potlatch 2 editor you need to register it as an OAuth application.
-
-Do the following:
-* Log into your Rails Port instance - e.g. http://localhost:3000
-* Click on your user name to go to your user page
-* Click on "my settings" on the user page
-* Click on "oauth settings" on the My settings page
-* Click on 'Register your application'.
-* Unless you have set up alternatives, use Name: "Local Potlatch" and URL: "http://localhost:3000"
-* Check the 'modify the map' box.
-* Everything else can be left with the default blank values.
-* Click the "Register" button
-* On the next page, copy the "consumer key"
-* Edit config/settings.local.yml in your rails tree
-* Add the "potlatch2_key" configuration key and the consumer key as the value
-* Restart your rails server
-
-An example excerpt from settings.local.yml:
-
-```
-# Default editor
-default_editor: "potlatch2"
-# OAuth consumer key for Potlatch 2
-potlatch2_key: "8lFmZPsagHV4l3rkAHq0hWY5vV3Ctl3oEFY1aXth"
-```
-
-Follow the same process for registering and configuring iD (`id_key`) and the website/Notes (`oauth_key`), or to save time, simply reuse the same consumer key for each.
 
 ## Troubleshooting
 

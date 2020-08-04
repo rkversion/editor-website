@@ -9,13 +9,14 @@
 </head>
 <body>
 <% data = {} -%>
-<% if Settings.key?(:id_key) %>
-<% token = current_user.access_token(Settings.id_key) %>
-<% data[:token] = token.token -%>
-<% data[:token_secret] = token.secret -%>
-<% data[:consumer_key] = token.client_application.key -%>
-<% data[:consumer_secret] = token.client_application.secret -%>
-<% end %>
+<% data[:site_prefix] = Settings.key?(:site_prefix) ? Settings.site_prefix : "" %>
+<% #if Settings.key?(:id_key) %>
+<% #token = current_user.access_token(Settings.id_key) %>
+<% #data[:token] = token.token -%>
+<% #data[:token_secret] = token.secret -%>
+<% #data[:consumer_key] = token.client_application.key -%>
+<% #data[:consumer_secret] = token.client_application.secret -%>
+<% #end %>
 <%# data[:locale] = ID::LOCALES.preferred(preferred_languages).to_s -%>
 <% data[:locale] = "en" -%>
 <% data[:nominatim] = Settings.nominatim_url  %>

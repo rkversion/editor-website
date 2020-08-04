@@ -1,5 +1,6 @@
 $(document).ready(function () {
   var params = OSM.params();
+  var sitePrefix = document.querySelector('meta[name="site-prefix"]').content;
 
   if (params.lat && params.lon) {
     params.lat = parseFloat(params.lat);
@@ -17,7 +18,7 @@ $(document).ready(function () {
     $(".start-mapping").attr("href", url);
   } else {
     var geoSuccess = function (position) {
-      window.location = "/edit" + OSM.formatHash({
+      window.location = sitePrefix + "/edit" + OSM.formatHash({
         zoom: 17,
         lat: position.coords.latitude,
         lon: position.coords.longitude
@@ -41,6 +42,6 @@ $(document).ready(function () {
   }
 
   function manualEdit() {
-    window.location = "/?edit_help=1";
+    window.location = sitePrefix + "/?edit_help=1";
   }
 });

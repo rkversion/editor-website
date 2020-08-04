@@ -4,36 +4,6 @@ OSM.initializeContextMenu = function (map) {
   var querystring = require("querystring-component");
 
   map.contextmenu.addItem({
-    text: I18n.t("javascripts.context.directions_from"),
-    callback: function directionsFromHere(e) {
-      var precision = OSM.zoomPrecision(map.getZoom()),
-          latlng = e.latlng.wrap(),
-          lat = latlng.lat.toFixed(precision),
-          lng = latlng.lng.toFixed(precision);
-
-      OSM.router.route("/directions?" + querystring.stringify({
-        from: lat + "," + lng,
-        to: $("#route_to").val()
-      }));
-    }
-  });
-
-  map.contextmenu.addItem({
-    text: I18n.t("javascripts.context.directions_to"),
-    callback: function directionsToHere(e) {
-      var precision = OSM.zoomPrecision(map.getZoom()),
-          latlng = e.latlng.wrap(),
-          lat = latlng.lat.toFixed(precision),
-          lng = latlng.lng.toFixed(precision);
-
-      OSM.router.route("/directions?" + querystring.stringify({
-        from: $("#route_from").val(),
-        to: lat + "," + lng
-      }));
-    }
-  });
-
-  map.contextmenu.addItem({
     text: I18n.t("javascripts.context.add_note"),
     callback: function addNoteHere(e) {
       var precision = OSM.zoomPrecision(map.getZoom()),

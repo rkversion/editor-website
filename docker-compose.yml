@@ -1,0 +1,25 @@
+version: '3.3'
+services:
+  db:
+    image: postgres:11
+    environment:
+      POSTGRES_HOST_AUTH_METHOD: trust
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+  web:
+    build: .
+    command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    env_file: .env
+    secrets:                    
+     - bucket-service-account
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
+secrets:
+  bucket-service-account:
+    file:
+      ../uploads-bucket-service-account.json

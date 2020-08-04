@@ -1,4 +1,6 @@
+site_prefix = Settings.key?(:site_prefix) ? Settings.site_prefix : "/"
 OpenStreetMap::Application.routes.draw do
+ scope(:path => site_prefix) do
   # API
   namespace :api do
     get "capabilities" => "capabilities#show" # Deprecated, remove when 0.6 support is removed
@@ -148,6 +150,7 @@ OpenStreetMap::Application.routes.draw do
   get "/edit" => "site#edit"
   get "/copyright/:copyright_locale" => "site#copyright"
   get "/copyright" => "site#copyright"
+  get "/privacy" => "site#privacy"
   get "/welcome" => "site#welcome"
   get "/fixthemap" => "site#fixthemap"
   get "/help" => "site#help"
@@ -171,18 +174,10 @@ OpenStreetMap::Application.routes.draw do
   # match "/user/confirm" => "users#confirm", :via => [:get, :post]
   # match "/user/confirm-email" => "users#confirm_email", :via => [:get, :post]
   post "/user/go_public" => "users#go_public"
-  # match "/user/reset-password" => "users#reset_password", :via => [:get, :post]
-  # match "/user/forgot-password" => "users#lost_password", :via => [:get, :post]
   get "/user/suspended" => "users#suspended"
 
   get "/index.html", :to => redirect(:path => "/")
   get "/create-account.html", :to => redirect(:path => "/user/new")
-  # get "/forgot-password.html", :to => redirect(:path => "/user/forgot-password")
-
-  # omniauth
-  get "/auth/failure" => "users#auth_failure"
-  match "/auth/:provider/callback" => "users#auth_success", :via => [:get, :post], :as => :auth_success
-  match "/auth/:provider" => "users#auth", :via => [:get, :post], :as => :auth
 
   # permalink
   get "/go/:code" => "site#permalink", :code => /[a-zA-Z0-9_@~]+[=-]*/
@@ -288,12 +283,12 @@ OpenStreetMap::Application.routes.draw do
   scope "/user/:display_name" do
     resources :oauth_clients
   end
-  match "/oauth/revoke" => "oauth#revoke", :via => [:get, :post]
-  match "/oauth/authorize" => "oauth#authorize", :via => [:get, :post], :as => :authorize
-  get "/oauth/token" => "oauth#token", :as => :token
-  match "/oauth/request_token" => "oauth#request_token", :via => [:get, :post], :as => :request_token
-  match "/oauth/access_token" => "oauth#access_token", :via => [:get, :post], :as => :access_token
-  get "/oauth/test_request" => "oauth#test_request", :as => :test_request
+#  match "/oauth/revoke" => "oauth#revoke", :via => [:get, :post]
+#  match "/oauth/authorize" => "oauth#authorize", :via => [:get, :post], :as => :authorize
+#  get "/oauth/token" => "oauth#token", :as => :token
+#  match "/oauth/request_token" => "oauth#request_token", :via => [:get, :post], :as => :request_token
+#  match "/oauth/access_token" => "oauth#access_token", :via => [:get, :post], :as => :access_token
+#  get "/oauth/test_request" => "oauth#test_request", :as => :test_request
 
   # roles and banning pages
   post "/user/:display_name/role/:role/grant" => "user_roles#grant", :as => "grant_role"
@@ -324,4 +319,5 @@ OpenStreetMap::Application.routes.draw do
   match "/403", :to => "errors#forbidden", :via => :all
   match "/404", :to => "errors#not_found", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all
+ end
 end

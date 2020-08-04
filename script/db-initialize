@@ -1,0 +1,6 @@
+# must be run from the application top-level directory
+RAILS_ENV=development bundle exec rake db:create
+psql -h db -d editor_development -U postgres -c 'create extension btree_gist;'
+psql -h db -d editor_development -U postgres -f ./db/functions/sql/tile_for_point.sql
+psql -h db -d editor_development -U postgres -f ./db/functions/sql/xid_to_int4.sql
+RAILS_ENV=development bundle exec rake db:migrate

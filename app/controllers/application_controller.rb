@@ -3,9 +3,6 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery :with => :exception
 
-  rescue_from CanCan::AccessDenied, :with => :deny_access
-  check_authorization
-
   before_action :fetch_body
   around_action :better_errors_allow_inline, :if => proc { Rails.env.development? }
 
@@ -15,6 +12,16 @@ class ApplicationController < ActionController::Base
   private
 
   def authorize_web
+    if !session[:user]
+	 email = request.env["HTTP_X_EMAIL"]
+	 user = User.find_by(:email => email)
+	 if user
+           session[:user] = user.id
+	 else
+	   redirect_to :controller => "users", :action => "new"
+	 end
+
+    end
     if session[:user]
       self.current_user = User.where(:id => session[:user]).where("status IN ('active', 'confirmed', 'suspended')").first
 
@@ -34,7 +41,7 @@ class ApplicationController < ActionController::Base
           redirect_to :controller => "users", :action => "terms", :referer => request.fullpath
         end
       end
-    elsif session[:token]
+    elsif session[:token]   ## RK: do we still want && have a way to do this?
       session[:user] = current_user.id if self.current_user = User.authenticate(:token => session[:token])
     end
   rescue StandardError => e
@@ -46,30 +53,10 @@ class ApplicationController < ActionController::Base
   def require_user
     unless current_user
       if request.get?
-        redirect_to :controller => "users", :action => "login", :referer => request.fullpath
+        redirect_to :controller => "users", :action => "new", :referer => request.fullpath          
       else
         head :forbidden
       end
-    end
-  end
-
-  def require_oauth
-    @oauth = current_user.access_token(Settings.oauth_key) if current_user && Settings.key?(:oauth_key)
-  end
-
-  ##
-  # require the user to have cookies enabled in their browser
-  def require_cookies
-    if request.cookies["_osm_session"].to_s == ""
-      if params[:cookie_test].nil?
-        session[:cookie_test] = true
-        redirect_to params.to_unsafe_h.merge(:cookie_test => "true")
-        false
-      else
-        flash.now[:warning] = t "application.require_cookies.cookies_needed"
-      end
-    else
-      session.delete(:cookie_test)
     end
   end
 
@@ -267,6 +254,7 @@ class ApplicationController < ActionController::Base
   #
   # To work round this we call rewind on the body here, which is added
   # as a filter, to force it to be fetched from Apache into a file.
+  # RK: do we still need this w/ Nginx?
   def fetch_body
     request.body.rewind
   end

@@ -155,7 +155,8 @@ OSM.NewNote = function (map) {
 
     content.find("input[type=submit]").on("click", function (e) {
       e.preventDefault();
-      createNote(newNote, e.target.form, "/api/0.6/notes.json");
+      var sitePrefix = document.querySelector('meta[name="site-prefix"]').content;
+      createNote(newNote, e.target.form, sitePrefix + "/api/0.6/notes.json");
     });
 
     return map.getState();

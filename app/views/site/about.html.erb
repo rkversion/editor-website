@@ -1,10 +1,15 @@
-<div class='attr'>
+<% content_for :heading do %>
+  <h1><%= t ".title" %></h1>
+<% end %>
 
-  <%# <div class='user-image'></div> %>
+<p class='introduction'><%= t ".introduction" %></p>
 
-  <h1><%= raw t ".used_by", :name => "<span class='user-name'> Kartta-Labs Editor </span>" %></h1>
-</div>
+<p class='introduction'><%= t ".privacy_html", :privacy_path => privacy_path %></p>
 
+<p class='introduction'><%= t ".contact" %></p>
+
+
+<% if false %>
 <div class='text'>
   <div class='section'>
     <p><strong><%= t ".lede_text" %></strong></p>
@@ -29,3 +34,4 @@
 
  
 </div>
+<% end %>

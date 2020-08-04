@@ -6,10 +6,9 @@ class SiteController < ApplicationController
   before_action :set_locale
   before_action :redirect_browse_params, :only => :index
   before_action :redirect_map_params, :only => [:index, :edit, :export]
-  before_action :require_oauth, :only => [:index]
   before_action :update_totp, :only => [:index]
 
-  authorize_resource :class => false
+#  authorize_resource :class => false
 
   def index
     session[:location] ||= OSM.ip_location(request.env["REMOTE_ADDR"]) unless Settings.status == "database_readonly" || Settings.status == "database_offline"
@@ -61,20 +60,10 @@ class SiteController < ApplicationController
     editor = preferred_editor
 
     if editor == "remote"
-      require_oauth
       render :action => :index, :layout => map_layout
       return
     else
       require_user
-    end
-
-    if %w[potlatch potlatch2].include?(editor)
-      append_content_security_policy_directives(
-        :connect_src => %w[*],
-        :object_src => %w[*],
-        :plugin_types => %w[application/x-shockwave-flash],
-        :script_src => %w['unsafe-inline']
-      )
     end
 
     if params[:node]
@@ -103,6 +92,8 @@ class SiteController < ApplicationController
   def copyright
     @locale = params[:copyright_locale] || I18n.locale
   end
+
+  def privacy; end
 
   def welcome; end
 

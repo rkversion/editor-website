@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
       .assetMap(JSON.parse(container.dataset.assetMap))
       .locale(container.dataset.locale, container.dataset.localePath)
       .preauth({
-        urlroot: location.protocol + "//" + location.host,
+        urlroot: location.protocol + "//" + location.host + container.dataset.sitePrefix,
         oauth_consumer_key: container.dataset.consumerKey,
         oauth_secret: container.dataset.consumerSecret,
         oauth_token: container.dataset.token,

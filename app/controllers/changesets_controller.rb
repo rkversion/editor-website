@@ -39,7 +39,6 @@ class ChangesetsController < ApplicationController
     end
 
     if request.format == :html && !@params[:list]
-      require_oauth
       render :action => :history, :layout => map_layout
     else
       changesets = conditions_nonempty(Changeset.all)

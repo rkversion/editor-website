@@ -1,7 +1,19 @@
 class ApiController < ApplicationController
   skip_before_action :verify_authenticity_token
+  before_action :auto_login
 
   private
+
+  def auto_login
+    if self.current_user.nil?
+      email = request.env["HTTP_X_EMAIL"]
+      user = User.find_by(:email => email)
+      if !user.nil?
+        session[:user] = user.id
+        self.current_user = user
+      end
+    end
+  end
 
   def authorize(realm = "Web Password", errormessage = "Couldn't authenticate you")
     # make the current_user object from any auth sources we have
@@ -50,19 +62,6 @@ class ApiController < ApplicationController
   # from the authorize method, but can be called elsewhere if authorisation
   # is optional.
   def setup_user_auth
-    # try and setup using OAuth
-    unless Authenticator.new(self, [:token]).allow?
-      username, passwd = get_auth_data # parse from headers
-      # authenticate per-scheme
-      self.current_user = if username.nil?
-                            nil # no authentication provided - perhaps first connect (client should retry after 401)
-                          elsif username == "token"
-                            User.authenticate(:token => passwd) # preferred - random token for user from db, passed in basic auth
-                          else
-                            User.authenticate(:username => username, :password => passwd) # basic auth
-                          end
-    end
-
     # have we identified the user?
     if current_user
       # check if the user has been banned

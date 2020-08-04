@@ -1,17 +1,17 @@
 class UsersController < ApplicationController
   layout "site"
 
-  skip_before_action :verify_authenticity_token, :only => [:auth_success]
+  before_action :auto_login
+  skip_before_action :verify_authenticity_token
   before_action :disable_terms_redirect, :only => [:terms, :save, :logout]
-  before_action :authorize_web
+#  before_action :authorize_web
   before_action :set_locale
   before_action :check_database_readable
 
-  authorize_resource
+#  authorize_resource
 
   before_action :require_self, :only => [:account]
-  before_action :check_database_writable, :only => [:new, :account, :confirm, :confirm_email, :lost_password, :reset_password, :go_public, :make_friend, :remove_friend]
-  before_action :require_cookies, :only => [:new, :login, :confirm]
+  before_action :check_database_writable, :only => [:new, :account, :confirm, :confirm_email, :go_public, :make_friend, :remove_friend]
   before_action :lookup_user_by_name, :only => [:set_status, :delete]
   before_action :allow_thirdparty_images, :only => [:show, :account]
 
@@ -69,7 +69,12 @@ class UsersController < ApplicationController
         redirect_to :action => :account, :display_name => current_user.display_name
       end
     else
-      self.current_user = session.delete(:new_user)
+      new_user = session.delete(:new_user)
+      if new_user.is_a?(User)  # type depends on session store
+        self.current_user = new_user
+      else
+        self.current_user = User.new(new_user)
+      end
 
       if check_signup_allowed(current_user.email)
         current_user.data_public = true
@@ -86,10 +91,7 @@ class UsersController < ApplicationController
         end
 
         if current_user.save
-          flash[:piwik_goal] = PIWIK["goals"]["signup"] if defined?(PIWIK)
-
           referer = welcome_path
-
           begin
             uri = URI(session[:referer])
             %r{map=(.*)/(.*)/(.*)}.match(uri.fragment) do |m|
@@ -102,15 +104,18 @@ class UsersController < ApplicationController
             # Use default
           end
 
-          if current_user.status == "active"
-            session[:referer] = referer
-            successful_login(current_user)
-          else
-           # session[:token] = current_user.tokens.create.token
-           # Notifier.signup_confirm(current_user, current_user.tokens.create(:referer => referer)).deliver_later
-         #   redirect_to :action => "confirm", :display_name => current_user.display_name
+          if current_user.status != "active"
+            current_user.status = "active"
+	    current_user.email_valid = true
+            current_user.save!
           end
+          session[:referer] = referer
+          successful_login(current_user)
         else
+          logger.info("save: save failed: valid?:#{current_user.valid?}")
+          if current_user.errors
+            logger.info("save: current_user.errors:#{current_user.errors.full_messages}")
+          end
           render :action => "new", :referer => params[:referer]
         end
       end
@@ -144,59 +149,6 @@ class UsersController < ApplicationController
     redirect_to :action => "account", :display_name => current_user.display_name
   end
 
-  def lost_password
-    @title = t "users.lost_password.title"
-
-    if params[:user] && params[:user][:email]
-      user = User.visible.find_by(:email => params[:user][:email])
-
-      if user.nil?
-        users = User.visible.where("LOWER(email) = LOWER(?)", params[:user][:email])
-
-        user = users.first if users.count == 1
-      end
-
-      if user
-        token = user.tokens.create
-        Notifier.lost_password(user, token).deliver_later
-        flash[:notice] = t "users.lost_password.notice email on way"
-        redirect_to :action => "login"
-      else
-        flash.now[:error] = t "users.lost_password.notice email cannot find"
-      end
-    end
-  end
-
-  def reset_password
-    @title = t "users.reset_password.title"
-
-    if params[:token]
-      token = UserToken.find_by(:token => params[:token])
-
-      if token
-        self.current_user = token.user
-
-        if params[:user]
-          current_user.pass_crypt = params[:user][:pass_crypt]
-          current_user.pass_crypt_confirmation = params[:user][:pass_crypt_confirmation]
-          current_user.status = "active" if current_user.status == "pending"
-          current_user.email_valid = true
-
-          if current_user.save
-            token.destroy
-            flash[:notice] = t "users.reset_password.flash changed"
-            successful_login(current_user)
-          end
-        end
-      else
-        flash[:error] = t "users.reset_password.flash token bad"
-        redirect_to :action => "lost_password"
-      end
-    else
-      head :bad_request
-    end
-  end
-
   def new
     @title = t "users.new.title"
     @referer = params[:referer] || session[:referer]
@@ -213,23 +165,30 @@ class UsersController < ApplicationController
       else
         redirect_to :controller => "site", :action => "index"
       end
-    elsif params.key?(:auth_provider) && params.key?(:auth_uid)
-      self.current_user = User.new(:email => params[:email],
-                                   :email_confirmation => params[:email],
+    else
+      email = request.env["HTTP_X_EMAIL"]
+      if email.nil?
+	    redirect_to :controller => "site", :action => "index"
+      end
+      self.current_user = User.new(:email => email,
+                                   :email_confirmation => email,
                                    :display_name => params[:nickname],
                                    :auth_provider => params[:auth_provider],
-                                   :auth_uid => params[:auth_uid])
-
+                                   :auth_uid => email)
+      session[:new_user] = current_user
       flash.now[:notice] = render_to_string :partial => "auth_association"
-    else
-      check_signup_allowed
-
-      self.current_user = User.new
     end
   end
 
   def create
-    self.current_user = User.new(user_params)
+    new_user = session.delete(:new_user)
+    if new_user.is_a?(User)  # type depends on session store
+      self.current_user = new_user
+    else 
+      self.current_user = User.new(new_user)
+    end
+    current_user.display_name = params[:user][:display_name]
+    current_user.auth_provider = params[:user][:auth_provider]
 
     if check_signup_allowed(current_user.email)
       session[:referer] = params[:referer]
@@ -246,10 +205,6 @@ class UsersController < ApplicationController
       if current_user.invalid?
         # Something is wrong with a new user, so rerender the form
         render :action => "new"
-      elsif current_user.auth_provider.present?
-        # Verify external authenticator before moving on
-        session[:new_user] = current_user
-        redirect_to auth_url(current_user.auth_provider, current_user.auth_uid)
       else
         # Save the user record
         session[:new_user] = current_user
@@ -258,19 +213,19 @@ class UsersController < ApplicationController
     end
   end
 
-  def login
-    session[:referer] = params[:referer] if params[:referer]
-
-    if params[:username].present? && params[:password].present?
-      session[:remember_me] ||= params[:remember_me]
-      password_authentication(params[:username], params[:password])
+  def auto_login
+    if self.current_user.nil?
+      email = request.env["HTTP_X_EMAIL"]
+      user = User.find_by(:email => email)
+      if !user.nil?
+        session[:user] = user.id
+        self.current_user = user
+      end
     end
   end
-
+  
   def logout
     @title = t "users.logout.title"
-
-    if params[:session] == session.id
       if session[:token]
         token = UserToken.find_by(:token => session[:token])
         token&.destroy
@@ -278,12 +233,7 @@ class UsersController < ApplicationController
       end
       session.delete(:user)
       session_expires_automatically
-      if params[:referer]
-        redirect_to params[:referer]
-      else
-        redirect_to :controller => "site", :action => "index"
-      end
-    end
+      redirect_to Settings.sign_out_path || "/oauth2/sign_out"
   end
 
   def confirm
@@ -446,8 +396,20 @@ class UsersController < ApplicationController
   ##
   # delete a user, marking them as deleted and removing personal data
   def delete
-    @user.delete
-    redirect_to user_path(:display_name => params[:display_name])
+    email = request.env["HTTP_X_EMAIL"]
+    user = User.find_by(:email => email)
+    if user.delete
+      flash[:notice] = "deleted"
+      session.delete(:user)
+      session_expires_automatically
+      redirect_to Settings.sign_out_path || "/oauth2/sign_out"
+    else
+      logger.info("delete: failed: valid?:#{user.valid?}")
+      if user.errors
+        logger.error("delete: user.errors:#{user.errors.full_messages}")
+      end
+      redirect_to user_path(:display_name => params[:display_name])
+    end
   end
 
   ##
@@ -541,67 +503,13 @@ class UsersController < ApplicationController
     end
   end
 
-  ##
-  # omniauth failure callback
-  def auth_failure
-    flash[:error] = t("users.auth_failure." + params[:message])
-    redirect_to params[:origin] || login_url
-  end
-
   private
-
-  ##
-  # handle password authentication
-  def password_authentication(username, password)
-    if user = User.authenticate(:username => username, :password => password)
-      successful_login(user)
-    elsif user = User.authenticate(:username => username, :password => password, :pending => true)
-      unconfirmed_login(user)
-    elsif User.authenticate(:username => username, :password => password, :suspended => true)
-      failed_login t("users.login.account is suspended", :webmaster => "mailto:#{Settings.support_email}").html_safe, username
-    else
-      failed_login t("users.login.auth failure"), username
-    end
-  end
-
-  ##
-  # return the URL to use for authentication
-  def auth_url(provider, uid, referer = nil)
-    params = { :provider => provider }
-
-    params[:openid_url] = openid_expand_url(uid) if provider == "openid"
-
-    if referer.nil?
-      params[:origin] = request.path
-    else
-      params[:origin] = request.path + "?referer=" + CGI.escape(referer)
-      params[:referer] = referer
-    end
-
-    auth_path(params)
-  end
-
-  ##
-  # special case some common OpenID providers by applying heuristics to
-  # try and come up with the correct URL based on what the user entered
-  def openid_expand_url(openid_url)
-    if openid_url.nil?
-      nil
-    elsif openid_url.match(%r{(.*)gmail.com(/?)$}) || openid_url.match(%r{(.*)googlemail.com(/?)$})
-      # Special case gmail.com as it is potentially a popular OpenID
-      # provider and, unlike yahoo.com, where it works automatically, Google
-      # have hidden their OpenID endpoint somewhere obscure this making it
-      # somewhat less user friendly.
-      "https://www.google.com/accounts/o8/id"
-    else
-      openid_url
-    end
-  end
 
   ##
   # process a successful login
   def successful_login(user, referer = nil)
     session[:user] = user.id
+    
     session_expires_after 28.days if session[:remember_me]
 
     target = referer || session[:referer] || url_for(:controller => :site, :action => :index)
@@ -651,12 +559,6 @@ class UsersController < ApplicationController
   # update a user's details
   def update_user(user, params)
     user.display_name = params[:user][:display_name]
-    #user.new_email = params[:user][:new_email]
-
-    # unless params[:user][:pass_crypt].empty? && params[:user][:pass_crypt_confirmation].empty?
-    #   user.pass_crypt = params[:user][:pass_crypt]
-    #   user.pass_crypt_confirmation = params[:user][:pass_crypt_confirmation]
-    # end
 
     if params[:user][:description] != user.description
       user.description = params[:user][:description]
@@ -685,11 +587,6 @@ class UsersController < ApplicationController
                             else
                               params[:user][:preferred_editor]
                             end
-
-    # if params[:user][:auth_provider].nil? || params[:user][:auth_provider].blank?
-    #   user.auth_provider = nil
-    #   user.auth_uid = nil
-    # end
 
     if user.save
       set_locale(true)
@@ -806,4 +703,8 @@ class UsersController < ApplicationController
       t "users.account.gravatar.disabled"
     end
   end
+
 end
+
+
+

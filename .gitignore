@@ -5,6 +5,7 @@
 .ruby-version
 .vagrant
 .bundle
+.env
 app/assets/javascripts/i18n
 config/environments/*.local.yml
 config/piwik.yml

@@ -53,5 +53,8 @@ module OpenStreetMap
       config.logstasher.logger_path = Settings.logstash_path
       config.logstasher.log_controller_parameters = true
     end
+    if Settings.key?(:site_prefix)
+      config.assets.prefix = Settings.site_prefix + "/assets"
+    end
   end
 end

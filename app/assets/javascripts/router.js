@@ -51,6 +51,9 @@ OSM.Router = function (map, rts) {
   var optionalParam = /\((.*?)\)/g;
   var namedParam = /(\(\?)?:\w+/g;
   var splatParam = /\*\w+/g;
+  var id = $("#id-embed");
+
+  var sitePrefix = document.querySelector('meta[name="site-prefix"]').content
 
   function Route(path, controller) {
     var regexp = new RegExp("^" +
@@ -86,7 +89,9 @@ OSM.Router = function (map, rts) {
 
   var routes = [];
   for (var r in rts) {
-    routes.push(new Route(r, rts[r]));
+    var path = sitePrefix + r;
+    path = path.replace(/\/$/, '');
+    routes.push(new Route(path, rts[r]));
   }
 
   routes.recognize = function (path) {
@@ -115,8 +120,8 @@ OSM.Router = function (map, rts) {
     });
 
     router.route = function (url) {
-      var path = url.replace(/#.*/, ""),
-          route = routes.recognize(path);
+      var path = sitePrefix + url.replace(/#.*/, "");
+      var route = routes.recognize(path);
       if (!route) return false;
       currentRoute.run("unload", null, route === currentRoute);
       var state = OSM.parseHash(url);

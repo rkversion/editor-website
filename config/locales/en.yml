@@ -422,9 +422,9 @@ en:
       title:
         latlon: 'Results from <a href="https://openstreetmap.org/">Internal</a>'
         ca_postcode: 'Results from <a href="https://geocoder.ca/">Geocoder.CA</a>'
-        osm_nominatim: 'Results from Kartta Labs Nominatim'
+        osm_nominatim: 'Results from Nominatim'
         geonames: 'Results from <a href="http://www.geonames.org/">GeoNames</a>'
-        osm_nominatim_reverse: 'Results from Kartta Labs Nominatim'
+        osm_nominatim_reverse: 'Results from Nominatim'
         geonames_reverse: 'Results from <a href="http://www.geonames.org/">GeoNames</a>'
     search_osm_nominatim:
       prefix_format: "%{name}"
@@ -1003,7 +1003,7 @@ en:
         level10: "Suburb Boundary"
     description:
       title:
-        osm_nominatim: 'Location from Kartta Labs Nominatim'
+        osm_nominatim: 'Location from Nominatim'
         geonames: 'Location from <a href="http://www.geonames.org/">GeoNames</a>'
       types:
         cities: Cities
@@ -1119,11 +1119,11 @@ en:
   layouts:
     project_name:
       # in <title>
-      title: Kartta Labs Editor
+      title: Kartta Labs editor
       # in <h1>
-      h1: Kartta Labs Editor
+      h1: Kartta Labs editor
     logo:
-      alt_text: Kartta Labs Editor logo
+      alt_text: Kartta Labs editor logo
     home: Go to Home Location
     logout: Log Out
     log_in: Log In
@@ -1143,17 +1143,18 @@ en:
     user_diaries_tooltip: View user diaries
     edit_with: Edit with %{editor}
     tag_line: The Free Wiki World Map
-    intro_header: Welcome to the Kartta Labs Editor!
-    intro_text:  The Kartta Labs Editor is a historical map of the world. 
+    intro_header: Welcome to the Kartta Labs editor
+    intro_text: Kartta Labs is a historical map of the world. 
     intro_2_create_account: "Create a user account"
     hosting_partners_html: "Hosting is supported by %{ucl}, %{bytemark}, and other %{partners}."
     partners_ucl: "UCL"
     partners_bytemark: "Bytemark Hosting"
     partners_partners: "partners"
+    privacy: "Data Privacy / Terms"
     tou: "Terms of Use"
-    osm_offline: "The Kartta Labs Editor database is currently offline while essential database maintenance work is carried out."
-    osm_read_only: "The Kartta Labs Editor database is currently in read-only mode while essential database maintenance work is carried out."
-    donate: "Support OpenStreetMap by %{link} to the Hardware Upgrade Fund."
+    osm_offline: "The Kartta Labs editor database is currently offline while essential database maintenance work is carried out."
+    osm_read_only: "The Kartta Labs editor database is currently in read-only mode while essential database maintenance work is carried out."
+    #    donate: "Support OpenStreetMap by %{link} to the Hardware Upgrade Fund."
     help: Help
     about: About
     copyright: Copyright
@@ -1169,19 +1170,19 @@ en:
     more: More
   notifier:
     diary_comment_notification:
-      subject: "[Kartta Labs Editor] %{user} commented on a diary entry"
+      subject: "[Kartta Labs editor] %{user} commented on a diary entry"
       hi: "Hi %{to_user},"
-      header: "%{from_user} has commented on the Kartta Labs Editor  diary entry with the subject %{subject}:"
+      header: "%{from_user} has commented on the Kartta Labs editor  diary entry with the subject %{subject}:"
       footer: "You can also read the comment at %{readurl} and you can comment at %{commenturl} or reply at %{replyurl}"
     message_notification:
-      subject_header: "[Kartta Labs Editor] %{subject}"
+      subject_header: "[Kartta Labs editor] %{subject}"
       hi: "Hi %{to_user},"
-      header: "%{from_user} has sent you a message through The Kartta Labs Editor with the subject %{subject}:"
+      header: "%{from_user} has sent you a message through Kartta Labs editor with the subject %{subject}:"
       footer_html: "You can also read the message at %{readurl} and you can reply at %{replyurl}"
     friend_notification:
       hi: "Hi %{to_user},"
-      subject: "[Kartta Labs Editor] %{user} added you as a friend"
-      had_added_you: "%{user} has added you as a friend on The Kartta Labs Editor."
+      subject: "[Kartta Labs editor] %{user} added you as a friend"
+      had_added_you: "%{user} has added you as a friend on Kartta Labs editor."
       see_their_profile: "You can see their profile at %{userurl}."
       befriend_them: "You can also add them as a friend at %{befriendurl}."
     gpx_notification:
@@ -1191,22 +1192,22 @@ en:
       and_the_tags: "and the following tags:"
       and_no_tags: "and no tags."
       failure:
-        subject: "[Kartta Labs Editor] GPX Import failure"
+        subject: "[Kartta Labs editor] GPX Import failure"
         failed_to_import: "failed to import. Here is the error:"
         more_info_1: "More information about GPX import failures and how to avoid"
         more_info_2: "them can be found at:"
         import_failures_url: "https://wiki.openstreetmap.org/wiki/GPX_Import_Failures"
       success:
-        subject: "[Kartta Labs Editor] GPX Import success"
+        subject: "[Kartta Labs editor] GPX Import success"
         loaded_successfully: loaded successfully with %{trace_points} out of a possible %{possible_points} points.
     signup_confirm:
-      subject: "[Kartta Labs Editor] Welcome to The Kartta Labs Editor"
+      subject: "[Kartta Labs editor] Welcome to Kartta Labs editor"
       greeting: "Hi there!"
       created: "Someone (hopefully you) just created an account at %{site_url}."
       confirm: "Before we do anything else, we need to confirm that this request came from you, so if it did then please click the link below to confirm your account:"
       welcome: "After you confirm your account, we'll provide you with some additional information to get you started."
     email_confirm:
-      subject: "[Kartta Labs Editor] Confirm your email address"
+      subject: "[Kartta Labs editor] Confirm your email address"
     email_confirm_plain:
       greeting: "Hi,"
       hopefully_you: "Someone (hopefully you) would like to change their email address over at %{server_url} to %{new_address}."
@@ -1216,31 +1217,31 @@ en:
       hopefully_you: "Someone (hopefully you) would like to change their email address over at %{server_url} to %{new_address}."
       click_the_link: "If this is you, please click the link below to confirm the change."
     lost_password:
-      subject: "[Kartta Labs Editor] Password reset request"
+      subject: "[Kartta Labs editor] Password reset request"
     lost_password_plain:
       greeting: "Hi,"
-      hopefully_you: "Someone (possibly you) has asked for the password to be reset on this email address's Kartta Labs Editor account."
+      hopefully_you: "Someone (possibly you) has asked for the password to be reset on this email address's Kartta Labs editor account."
       click_the_link: "If this is you, please click the link below to reset your password."
     lost_password_html:
       greeting: "Hi,"
-      hopefully_you: "Someone (possibly you) has asked for the password to be reset on this email address's  Kartta Labs Editor account."
+      hopefully_you: "Someone (possibly you) has asked for the password to be reset on this email address's  Kartta Labs editor account."
       click_the_link: "If this is you, please click the link below to reset your password."
     note_comment_notification:
       anonymous: An anonymous user
       greeting: "Hi,"
       commented:
-        subject_own: "[Kartta Labs Editor] %{commenter} has commented on one of your notes"
-        subject_other: "[Kartta Labs Editor] %{commenter} has commented on a note you are interested in"
+        subject_own: "[Kartta Labs editor] %{commenter} has commented on one of your notes"
+        subject_other: "[Kartta Labs editor] %{commenter} has commented on a note you are interested in"
         your_note: "%{commenter} has left a comment on one of your map notes near %{place}."
         commented_note: "%{commenter} has left a comment on a map note you have commented on. The note is near %{place}."
       closed:
-        subject_own: "[Kartta Labs Editor] %{commenter} has resolved one of your notes"
-        subject_other: "[Kartta Labs Editor] %{commenter} has resolved a note you are interested in"
+        subject_own: "[Kartta Labs editor] %{commenter} has resolved one of your notes"
+        subject_other: "[Kartta Labs editor] %{commenter} has resolved a note you are interested in"
         your_note: "%{commenter} has resolved one of your map notes near %{place}."
         commented_note: "%{commenter} has resolved a map note you have commented on. The note is near %{place}."
       reopened:
-        subject_own: "[Kartta Labs Editor] %{commenter} has reactivated one of your notes"
-        subject_other: "[Kartta Labs Editor] %{commenter} has reactivated a note you are interested in"
+        subject_own: "[Kartta Labs editor] %{commenter} has reactivated one of your notes"
+        subject_other: "[Kartta Labs editor] %{commenter} has reactivated a note you are interested in"
         your_note: "%{commenter} has reactivated one of your map notes near %{place}."
         commented_note: "%{commenter} has reactivated a map note you have commented on. The note is near %{place}."
       details: "More details about the note can be found at %{url}."
@@ -1248,8 +1249,8 @@ en:
       hi: "Hi %{to_user},"
       greeting: "Hi,"
       commented:
-        subject_own: "[Kartta Labs Editor] %{commenter} has commented on one of your changesets"
-        subject_other: "[Kartta Labs Editor] %{commenter} has commented on a changeset you are interested in"
+        subject_own: "[Kartta Labs editor] %{commenter} has commented on one of your changesets"
+        subject_other: "[Kartta Labs editor] %{commenter} has commented on a changeset you are interested in"
         your_changeset: "%{commenter} has left a comment on one of your changesets created at %{time}"
         commented_changeset: "%{commenter} has left a comment on a map changeset you are watching created by %{changeset_author} at %{time}"
         partial_changeset_with_comment: "with comment '%{changeset_comment}'"
@@ -1328,7 +1329,7 @@ en:
     about:
       next: Next
       copyright_html: 
-      used_by: "Kartta Labs Editor"
+      used_by: "Kartta Labs editor"
       lede_text: |
         lede_text
       local_knowledge_title: Local Knowledge
@@ -1357,13 +1358,13 @@ en:
       legal_babble:
         title_html: Copyright and License
         intro_1_html: |
-          OpenStreetMap<sup><a href="#trademarks">&reg;</a></sup> is <i>open data</i>, licensed under the <a
+          Kartta Labs<sup><a href="#trademarks">&reg;</a></sup> is <i>open data</i>, licensed under the <a
           href="https://opendatacommons.org/licenses/odbl/">Open Data
           Commons Open Database License</a> (ODbL) by the  <a
           href="https://osmfoundation.org/">OpenStreetMap Foundation</a> (OSMF).
         intro_2_html: |
           You are free to copy, distribute, transmit and adapt our data,
-          as long as you credit OpenStreetMap and its
+          as long as you credit Kartta Labs and its
           contributors. If you alter or build upon our data, you
           may distribute the result only under the same licence. The
           full <a href="https://opendatacommons.org/licenses/odbl/1.0/">legal
@@ -1372,9 +1373,9 @@ en:
           The cartography in our map tiles, and our documentation, are
           licensed under the <a href="https://creativecommons.org/licenses/by-sa/2.0/">Creative
           Commons Attribution-ShareAlike 2.0</a> license (CC BY-SA).
-        credit_title_html: How to credit OpenStreetMap
+        credit_title_html: How to credit Kartta Labs
         credit_1_html: |
-          We require that you use the credit &ldquo;&copy; OpenStreetMap
+          We require that you use the credit &ldquo;&copy; Kartta Labs
           contributors&rdquo;.
         credit_2_html: |
           You must also make it clear that the data is available under the Open
@@ -1384,21 +1385,20 @@ en:
           Alternatively, and as a requirement if you are distributing OSM in a
           data form, you can name and link directly to the license(s). In media
           where links are not possible (e.g. printed works), we suggest you
-          direct your readers to openstreetmap.org (perhaps by expanding
-          'OpenStreetMap' to this full address), to opendatacommons.org, and
+          direct your readers to openstreetmap.org, to opendatacommons.org, and
           if relevant, to creativecommons.org.
         credit_3_html: |
           For a browsable electronic map, the credit should appear in the corner of the map.
           For example:
         attribution_example:
-          alt: Example of how to attribute OpenStreetMap on a webpage
+          alt: Example of how to attribute Kartta Labs on a webpage
           title: Attribution example
         more_title_html: Finding out more
         more_1_html: |
           Read more about using our data, and how to credit us, at the <a
           href="https://osmfoundation.org/Licence">OSMF Licence page</a>.
         more_2_html: |
-          Although OpenStreetMap is open data, we cannot provide a
+          Although Kartta Labs is open data, we cannot provide a
           free-of-charge map API for third-parties.
           See our <a href="https://operations.osmfoundation.org/policies/api/">API Usage Policy</a>,
           <a href="https://operations.osmfoundation.org/policies/tiles/">Tile Usage Policy</a>
@@ -1461,12 +1461,12 @@ en:
           2010-19.
         contributors_footer_1_html: |
           For further details of these, and other sources that have been used
-          to help improve OpenStreetMap, please see the <a
+          to help improve Kartta Labs, please see the <a
           href="https://wiki.openstreetmap.org/wiki/Contributors">Contributors
           page</a> on the OpenStreetMap Wiki.
         contributors_footer_2_html: |
-          Inclusion of data in OpenStreetMap does not imply that the original
-          data provider endorses OpenStreetMap, provides any warranty, or
+          Inclusion of data in Kartta Labs does not imply that the original
+          data provider endorses Kartta Labs, provides any warranty, or
           accepts any liability.
         infringement_title_html: Copyright infringement
         infringement_1_html: |
@@ -1475,7 +1475,7 @@ en:
           explicit permission from the copyright holders.
         infringement_2_html: |
           If you believe that copyrighted material has been inappropriately
-          added to the OpenStreetMap database or this site, please refer
+          added to the Kartta Labs database or this site, please refer
           to our <a href="https://www.osmfoundation.org/wiki/License/Takedown_procedure">takedown
           procedure</a> or file directly at our
           <a href="http://dmca.openstreetmap.org/">on-line filing page</a>.
@@ -1484,7 +1484,7 @@ en:
           OpenStreetMap, the magnifying glass logo and State of the Map are registered trademarks of the OpenStreetMap Foundation. If you have questions about your use of the marks, please see our <a href="https://wiki.osmfoundation.org/wiki/Trademark_Policy">Trademark Policy</a>.
     index:
       js_1: "You are either using a browser that does not support JavaScript, or you have disabled JavaScript."
-      js_2: "The Kartta Labs Editor uses JavaScript for its slippy map."
+      js_2: "The Kartta Labs editor uses JavaScript for its slippy map."
       permalink: Permalink
       shortlink: Shortlink
       createnote: Add a note
@@ -1500,10 +1500,6 @@ en:
       anon_edits: "(%{link})"
       anon_edits_link: "https://wiki.openstreetmap.org/wiki/Disabling_anonymous_edits"
       anon_edits_link_text: "Find out why this is the case."
-      flash_player_required: 'You need a Flash player to use Potlatch, the OpenStreetMap Flash editor. You can <a href="https://get.adobe.com/flashplayer/">download Flash Player from Adobe.com</a>. <a href="https://wiki.openstreetmap.org/wiki/Editing">Several other options</a> are also available for editing OpenStreetMap.'
-      potlatch_unsaved_changes: "You have unsaved changes. (To save in Potlatch, you should deselect the current way or point, if editing in live mode, or click save if you have a save button.)"
-      potlatch2_not_configured: "Potlatch 2 has not been configured - please see https://wiki.openstreetmap.org/wiki/The_Rails_Port#Potlatch_2 for more information"
-      potlatch2_unsaved_changes: "You have unsaved changes. (To save in Potlatch 2, you should click save.)"
       id_not_configured: "iD has not been configured"
       no_iframe_support: "Your browser doesn't support HTML iframes, which are necessary for this feature."
     export:
@@ -1515,16 +1511,16 @@ en:
       map_image: "Map Image (shows standard layer)"
       embeddable_html: "Embeddable HTML"
       licence: "Licence"
-      export_details: 'OpenStreetMap data is licensed under the <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Data Commons Open Database License</a> (ODbL).'
+      export_details: 'Kartta Labs data is licensed under the <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open Data Commons Open Database License</a> (ODbL).'
       too_large:
         advice: "If the above export fails, please consider using one of the sources listed below:"
         body: "This area is too large to be exported as .osm XML Data. Please zoom in or select a smaller area, or use one of the sources listed below for bulk data downloads."
         planet:
           title: "Planet"
-          description: "Regularly-updated copies of the complete Kartta Labs Editor database"
+          description: "Regularly-updated copies of the complete Kartta Labs editor database"
         overpass:
           title: "Overpass API"
-          description: "Download this bounding box from a mirror of the OpenStreetMap database"
+          description: "Download this bounding box from a mirror of the Kartta Labs database"
         geofabrik:
           title: "Geofabrik Downloads"
           description: "Regularly-updated extracts of continents, countries, and selected cities"
@@ -1533,7 +1529,7 @@ en:
           description: "Extracts for major world cities and their surrounding areas"
         other:
           title: "Other Sources"
-          description: "Additional sources listed on the Kartta Labs Editor wiki"
+          description: "Additional sources listed on the Kartta Labs editor wiki"
       options: "Options"
       format: "Format"
       scale: "Scale"
@@ -1554,7 +1550,7 @@ en:
           title: Join the community
           explanation_html: |
             If you have noticed a problem with our map data, for example a road is missing or your address, the best way to
-            proceed is to join the OpenStreetMap community and add or repair the data yourself.
+            proceed is to join the Kartta Labs community and add or repair the data yourself.
         add_a_note:
           instructions_html: |
             Just click <a class='icon note'></a> or the same icon on the map display.
@@ -1566,13 +1562,15 @@ en:
           If you have concerns about how our data is being used or about the contents please consult our
           <a href='/copyright'>copyright page</a> for more legal information, or contact the appropriate
           <a href='https://wiki.osmfoundation.org/wiki/Working_Groups'>OSMF working group</a>.
+    privacy:
+      title: Data Privacy & Terms of Service
     help:
       title: Getting Help
       introduction: |
         introduction paragraph
       welcome:
         url: /welcome
-        title: Welcome to The Kartta Labs Editor
+        title: Welcome to The Kartta Labs editor
         description: Start with this quick guide covering the basics.
       beginners_guide:
         url: https://wiki.openstreetmap.org/wiki/Beginners%27_guide
@@ -1709,13 +1707,13 @@ en:
     welcome:
       title: Welcome!
       introduction_html: |
-        Welcome to the Kartta Labs Editor! Now that you're signed
+        Welcome to the Kartta Labs editor! Now that you're signed
         up, you're all set to get started mapping. Here's a quick guide with the most important
         things you need to know.
       whats_on_the_map:
         title: What's on the Map
         on_html: |
-          The Kartta Labs Editor is a place for mapping things from the past it includes millions of buildings, roads, and other details about places. 
+          The Kartta Labs editor is a place for mapping things from the past it includes millions of buildings, roads, and other details about places. 
           You can map whatever real-world features are interesting to you.
         off_html: |
           What it <em>doesn't</em> include is opinionated data like ratings or
@@ -1737,7 +1735,7 @@ en:
       rules:
         title: Rules!
         paragraph_1_html: |
-          OpenStreetMap has few formal rules but we expect all participants to collaborate
+          Kartta Labs has few formal rules but we expect all participants to collaborate
           with, and communicate with, the community. If you are considering
           any activities other than editing by hand, please read and follow the guidelines on
           <a href='https://wiki.openstreetmap.org/wiki/Import/Guidelines'>Imports</a> and
@@ -1745,9 +1743,9 @@ en:
       questions:
         title: Any questions?
         paragraph_1_html: |
-          OpenStreetMap has several resources for learning about the project, asking and answering
+          Kartta Labs has several resources for learning about the project, asking and answering
           questions, and collaboratively discussing and documenting mapping topics.
-          <a href='%{help_url}'>Get help here</a>. With an organization making plans for OpenStreetMap? <a href='https://welcome.openstreetmap.org/'>Check out the Welcome Mat</a>.
+          <a href='%{help_url}'>Get help here</a>. With an organization making plans for Kartta Labs? <a href='https://welcome.openstreetmap.org/'>Check out the Welcome Mat</a>.
       start_mapping: Start Mapping
       add_a_note:
         title: No Time To Edit? Add a Note!
@@ -1861,8 +1859,8 @@ en:
     offline:
       heading: "GPX Storage Offline"
       message: "The GPX file storage and upload system is currently unavailable."
-    georss:
-      title: "OpenStreetMap GPS Traces"
+      #    georss:
+      #      title: "OpenStreetMap GPS Traces"
     description:
       description_with_count:
         one: "GPX file with %{count} point from %{user}"
@@ -1875,7 +1873,7 @@ en:
     require_admin:
       not_an_admin: You need to be an admin to perform that action.
     setup_user_auth:
-      blocked_zero_hour: "You have an urgent message on the OpenStreetMap web site. You need to read the message before you will be able to save your edits."
+      blocked_zero_hour: "You have an urgent message on the Kartta Labs web site. You need to read the message before you will be able to save your edits."
       blocked: "Your access to the API has been blocked. Please log-in to the web interface to find out more."
       need_to_see_terms: "Your access to the API is temporarily suspended. Please log-in to the web interface to view the Contributor Terms. You do not need to agree, but you must view them."
   oauth:
@@ -2454,8 +2452,8 @@ en:
         gps: Public GPS Traces
         overlays: Enable overlays for troubleshooting the map
         title: "Layers"
-      copyright: "© <a href='%{copyright_url}'>OpenStreetMap contributors</a>"
-      donate_link_text: "<a class='donate-attr' href='%{donate_url}'>Make a Donation</a>"
+      copyright: "© <a href='%{copyright_url}'>Kartta Labs contributors</a>"
+      #      donate_link_text: "<a class='donate-attr' href='%{donate_url}'>Make a Donation</a>"
       terms: "<a href='%{terms_url}' target='_blank'>Website and API terms</a>"
     site:
       edit_tooltip: Edit the map

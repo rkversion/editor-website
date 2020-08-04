@@ -10,25 +10,25 @@
 
 <%= form_for current_user, :url => { :action => "create" }, :html => { :class => "standard-form fillL col6 inner22" } do |f| %>
   <%= hidden_field_tag("referer", h(@referer)) unless @referer.nil? %>
-  <% if false #comment out signing up with email %>
-  <fieldset>
-    <div class="form-row">
-      <label for="email" class="standard-label">
-        <%= t ".email address" %>
-      </label>
-      <%= f.email_field(:email, :tabindex => 1) %>
-      <%= f.error_message_on(:email) %>
-    </div>
-    <div class="form-row">
-      <label for="email_confirmation" class="standard-label">
-        <%= t ".confirm email address" %>
-      </label>
-      <%= f.email_field(:email_confirmation, :tabindex => 2) %>
-      <%= f.error_message_on(:email_confirmation) %>
-    </div>
-    <span class="form-help deemphasize"><%= raw(t(".not displayed publicly")) %></span>
-  </fieldset>
-  <% end %>
+                <% if false #comment out signing up with email %>
+                <fieldset>
+                  <div class="form-row">
+                    <label for="email" class="standard-label">
+                      <%= t ".email address" %>
+                    </label>
+                    <%= f.email_field(:email, :tabindex => 1) %>
+                    <%= f.error_message_on(:email) %>
+                  </div>
+                  <div class="form-row">
+                    <label for="email_confirmation" class="standard-label">
+                      <%= t ".confirm email address" %>
+                    </label>
+                    <%= f.email_field(:email_confirmation, :tabindex => 2) %>
+                    <%= f.error_message_on(:email_confirmation) %>
+                  </div>
+                  <span class="form-help deemphasize"><%= raw(t(".not displayed publicly")) %></span>
+                </fieldset>
+                <% end %>
   <fieldset>
     <div class="form-row">
       <label for="display_name" class="standard-label">
@@ -39,40 +39,40 @@
     </div>
     <span class="form-help deemphasize"><%= t ".display name description" %></span>
   </fieldset>
-<% if false %>
-  <fieldset class="form-divider" id="auth_field">
-    <div class="form-row">
-      <label for="openid_url" class="standard-label">
-        <%= raw t ".external auth" %>
-      </label>
-      <%= f.select(:auth_provider, Auth::PROVIDERS, :default => "", :tabindex => 4) %>
-      <%= f.text_field(:auth_uid, :tabindex => 5) %>
-      <%= f.error_message_on(:auth_uid) %>
-    </div>
-    <span class="form-help deemphasize"><%= t ".auth no password" %></span>
-  </fieldset>
-
-  <fieldset>
-    <div class="form-row">
-      <label for='user[pass_crypt]' class="standard-label">
-        <%= t ".password" %>
-      </label>
-      <%= f.password_field(:pass_crypt, :tabindex => 6) %>
-      <%= f.error_message_on(:pass_crypt) %>
-    </div>
-    <div class="form-row">
-      <label class="standard-label">
-        <%= t ".confirm password" %>
-      </label>
-      <%= f.password_field(:pass_crypt_confirmation, :tabindex => 7) %>
-      <%= f.error_message_on(:pass_crypt_confirmation) %>
-    </div>
-  </fieldset>
-
-  <div id="auth_prompt" class="form-row">
-    <%= link_to raw(t(".use external auth")), "#", :id => "auth_enable" %>
-  </div>
-<% end %>
+              <% if false %>
+                <fieldset class="form-divider" id="auth_field">
+                  <div class="form-row">
+                    <label for="openid_url" class="standard-label">
+                      <%= raw t ".external auth" %>
+                    </label>
+                    <%= f.select(:auth_provider, Auth::PROVIDERS, :default => "", :tabindex => 4) %>
+                    <%= f.text_field(:auth_uid, :tabindex => 5) %>
+                    <%= f.error_message_on(:auth_uid) %>
+                  </div>
+                  <span class="form-help deemphasize"><%= t ".auth no password" %></span>
+                </fieldset>
+              
+                <fieldset>
+                  <div class="form-row">
+                    <label for='user[pass_crypt]' class="standard-label">
+                      <%= t ".password" %>
+                    </label>
+                    <%= f.password_field(:pass_crypt, :tabindex => 6) %>
+                    <%= f.error_message_on(:pass_crypt) %>
+                  </div>
+                  <div class="form-row">
+                    <label class="standard-label">
+                      <%= t ".confirm password" %>
+                    </label>
+                    <%= f.password_field(:pass_crypt_confirmation, :tabindex => 7) %>
+                    <%= f.error_message_on(:pass_crypt_confirmation) %>
+                  </div>
+                </fieldset>
+              
+                <div id="auth_prompt" class="form-row">
+                  <%= link_to raw(t(".use external auth")), "#", :id => "auth_enable" %>
+                </div>
+              <% end %>
 
   <%= f.hidden_field(:auth_provider, value: "google")%>
   <%= f.hidden_field(:auth_uid)%>
@@ -84,4 +84,11 @@
 <div class='aside col6 deemphasize inner22'>
   <h4><%= t ".about.header" %></h4>
   <%= t ".about.html" %>
+
+  By continuing on this website, you acknowledge that you have read our 
+  <%= link_to "Privacy Policy", privacy_path %> and accepted its terms.  You should
+  only make contributions that you have the full authority to give us a license to
+  share publicly.  You can delete your account on our site at any time, but any contributions
+  you have made will be retained in our database, although we will remove any identifying details
+  which associates those contributions with you or your account.
 </div>

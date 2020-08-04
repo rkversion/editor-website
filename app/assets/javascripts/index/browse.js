@@ -64,7 +64,8 @@ OSM.initializeBrowse = function (map) {
 
   function getData() {
     var bounds = map.getBounds();
-    var url = "/api/" + OSM.API_VERSION + "/map?bbox=" + bounds.toBBoxString();
+    var sitePrefix = document.querySelector('meta[name="site-prefix"]').content;
+    var url = sitePrefix + "/api/" + OSM.API_VERSION + "/map?bbox=" + bounds.toBBoxString();
 
     /*
      * Modern browsers are quite happy showing far more than 100 features in

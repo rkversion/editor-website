@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  database: editor_development
+  host: db
+  username: postgres
+  password:
+  pool: 5
