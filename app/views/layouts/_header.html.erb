@@ -1,14 +1,5 @@
 <header class="closed">
-  <h1>
-    <a href="<%= root_path %>" class="geolink">
-      <picture>
-        <source srcset="<%= image_path "site-logo.png" %>" type="image/png"></source>
-        <%= image_tag "site-logo.png", :srcset => image_path("site-logo.png"), :alt => t("layouts.logo.alt_text"), :class => "logo" %>
-      </picture>
-      <!--  <%= t "layouts.project_name.h1" %> -->
-    </a>
-    <div id="kartta-app-menu-placeholder" ></div>
-  </h1>
+  <div id="kartta-app-menu-placeholder" ></div>
   <a href="#" id="menu-icon"></a>
   <nav class='primary'>
     <%= content_for :header %>
