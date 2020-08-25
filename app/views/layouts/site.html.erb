@@ -2,6 +2,7 @@
 <html lang="<%= I18n.locale %>" dir="<%= dir %>">
   <%= render :partial => "layouts/head" %>
   <body class="<%= body_class %>">
+    <div id="kartta-app-cookie-bar"></div>
     <%= render :partial => "layouts/header" %>
     <%= render :partial => "layouts/content" %>
     <% if defined?(PIWIK) -%>

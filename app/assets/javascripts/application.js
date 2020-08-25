@@ -141,4 +141,13 @@ $(document).ready(function () {
   if (application_data.location) {
     OSM.location = application_data.location;
   }
+
+  // Force the content div to appear exactly under the header.  This is needed to ensure correct positioning
+  // when the top cookie bar is present.
+  const header = $("header");
+  if (header) {
+    const newTop = header.offset().top + header.height();
+    $("#content").css({"top": newTop + "px"});
+  }
+
 });
