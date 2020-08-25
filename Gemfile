@@ -71,12 +71,6 @@ gem "rack-uri_sanitizer"
 
 # Omniauth for authentication
 gem "omniauth"
-gem "omniauth-facebook"
-gem "omniauth-github"
-gem "omniauth-google-oauth2", ">= 0.6.0"
-gem "omniauth-mediawiki", ">= 0.0.4"
-gem "omniauth-openid"
-gem "omniauth-windowslive"
 
 # Markdown formatting support
 gem "kramdown"
