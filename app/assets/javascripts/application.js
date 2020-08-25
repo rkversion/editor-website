@@ -144,9 +144,9 @@ $(document).ready(function () {
 
   // Force the content div to appear exactly under the header.  This is needed to ensure correct positioning
   // when the top cookie bar is present.
-  const header = $("header");
+  var header = $("header");
   if (header) {
-    const newTop = header.offset().top + header.height();
+    var newTop = header.offset().top + header.height();
     $("#content").css({"top": newTop + "px"});
   }
 
