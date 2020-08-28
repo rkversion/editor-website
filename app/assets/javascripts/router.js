@@ -52,8 +52,7 @@ OSM.Router = function (map, rts) {
   var namedParam = /(\(\?)?:\w+/g;
   var splatParam = /\*\w+/g;
   var id = $("#id-embed");
-
-  var sitePrefix = document.querySelector('meta[name="site-prefix"]').content
+  var sitePrefix = document.querySelector('meta[name="site-prefix"]').content;
 
   function Route(path, controller) {
     var regexp = new RegExp("^" +
@@ -72,7 +71,6 @@ OSM.Router = function (map, rts) {
 
     route.run = function (action, path) {
       var params = [];
-
       if (path) {
         params = regexp.exec(path).map(function (param, i) {
           return (i > 0 && param) ? decodeURIComponent(param) : param;
@@ -80,7 +78,6 @@ OSM.Router = function (map, rts) {
       }
 
       params = params.concat(Array.prototype.slice.call(arguments, 2));
-
       return (controller[action] || $.noop).apply(controller, params);
     };
 
@@ -99,11 +96,9 @@ OSM.Router = function (map, rts) {
       if (this[i].match(path)) return this[i];
     }
   };
-
   var currentPath = window.location.pathname.replace(/(.)\/$/, "$1") + window.location.search,
       currentRoute = routes.recognize(currentPath),
       currentHash = location.hash || OSM.formatHash(map);
-
   var router = {};
 
   if (window.history && window.history.pushState) {
@@ -120,13 +115,19 @@ OSM.Router = function (map, rts) {
     });
 
     router.route = function (url) {
-      var path = sitePrefix + url.replace(/#.*/, "");
+      var path = url.replace(/#.*/, "");
+      if (path.startsWith(sitePrefix + '/') || (path === sitePrefix)) {
+        ;
+      } else {
+        path = sitePrefix + path;
+      }
+
       var route = routes.recognize(path);
       if (!route) return false;
       currentRoute.run("unload", null, route === currentRoute);
       var state = OSM.parseHash(url);
       map.setState(state);
-      window.history.pushState(state, document.title, url);
+      window.history.pushState(state, document.title, path);
       currentPath = path;
       currentRoute = route;
       currentRoute.run("pushstate", currentPath);
