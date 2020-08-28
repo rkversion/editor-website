@@ -25,6 +25,6 @@ Rails.application.config.assets.precompile += %w[images/marker-*.png img/*-handl
 Rails.application.config.assets.precompile += %w[help/introduction.*]
 Rails.application.config.assets.precompile += %w[iD/img/*.svg iD/img/*.png iD/img/*.gif]
 Rails.application.config.assets.precompile += %w[iD/img/pattern/*.png]
-Rails.application.config.assets.precompile += %w[iD/locales/*.json]
+Rails.application.config.assets.precompile += %w[iD/locales/en.json]
 Rails.application.config.assets.precompile += %w[iD/mapillary-js/*]
 Rails.application.config.assets.precompile += %w[iD/pannellum-streetside/*]
