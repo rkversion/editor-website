@@ -16,7 +16,6 @@
 //= require index/history
 //= require index/note
 //= require index/new_note
-//= require index/directions
 //= require index/changeset
 //= require index/query
 //= require router
@@ -361,7 +360,6 @@ $(document).ready(function () {
   OSM.router = OSM.Router(map, {
     "/": OSM.Index(map),
     "/search": OSM.Search(map),
-    "/directions": OSM.Directions(map),
     "/export": OSM.Export(map),
     "/note/new": OSM.NewNote(map),
     "/history/friends": history,
