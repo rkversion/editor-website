@@ -2170,7 +2170,7 @@ en:
         not yet agreed: "You have not yet agreed to the new Contributor Terms."
         review link text: "Please follow this link at your convenience to review and accept the new Contributor Terms."
         agreed_with_pd: "You have also declared that you consider your edits to be in the Public Domain."
-        link: "htts://example.com/Contributor_Terms"
+        link: "/faq"
         link text: "what is this?"
       profile description: "Profile Description:"
       preferred languages: "Preferred Languages:"
