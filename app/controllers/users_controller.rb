@@ -49,7 +49,7 @@ class UsersController < ApplicationController
           redirect_to :action => :account, :display_name => current_user.display_name
         end
       elsif params[:decline]
-        redirect_to t("users.terms.declined")
+        redirect_to Settings.terms_declined_url
       else
         redirect_to :action => :terms
       end
