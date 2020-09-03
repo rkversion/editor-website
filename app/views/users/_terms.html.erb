@@ -1,47 +1,40 @@
-<p id="first">
-  <%= raw @text["intro"] %> <br />
-  <%= raw @text["next_with_decline"] %>
+<p>
+  <%= Settings.site_name %>
+  relies on crowdsourcing to create a historical
+  map of the world. We have two major web applications to
+  support this process: Warper and Editor. Warper lets you
+  upload scans of historical maps and georectify them by adding
+  control points to the historical map and corresponding points
+  on a contemporary map. The scanned map is then warped so that
+  it aligns well with the underlying contemporary map. Warped
+  maps can then be viewed in the Editor web application, where
+  users can trace map features such as building footprints,
+  roads, etc. and add information (metadata) about each feature
+  such as the number of floors of a building or the name of a
+  road.
 </p>
-<!-- 
-<h3><%= raw @text["introduction"] %></h3>
-<ol>
-  <li>
-    <p><%= raw @text["section_1"] %></p>
-    <% unless @text['section_1a'].nil? %>
-    <ol>
-      <li><%= raw @text["section_1a"] %></li>
-      <li><%= raw @text["section_1b"] %></li>
-    </ol>
-    <% end %>
-  </li>
-</ol>
-<h3><%= raw @text["rights_granted"] %></h3>
-<ol start="2">
-  <li>
-    <p><%= raw @text["section_2"] %></p>
-  </li>
-  <li>
-    <p><%= raw @text["section_3"] %></p>
-    <p><%= raw @text["active_defn_1"] %></p>
-    <p><%= raw @text["active_defn_2"] %></p>
-    </ul>
-  </li>
-  <li>
-    <p><%= raw @text["section_4"] %></p>
-  </li>
-  <li>
-    <p><%= raw @text["section_5"] %></p>
-  </li>
-</ol>
-<h3><%= raw @text["limitation_of_liability"] %></h3>
-<ol start="6">
-  <li><p><%= raw @text["section_6"] %></p></li>
-  <li><p><%= raw @text["section_7"] %></p></li>
-</ol>
-<h3><%= raw @text["miscellaneous"] %></h3>
-<ol start="8">
-  <li>
-    <p id="last"><%= raw @text["section_8"] %></p>
-  </li>
-</ol>
--->
+
+
+<h3>Contributions and Maps</h3>
+
+<p>
+  <b>Maps:</b> When you upload a map to Warper  you agree that you are lawfully entitled and have full authority to
+  license this website to use the uploaded map and make it publicly available. You can delete your maps at any
+  time. Deleting a map also deletes all its associated Contributions in Warper. Any Contribution made in Editor
+  using the deleted map as a background stays indefinitely in our database and is not meant to be deleted. If
+  you believe someone has uploaded a Map that is not theirs, or that you own the copyright to, you can contact
+  us at <a href="mailto:<%= Settings.support_email %>"><%= Settings.support_email %></a> with your concerns.<br>
+</p>
+<p>
+  <b>Contributions:</b> You can contribute to this project by adding/deleting/modifying control points of Maps in Warper.
+  A control point associates a point on a Map with its location on a contemporary map. A collection of control
+  points are then used to rectify the Map. You can also quickly and roughly place Maps that are not rectified yet.
+  This will help others to add control points. Finally, you can help us by cropping the Maps. All of these data
+  points are considered your “Contributions” in Warper.
+  You can also contribute by tracing rectified maps from Warper with Editor. To do this you load the rectified
+  map as the background map of Editor and trace the map features (building footprints, roads, etc.) and add metadata
+  (street address, number of floors, start date, etc.). The traced map features and their metadata might be extracted
+  from the historical map or your personal knowledge. You can also delete/modify the map features and metadata
+  created by others. All of these data points are considered your “Contributions” in Editor.
+  When we say Contributions in this document we mean your Contributions in both Warper and Editor, unless otherwise specified.
+</p>

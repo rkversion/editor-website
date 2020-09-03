@@ -1,4 +1,5 @@
 site_prefix: "/e"
+site_name: "Kartta Labs"
 shared_assets_path: "/assets"
 site_title: "Kartta-Labs editor"
 sign_out_path: "/oauth2/sign_out"
