@@ -1,18 +1,18 @@
 # The server protocol and host
 server_protocol: "http"
-server_url: "openstreetmap.example.com"
+server_url: "kartta-labs.example.com"
 # Publisher
 #publisher_url: ""
 # The generator
-generator: "OpenStreetMap server"
-copyright_owner: "OpenStreetMap and contributors"
-attribution_url: "http://www.openstreetmap.org/copyright"
+generator: "Kartta Labs server"
+copyright_owner: "Kartta Labs"
+attribution_url: "http://example.org/copyright"
 license_url: "http://opendatacommons.org/licenses/odbl/1-0/"
 # Support email address
-support_email: "openstreetmap@example.com"
+support_email: "kartta-labs@example.com"
 # Sender addresses for emails
-email_from: "OpenStreetMap <openstreetmap@example.com>"
-email_return_path: "openstreetmap@example.com"
+email_from: "Kartta Labs <kartta-labs@example.com>"
+email_return_path: "kartta-labs@example.com"
 # API version
 api_version: "0.6"
 # Application status - possible values are:
@@ -46,7 +46,7 @@ user_block_periods: [0, 1, 3, 6, 12, 24, 48, 96, 168, 336, 731, 4383, 8766, 8766
 # Rate limit for message sending
 max_messages_per_hour: 60
 # Domain for handling message replies
-#messages_domain: "messages.openstreetmap.org"
+#messages_domain: "messages.example.org"
 # Geonames authentication details
 #geonames_username: ""
 # GeoIP database
@@ -82,12 +82,6 @@ oauth_10_support: true
 nominatim_url: "https://nominatim.openstreetmap.org/"
 # Default editor
 default_editor: "id"
-# OAuth consumer key for Potlatch 2
-#potlatch2_key: ""
-# OAuth consumer key for the web site
-#oauth_key: ""
-# OAuth consumer key for iD
-#id_key: ""
 # Imagery to return in capabilities as blacklisted
 imagery_blacklist:
   # Current Google imagery URLs have google or googleapis in the domain
@@ -102,22 +96,6 @@ overpass_url: ""
 # Routing endpoints
 graphhopper_url: ""
 fossgis_osrm_url: ""
-# External authentication credentials
-#google_auth_id: ""
-#google_auth_secret: ""
-#google_openid_realm: ""
-#facebook_auth_id: ""
-#facebook_auth_secret: ""
-#windowslive_auth_id: ""
-#windowslive_auth_secret: ""
-#github_auth_id: ""
-#github_auth_secret: ""
-#wikipedia_auth_id: ""
-#wikipedia_auth_secret: ""
-# Thunderforest authentication details
-#thunderforest_key: ""
-# Key for generating TOTP tokens
-#totp_key: ""
 # Enforce Content-Security-Policy
 csp_enforce: false
 # URL for reporting Content-Security-Policy violations
