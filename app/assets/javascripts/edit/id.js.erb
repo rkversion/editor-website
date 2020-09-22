@@ -35,12 +35,6 @@ $(document).ready(function () {
     if (hashParams.source) params.source = hashParams.source;
     if (hashParams.walkthrough) params.walkthrough = hashParams.walkthrough;
 
-    if (id.data("gpx")) {
-      params.gpx = id.data("gpx");
-    } else if (hashParams.gpx) {
-      params.gpx = hashParams.gpx;
-    }
-
     id.attr("src", id.data("url") + "#" + querystring.stringify(params));
   } else {
     alert(I18n.t("site.edit.id_not_configured"));

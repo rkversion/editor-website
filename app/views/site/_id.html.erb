@@ -4,7 +4,6 @@
   <% data = { :key => Settings.id_key } -%>
   <% data[:lat] = @lat if @lat -%>
   <% data[:lon] = @lon if @lon -%>
-  <% data[:gpx] = trace_data_url(params[:gpx], :format => :xml) if params[:gpx] -%>
   <%# data[:url] = id_url(:locale => params[:locale]) -%>
   <% data[:url] = id_url(:locale => "en") -%>
   <% data[:nominatim] = Settings.nominatim_url %>

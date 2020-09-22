@@ -16,8 +16,6 @@
 #  allow_write_prefs :boolean          default(FALSE), not null
 #  allow_write_diary :boolean          default(FALSE), not null
 #  allow_write_api   :boolean          default(FALSE), not null
-#  allow_read_gpx    :boolean          default(FALSE), not null
-#  allow_write_gpx   :boolean          default(FALSE), not null
 #  allow_write_notes :boolean          default(FALSE), not null
 #
 # Indexes
@@ -106,7 +104,7 @@ class ClientApplication < ActiveRecord::Base
   # this is the set of permissions that the client can ask for. clients
   # have to say up-front what permissions they want and when users sign up they
   # can agree or not agree to each of them.
-  PERMISSIONS = [:allow_read_prefs, :allow_write_prefs, :allow_write_diary, :allow_write_api, :allow_read_gpx, :allow_write_gpx, :allow_write_notes].freeze
+  PERMISSIONS = [:allow_read_prefs, :allow_write_prefs, :allow_write_diary, :allow_write_api, :allow_write_notes].freeze
 
   def generate_keys
     self.key = OAuth::Helper.generate_key(40)[0, 40]

@@ -14,7 +14,6 @@ class ApiAbility
     if Settings.status != "database_offline"
       can [:show, :download, :query], Changeset
       can [:index, :create, :comment, :feed, :show, :search], Note
-      can :index, Tracepoint
       can [:index, :show], User
       can [:index, :show], Node
       can [:index, :show, :full, :ways_for_node], Way
@@ -33,8 +32,6 @@ class ApiAbility
         can [:new, :create, :reply, :show, :inbox, :outbox, :mark, :destroy], Message
         can [:close, :reopen], Note
         can [:new, :create], Report
-        can [:create, :show, :update, :destroy, :data], Trace
-        can [:details, :gpx_files], User
         can [:read, :read_one, :update, :update_one, :delete_one], UserPreference
 
         if user.terms_agreed?

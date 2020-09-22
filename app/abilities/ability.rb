@@ -19,7 +19,6 @@ class Ability
       can [:index, :rss, :show, :comments], DiaryEntry
       can [:mine], Note
       can [:index, :show], Redaction
-      can [:index, :show, :data, :georss, :picture, :icon], Trace
       can [:terms, :login, :logout, :new, :create, :save, :confirm, :confirm_resend, :confirm_email, :lost_password, :reset_password, :show, :auth_success, :auth_failure], User
       can [:index, :show, :blocks_on, :blocks_by], UserBlock
       can [:index, :show], Node
@@ -40,7 +39,6 @@ class Ability
         can [:new, :create, :reply, :show, :inbox, :outbox, :mark, :destroy], Message
         can [:close, :reopen], Note
         can [:new, :create], Report
-        can [:mine, :new, :create, :edit, :update, :delete], Trace
         can [:account, :go_public, :make_friend, :remove_friend], User
 
         if user.moderator?
