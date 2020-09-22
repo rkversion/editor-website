@@ -45,7 +45,6 @@ module Api
         format.rss
         format.xml
         format.json
-        format.gpx
       end
     end
 
@@ -218,7 +217,6 @@ module Api
         format.xml
         format.rss
         format.json
-        format.gpx
       end
     end
 
@@ -305,7 +303,6 @@ module Api
         format.rss { render :action => :index }
         format.xml { render :action => :index }
         format.json { render :action => :index }
-        format.gpx { render :action => :index }
       end
     end
 

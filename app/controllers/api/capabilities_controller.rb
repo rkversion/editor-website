@@ -8,11 +8,9 @@ module Api
     # parameters of the API. It currently returns:
     # * minimum and maximum API versions that can be used.
     # * maximum area that can be requested in a bbox request in square degrees
-    # * number of tracepoints that are returned in each tracepoints page
     def show
       @database_status = database_status
       @api_status = api_status
-      @gpx_status = gpx_status
     end
   end
 end

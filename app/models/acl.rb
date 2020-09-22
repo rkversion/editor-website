@@ -36,8 +36,4 @@ class Acl < ActiveRecord::Base
   def self.no_note_comment(address, domain = nil)
     match(address, :domain => domain).where(:k => "no_note_comment").exists?
   end
-
-  def self.no_trace_download(address, domain = nil)
-    match(address, :domain => domain).where(:k => "no_trace_download").exists?
-  end
 end

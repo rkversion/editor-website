@@ -10,12 +10,10 @@
 # Configuration parameters: AllowSafeAssignment.
 Lint/AssignmentInCondition:
   Exclude:
-    - 'app/controllers/api/traces_controller.rb'
     - 'app/controllers/api/user_preferences_controller.rb'
     - 'app/controllers/application_controller.rb'
     - 'app/controllers/geocoder_controller.rb'
     - 'app/controllers/notes_controller.rb'
-    - 'app/controllers/traces_controller.rb'
     - 'app/controllers/users_controller.rb'
     - 'app/helpers/application_helper.rb'
     - 'app/helpers/browse_tags_helper.rb'
@@ -126,7 +124,6 @@ Rails/HelperInstanceVariable:
   Exclude:
     - 'app/helpers/application_helper.rb'
     - 'app/helpers/title_helper.rb'
-    - 'app/helpers/trace_helper.rb'
 
 # Offense count: 5
 # Configuration parameters: Include.

@@ -3,7 +3,7 @@ module Api
     layout "site", :except => [:api_details]
 
     before_action :disable_terms_redirect, :only => [:details]
-    before_action :authorize, :only => [:details, :gpx_files]
+    before_action :authorize, :only => [:details]
 
     authorize_resource
 
@@ -34,11 +34,6 @@ module Api
       @users = User.visible.find(ids)
 
       render :content_type => "text/xml"
-    end
-
-    def gpx_files
-      @traces = current_user.traces.reload
-      render :content_type => "application/xml"
     end
 
     private

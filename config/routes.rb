@@ -60,8 +60,6 @@ OpenStreetMap::Application.routes.draw do
 
     get "map" => "api/map#index"
 
-    get "trackpoints" => "api/tracepoints#index"
-
     get "changes" => "api/changes#index"
 
     get "search" => "api/search#search_all", :as => "api_search"
@@ -71,7 +69,6 @@ OpenStreetMap::Application.routes.draw do
 
     get "user/:id" => "api/users#show", :id => /\d+/
     get "user/details" => "api/users#details"
-    get "user/gpx_files" => "api/users#gpx_files"
     get "users" => "api/users#index", :as => :api_users
 
     get "user/preferences" => "api/user_preferences#read"
@@ -79,13 +76,6 @@ OpenStreetMap::Application.routes.draw do
     put "user/preferences" => "api/user_preferences#update"
     put "user/preferences/:preference_key" => "api/user_preferences#update_one"
     delete "user/preferences/:preference_key" => "api/user_preferences#delete_one"
-
-    post "gpx/create" => "api/traces#create"
-    get "gpx/:id" => "api/traces#show", :id => /\d+/
-    put "gpx/:id" => "api/traces#update", :id => /\d+/
-    delete "gpx/:id" => "api/traces#destroy", :id => /\d+/
-    get "gpx/:id/details" => "api/traces#show", :id => /\d+/
-    get "gpx/:id/data" => "api/traces#data"
 
     # AMF (ActionScript) API
     post "amf/read" => "api/amf#amf_read"
@@ -108,7 +98,6 @@ OpenStreetMap::Application.routes.draw do
     post "notes/addPOIexec" => "api/notes#create"
     post "notes/closePOIexec" => "api/notes#close"
     post "notes/editPOIexec" => "api/notes#comment"
-    get "notes/getGPX" => "api/notes#index", :format => "gpx"
     get "notes/getRSSfeed" => "api/notes#feed", :format => "rss"
   end
 
@@ -186,31 +175,6 @@ OpenStreetMap::Application.routes.draw do
   post "/preview/:type" => "site#preview", :as => :preview
 
   get "/tou" => "site#tou"
-
-  # traces
-  resources :traces, :except => [:show]
-  get "/user/:display_name/traces/tag/:tag/page/:page" => "traces#index", :page => /[1-9][0-9]*/
-  get "/user/:display_name/traces/tag/:tag" => "traces#index"
-  get "/user/:display_name/traces/page/:page" => "traces#index", :page => /[1-9][0-9]*/
-  get "/user/:display_name/traces" => "traces#index"
-  get "/user/:display_name/traces/tag/:tag/rss" => "traces#georss", :defaults => { :format => :rss }
-  get "/user/:display_name/traces/rss" => "traces#georss", :defaults => { :format => :rss }
-  get "/user/:display_name/traces/:id" => "traces#show"
-  get "/user/:display_name/traces/:id/picture" => "traces#picture"
-  get "/user/:display_name/traces/:id/icon" => "traces#icon"
-  get "/traces/tag/:tag/page/:page" => "traces#index", :page => /[1-9][0-9]*/
-  get "/traces/tag/:tag" => "traces#index"
-  get "/traces/page/:page" => "traces#index", :page => /[1-9][0-9]*/
-  get "/traces/tag/:tag/rss" => "traces#georss", :defaults => { :format => :rss }
-  get "/traces/rss" => "traces#georss", :defaults => { :format => :rss }
-  get "/traces/mine/tag/:tag/page/:page" => "traces#mine", :page => /[1-9][0-9]*/
-  get "/traces/mine/tag/:tag" => "traces#mine"
-  get "/traces/mine/page/:page" => "traces#mine"
-  get "/traces/mine" => "traces#mine"
-  get "/trace/create", :to => redirect(:path => "/traces/new")
-  get "/trace/:id/data" => "traces#data", :id => /\d+/, :as => "trace_data"
-  get "/trace/:id/edit", :to => redirect(:path => "/traces/%{id}/edit")
-  post "/trace/:id/delete" => "traces#delete", :id => /\d+/
 
   # diary pages
   resources :diary_entries, :path => "diary", :only => [:new, :create, :index] do

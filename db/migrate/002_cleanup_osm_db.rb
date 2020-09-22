@@ -37,24 +37,6 @@ class CleanupOsmDb < ActiveRecord::Migration[4.2]
 
     add_index "friends", ["user_id"], :name => "friends_user_id_idx"
 
-    remove_index "gps_points", :name => "points_uid_idx"
-    remove_index "gps_points", :name => "points_idx"
-    remove_column "gps_points", "user_id"
-    add_index "gps_points", %w[latitude longitude], :name => "points_idx"
-    change_column "gps_points", "trackid", :integer, :null => false
-    change_column "gps_points", "latitude", :integer, :null => false
-    change_column "gps_points", "longitude", :integer, :null => false
-    change_column "gps_points", "gpx_id", :bigint, :null => false
-
-    change_column "gpx_file_tags", "tag", :string, :null => false
-
-    change_column "gpx_files", "user_id", :bigint, :null => false
-    change_column "gpx_files", "timestamp", :datetime, :null => false
-    change_column "gpx_files", "description", :string, :default => "", :null => false
-    change_column "gpx_files", "inserted", :boolean, :null => false
-
-    drop_table "gpx_pending_files"
-
     remove_index "messages", :name => "from_name_idx"
     remove_column "messages", "user_id"
     remove_column "messages", "from_display_name"
@@ -164,26 +146,6 @@ class CleanupOsmDb < ActiveRecord::Migration[4.2]
     add_column "messages", "from_display_name", :string, :default => ""
     add_column "messages", "user_id", :bigint, :null => false
     add_index "messages", ["from_display_name"], :name => "from_name_idx"
-
-    create_table "gpx_pending_files", :id => false do |t|
-      t.column "originalname", :string
-      t.column "tmpname", :string
-      t.column "user_id", :bigint
-    end
-
-    change_column "gpx_files", "inserted", :boolean
-    change_column "gpx_files", "description", :string, :default => ""
-    change_column "gpx_files", "timestamp", :datetime
-    change_column "gpx_files", "user_id", :bigint
-
-    change_column "gpx_file_tags", "tag", :string, :default => nil
-
-    change_column "gps_points", "gpx_id", :integer
-    change_column "gps_points", "longitude", :integer
-    change_column "gps_points", "latitude", :integer
-    change_column "gps_points", "trackid", :integer
-    add_column "gps_points", "user_id", :integer
-    add_index "gps_points", ["user_id"], :name => "points_uid_idx"
 
     remove_index "friends", :name => "friends_user_id_idx"
 
