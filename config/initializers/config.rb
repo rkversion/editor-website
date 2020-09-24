@@ -22,7 +22,6 @@ ALLOWED_STATUS ||= [
   "api_offline",       # site online but API offline
   "database_readonly", # database and site in read-only mode
   "database_offline",  # database offline with site in emergency mode
-  "gpx_offline"        # gpx storage offline
 ].freeze
 
 Config.setup do |config|
@@ -72,7 +71,6 @@ Config.setup do |config|
     required(:api_version).filled(:str?)
     required(:max_request_area).filled(:number?)
     required(:max_note_request_area).filled(:number?)
-    required(:tracepoints_per_page).filled(:int?)
     required(:max_number_of_way_nodes).filled(:int?)
     required(:api_timeout).filled(:int?)
     required(:imagery_blacklist).maybe(:array?)
