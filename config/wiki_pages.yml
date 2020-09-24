@@ -463,7 +463,6 @@ cs:
     monitoring:bicycle: Cs:Key:monitoring:bicycle
     monitoring:galileo: Cs:Key:monitoring:galileo
     monitoring:glonass: Cs:Key:monitoring:glonass
-    monitoring:gps: Cs:Key:monitoring:gps
     monitoring:groundwater: Cs:Key:monitoring:groundwater
     monitoring:meteoric_activity: Cs:Key:monitoring:meteoric activity
     monitoring:noise: Cs:Key:monitoring:noise
@@ -2563,7 +2562,6 @@ de:
     mofa: DE:Key:mofa
     monitoring:air_quality: DE:Key:monitoring:air quality
     monitoring:bicycle: DE:Key:monitoring:bicycle
-    monitoring:gps: DE:Key:monitoring:gps
     monitoring:groundwater: DE:Key:monitoring:groundwater
     monitoring:noise: DE:Key:monitoring:noise
     monitoring:radiation: DE:Key:monitoring:radiation
@@ -5198,7 +5196,6 @@ en:
     monitoring:bicycle: Key:monitoring:bicycle
     monitoring:galileo: Key:monitoring:galileo
     monitoring:glonass: Key:monitoring:glonass
-    monitoring:gps: Key:monitoring:gps
     monitoring:groundwater: Key:monitoring:groundwater
     monitoring:meteoric_activity: Key:monitoring:meteoric activity
     monitoring:noise: Key:monitoring:noise
@@ -9679,7 +9676,6 @@ es:
     memorial: ES:Key:memorial
     monitoring:galileo: ES:Key:monitoring:galileo
     monitoring:glonass: ES:Key:monitoring:glonass
-    monitoring:gps: ES:Key:monitoring:gps
     motorhome: ES:Key:motorhome
     motorroad: ES:Key:motorroad
     mountain_pass: ES:Key:mountain pass
@@ -12718,7 +12714,6 @@ ja:
     min_height: JA:Key:min height
     minspeed: JA:Key:minspeed
     monitoring:air_quality: JA:Key:monitoring:air quality
-    monitoring:gps: JA:Key:monitoring:gps
     monitoring:noise: JA:Key:monitoring:noise
     monitoring:water_level: JA:Key:monitoring:water level
     monitoring:weather: JA:Key:monitoring:weather
