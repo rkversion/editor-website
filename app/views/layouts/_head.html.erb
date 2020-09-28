@@ -35,5 +35,6 @@
   <%= yield :auto_discovery_link_tag %>
   <%= csrf_meta_tag %>
   <%= csp_meta_tag %>
+  <%= render :partial => "layouts/google_analytics" %>
   <title><%= @title + " | " if @title %><%= t "layouts.project_name.title" %></title>
 <% end %>
