@@ -15,7 +15,6 @@ xml.tag! "user", :id => user.id,
     end
   end
   xml.tag! "changesets", :count => user.changesets.size
-  # xml.tag! "traces", :count => user.traces.size
   xml.tag! "blocks" do
     xml.tag! "received", :count => user.blocks.size,
                          :active => user.blocks.active.size

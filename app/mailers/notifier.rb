@@ -40,31 +40,6 @@ class Notifier < ActionMailer::Base
     end
   end
 
-  def gpx_success(trace, possible_points)
-    with_recipient_locale trace.user do
-      @trace_name = trace.name
-      @trace_points = trace.size
-      @trace_description = trace.description
-      @trace_tags = trace.tags
-      @possible_points = possible_points
-
-      mail :to => trace.user.email,
-           :subject => I18n.t("notifier.gpx_notification.success.subject")
-    end
-  end
-
-  def gpx_failure(trace, error)
-    with_recipient_locale trace.user do
-      @trace_name = trace.name
-      @trace_description = trace.description
-      @trace_tags = trace.tags
-      @error = error
-
-      mail :to => trace.user.email,
-           :subject => I18n.t("notifier.gpx_notification.failure.subject")
-    end
-  end
-
   def message_notification(message)
     with_recipient_locale message.recipient do
       @to_user = message.recipient.display_name

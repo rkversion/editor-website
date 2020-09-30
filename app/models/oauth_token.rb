@@ -16,8 +16,6 @@
 #  allow_write_prefs     :boolean          default(FALSE), not null
 #  allow_write_diary     :boolean          default(FALSE), not null
 #  allow_write_api       :boolean          default(FALSE), not null
-#  allow_read_gpx        :boolean          default(FALSE), not null
-#  allow_write_gpx       :boolean          default(FALSE), not null
 #  callback_url          :string
 #  verifier              :string(20)
 #  scope                 :string

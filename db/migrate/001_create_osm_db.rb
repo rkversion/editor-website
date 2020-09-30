@@ -72,51 +72,6 @@ class CreateOsmDb < ActiveRecord::Migration[4.2]
 
     add_index "friends", ["friend_user_id"], :name => "user_id_idx"
 
-    create_table "gps_points", :id => false do |t|
-      t.column "altitude",  :float
-      t.column "user_id",   :integer
-      t.column "trackid",   :integer
-      t.column "latitude",  :integer
-      t.column "longitude", :integer
-      t.column "gpx_id",    :integer
-      t.column "timestamp", :datetime
-    end
-
-    add_index "gps_points", %w[latitude longitude user_id], :name => "points_idx"
-    add_index "gps_points", ["user_id"], :name => "points_uid_idx"
-    add_index "gps_points", ["gpx_id"], :name => "points_gpxid_idx"
-
-    create_table "gpx_file_tags", :id => false do |t|
-      t.column "gpx_id", :bigint, :default => 0, :null => false
-      t.column "tag",    :string
-      t.column "id",     :bigserial, :primary_key => true, :null => false
-    end
-
-    add_index "gpx_file_tags", ["gpx_id"], :name => "gpx_file_tags_gpxid_idx"
-
-    create_table "gpx_files", :id => false do |t|
-      t.column "id",          :bigserial, :primary_key => true, :null => false
-      t.column "user_id",     :bigint
-      t.column "visible",     :boolean, :default => true, :null => false
-      t.column "name",        :string, :default => "", :null => false
-      t.column "size",        :bigint
-      t.column "latitude",    :float, :limit => 53
-      t.column "longitude",   :float, :limit => 53
-      t.column "timestamp",   :datetime
-      t.column "public",      :boolean, :default => true, :null => false
-      t.column "description", :string, :default => ""
-      t.column "inserted",    :boolean
-    end
-
-    add_index "gpx_files", ["timestamp"], :name => "gpx_files_timestamp_idx"
-    add_index "gpx_files", %w[visible public], :name => "gpx_files_visible_public_idx"
-
-    create_table "gpx_pending_files", :id => false do |t|
-      t.column "originalname", :string
-      t.column "tmpname",      :string
-      t.column "user_id",      :bigint
-    end
-
     create_table "messages", :id => false do |t|
       t.column "id",                :bigserial, :primary_key => true, :null => false
       t.column "user_id",           :bigint, :null => false

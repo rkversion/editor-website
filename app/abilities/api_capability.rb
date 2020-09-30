@@ -6,10 +6,7 @@ class ApiCapability
   def initialize(token)
     if Settings.status != "database_offline"
       can [:create, :comment, :close, :reopen], Note if capability?(token, :allow_write_notes)
-      can [:show, :data], Trace if capability?(token, :allow_read_gpx)
-      can [:create, :update, :destroy], Trace if capability?(token, :allow_write_gpx)
       can [:details], User if capability?(token, :allow_read_prefs)
-      can [:gpx_files], User if capability?(token, :allow_read_gpx)
       can [:read, :read_one], UserPreference if capability?(token, :allow_read_prefs)
       can [:update, :update_one, :delete_one], UserPreference if capability?(token, :allow_write_prefs)
 

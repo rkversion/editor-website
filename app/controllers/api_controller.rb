@@ -51,12 +51,6 @@ class ApiController < ApplicationController
     end
   end
 
-  def gpx_status
-    status = database_status
-    status = "offline" if status == "online" && Settings.status == "gpx_offline"
-    status
-  end
-
   ##
   # sets up the current_user for use by other methods. this is mostly called
   # from the authorize method, but can be called elsewhere if authorisation

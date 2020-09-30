@@ -26,7 +26,6 @@
 #  terms_seen          :boolean          default(FALSE), not null
 #  description_format  :enum             default("markdown"), not null
 #  changesets_count    :integer          default(0), not null
-#  traces_count        :integer          default(0), not null
 #  diary_entries_count :integer          default(0), not null
 #  image_use_gravatar  :boolean          default(FALSE), not null
 #  auth_provider       :string
@@ -46,7 +45,6 @@
 class User < ActiveRecord::Base
   require "xml/libxml"
 
-  has_many :traces, -> { where(:visible => true) }
   has_many :diary_entries, -> { order(:created_at => :desc) }
   has_many :diary_comments, -> { order(:created_at => :desc) }
   has_many :diary_entry_subscriptions, :class_name => "DiaryEntrySubscription"
@@ -289,7 +287,6 @@ class User < ActiveRecord::Base
   # return a spam score for a user
   def spam_score
     changeset_score = changesets.size * 50
-    trace_score = traces.size * 50
     diary_entry_score = diary_entries.visible.inject(0) { |acc, elem| acc + elem.body.spam_score }
     diary_comment_score = diary_comments.visible.inject(0) { |acc, elem| acc + elem.body.spam_score }
 
@@ -298,7 +295,6 @@ class User < ActiveRecord::Base
     score += diary_entry_score / diary_entries.length unless diary_entries.empty?
     score += diary_comment_score / diary_comments.length unless diary_comments.empty?
     score -= changeset_score
-    score -= trace_score
 
     score.to_i
   end
