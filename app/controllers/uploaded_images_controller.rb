@@ -15,13 +15,7 @@ class UploadedImagesController < ApplicationController
         @title = @user.display_name + "'s uploaded images"
       end
     end
-    uri = URI.parse('http://noter-backend:3001/api/v0.1/whatdoihave/')
-    http = Net::HTTP.new(uri.host, uri.port)
-    req = Net::HTTP::Get.new(uri.path)
-    req["X-Email"] = current_user.email
-    res = http.request(req)
-    user_has = JSON.parse(res.body)
-    @images = user_has['images_by_user']
+    @images = UploadedImage.get_uploaded_images(current_user)
   end
 
   def destroy_multiple
