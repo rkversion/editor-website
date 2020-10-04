@@ -1,6 +1,6 @@
 class UploadedImage < ActiveRecord::Base
   def self.get_uploaded_images(user)
-    uri = URI.parse('http://noter-backend:3001/api/v0.1/whatdoihave/')
+    uri = URI.parse(Settings.noter_backend_internal + Settings.noter_backend_whatdoihave_path)
     http = Net::HTTP.new(uri.host, uri.port)
     req = Net::HTTP::Get.new(uri.path)
     req["X-Email"] = user.email

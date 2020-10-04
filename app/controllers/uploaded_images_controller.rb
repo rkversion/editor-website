@@ -21,7 +21,7 @@ class UploadedImagesController < ApplicationController
   def destroy_multiple
     if params[:deleted_img_ids]
       for id in params[:deleted_img_ids] do
-        uri = URI('http://noter-backend:3001/api/v0.1/images/' + id.to_s + '/')
+        uri = URI(Settings.noter_backend_internal + Settings.noter_backend_images_path + id.to_s + '/')
         http = Net::HTTP.new(uri.host, uri.port)
         req = Net::HTTP::Delete.new(uri.path)
         req["X-Email"] = current_user.email
