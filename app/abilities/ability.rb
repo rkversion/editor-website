@@ -17,6 +17,7 @@ class Ability
       can [:index, :feed], Changeset
       can :index, ChangesetComment
       can [:index, :rss, :show, :comments], DiaryEntry
+      can [:index, :rss, :show, :comments], UploadedImage
       can [:mine], Note
       can [:index, :show], Redaction
       can [:terms, :login, :logout, :new, :create, :save, :confirm, :confirm_resend, :confirm_email, :lost_password, :reset_password, :show, :auth_success, :auth_failure], User
@@ -36,6 +37,7 @@ class Ability
       if Settings.status != "database_offline"
         can [:index, :new, :create, :show, :edit, :update, :destroy], ClientApplication
         can [:new, :create, :edit, :update, :comment, :subscribe, :unsubscribe], DiaryEntry
+        can [:new, :create, :edit, :update, :comment, :subscribe, :unsubscribe, :destroy, :destroy_multiple], UploadedImage
         can [:new, :create, :reply, :show, :inbox, :outbox, :mark, :destroy], Message
         can [:close, :reopen], Note
         can [:new, :create], Report
@@ -43,6 +45,7 @@ class Ability
 
         if user.moderator?
           can [:hide, :hidecomment], DiaryEntry
+          can [:hide, :hidecomment], UploadedImage
           can [:index, :show, :resolve, :ignore, :reopen], Issue
           can :create, IssueComment
           can [:new, :create, :edit, :update, :destroy], Redaction
@@ -51,6 +54,7 @@ class Ability
 
         if user.administrator?
           can [:hide, :unhide, :hidecomment, :unhidecomment], DiaryEntry
+          can [:hide, :unhide, :hidecomment, :unhidecomment], UploadedImage
           can [:index, :show, :resolve, :ignore, :reopen], Issue
           can :create, IssueComment
           can [:set_status, :delete, :index], User

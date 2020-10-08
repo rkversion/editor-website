@@ -21,6 +21,10 @@
             <%= link_to t(".my comments"), :controller => "diary_entries", :action => "comments", :display_name => current_user.display_name %>
           </li>
           <li>
+            <%= link_to "My Images", :controller => "uploaded_images", :action => "index", :display_name => current_user.display_name %>
+            <span class='count-number'><%= number_with_delimiter(UploadedImage.get_uploaded_images(current_user).length()) %></span>
+          </li>
+          <li>
             <%= link_to t(".my settings"), :controller => "users", :action => "account", :display_name => current_user.display_name %>
           </li>
 

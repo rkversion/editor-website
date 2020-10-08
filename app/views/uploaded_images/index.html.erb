@@ -1,0 +1,38 @@
+<% content_for :heading do %>
+  <div <% if @user %> id="userinformation"<% end %>>
+    <% if @user %>
+      <%= user_image @user %>
+    <% end %>
+    <h1><%= h(@title) %></h1>
+
+    <ul class='secondary-actions clearfix'>
+      <% if @user %>
+        <% if @user == current_user %>
+          <div>
+            <li><%= link_to image_tag("new.png", :class => "small_icon", :border => 0) + "Upload", Settings.noter_frontend_url, :title => t(".new_title") %></li>
+          </div>
+        <% end %>
+      <% else %>
+        <% if current_user %>
+          <div>
+            <li><%= link_to image_tag("new.png", :class => "small_icon", :border => 0) + "Upload", Settings.noter_frontend_url, :title => t(".new_title") %></li>
+          </div>
+        <% end %>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_tag(destroy_multiplee_uploaded_images_path, method: :delete) do %>
+  <% @images.each do |img| %>
+    <ul style="display: table; width:auto; display: inline-block;">
+        <li style="text-align: center;">
+            <%= image_tag Settings.noter_backend_url + Settings.noter_backend_download_path + img["id"].to_s + "/", height: "100", alt: "one image" %>
+	    <div>
+	        <%= check_box_tag "deleted_img_ids[]", img["id"] %>
+	    </div>
+	</li>
+    </ul>
+  <% end %>
+  <%= submit_tag "Delete selected" %> 
+<% end %>

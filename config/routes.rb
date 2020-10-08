@@ -283,5 +283,14 @@ OpenStreetMap::Application.routes.draw do
   match "/403", :to => "errors#forbidden", :via => :all
   match "/404", :to => "errors#not_found", :via => :all
   match "/500", :to => "errors#internal_server_error", :via => :all
+
+  #uploaded images
+  get "/uploaded_images/rss" => "uploaded_images#rss", :defaults => { :format => :rss }
+  resources :uploaded_images do
+    collection do
+      delete :destroy_multiple, as: :destroy_multiplee
+    end
+  end
+  resources :uploaded_images
  end
 end
