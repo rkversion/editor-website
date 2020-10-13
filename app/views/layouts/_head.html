@@ -10,6 +10,9 @@
   <%= stylesheet_link_tag "screen-#{dir}", :media => "screen" %>
   <%= stylesheet_link_tag "print-#{dir}", :media => "print" %>
   <%= stylesheet_link_tag "leaflet-all", :media => "screen, print" %>
+  <script src="/mbgl/v1.12.0/mapbox-gl.js"></script>
+  <link rel="stylesheet" href="/mbgl/v1.12.0/mapbox-gl.css">
+  <script src="/mbgl/mapbox-gl-leaflet/0.0.13/leaflet-mapbox-gl.js"></script>
   <% if browser.ie? -%>
     <link rel="shortcut icon" type="image/x-icon" href="<%= Settings.shared_assets_path %>/favicon.ico" />
   <% end -%>                              
