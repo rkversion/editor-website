@@ -1,4 +1,6 @@
 //= require querystring
+//= require mapbox-gl
+//= require leaflet-mapbox-gl
 
 L.extend(L.LatLngBounds.prototype, {
   getSize: function () {
@@ -11,6 +13,20 @@ L.extend(L.LatLngBounds.prototype, {
   }
 });
 
+L.OSM.VectorLayer = L.MapboxGL.extend({
+    initialize: function (options) {
+        options = L.Util.setOptions(this, options);
+        L.MapboxGL.prototype.initialize.call(this, options.style);
+    }
+});
+
+L.OSM.VAntique = L.OSM.VectorLayer.extend({
+  options: {
+    style: '/mbgl-antique-style.json'
+  }
+});
+
+
 L.OSM.Map = L.Map.extend({
   initialize: function (id, options) {
     L.Map.prototype.initialize.call(this, id, options);
@@ -21,12 +37,21 @@ L.OSM.Map = L.Map.extend({
 
     this.baseLayers = [];
 
+    this.baseLayers.push(new L.OSM.VAntique({
+      attribution: 'Coastlines © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors',
+      code: "A",
+      name: I18n.t("javascripts.map.base.antique"),
+      keyid: "antique"
+    }));
+
+/*
     this.baseLayers.push(new L.OSM.Antique({
       attribution: 'Coastlines © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors', 
       code: "A",
       name: I18n.t("javascripts.map.base.antique"),
       keyid: "antique"
     }));
+*/
 
     this.baseLayers.push(new L.OSM.Xray({
       attribution: 'Coastlines © <a href="https://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors', 
