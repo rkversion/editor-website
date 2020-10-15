@@ -32,6 +32,7 @@ class ApiAbility
         can [:new, :create, :reply, :show, :inbox, :outbox, :mark, :destroy], Message
         can [:close, :reopen], Note
         can [:new, :create], Report
+        can [:details], User
         can [:read, :read_one, :update, :update_one, :delete_one], UserPreference
 
         if user.terms_agreed?
